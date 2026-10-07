@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+/* Brand tokens sampled from the S N Digital Solns logo. */
+@theme {
+  --color-navy-950: #0b1630;
+  --color-navy-900: #10214a;
+  --color-navy-800: #172d60; /* logo navy */
+  --color-navy-700: #24407f;
+  --color-navy-600: #34539b;
+  --color-navy-100: #e6ebf5;
+  --color-navy-50: #f3f6fb;
+  --color-amber-600: #c9861a;
+  --color-amber-500: #eaa225; /* logo amber */
+  --color-amber-300: #f1c271;
+  --color-amber-100: #fcf3e4;
+  --color-ink: #0f172a;
+  --color-muted: #4a5672;
+  --color-line: #dfe4ee;
+  --color-paper: #ffffff;
+  --color-mist: #f6f8fb;
+
+  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-barlow), var(--font-manrope), ui-sans-serif, sans-serif;
+
+  --radius-card: 14px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-amber-500);
+  outline-offset: 2px;
+}
+
+.container-site {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+@media (min-width: 768px) {
+  .container-site {
+    padding-inline: 2rem;
+  }
+}
+
+.eyebrow {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-amber-600);
+}
+
+.prose-site p + p {
+  margin-top: 1rem;
+}
+
+.content-required {
+  border: 1px dashed var(--color-amber-500);
+  background: var(--color-amber-100);
+  color: #7a4d06;
+  border-radius: 8px;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.85rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
