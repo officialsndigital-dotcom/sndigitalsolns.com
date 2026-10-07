@@ -95,6 +95,11 @@ export const offices: Office[] = [
   },
 ];
 
+// GHL calendar created 2026-10-07 in the "S N Digital Solns Pvt Ltd" sub-account,
+// assigned to Sanjan Sharma: 10 minute slots, Mon-Fri 10:00-19:00 and Sat 10:00-14:00 IST.
+export const consultationCalendarUrl =
+  process.env.NEXT_PUBLIC_CONSULTATION_CALENDAR_URL ?? "https://api.leadconnectorhq.com/widget/booking/zrm07lF5VdPFbjJoSsOt";
+
 export const CTA = {
   consultation: "Book a 10 Minute Free Consultation",
   consultationShort: "Book a Consultation",

@@ -2,7 +2,7 @@ import { LeadForm } from "@/components/LeadForm";
 import { pageMetadata } from "@/components/seo";
 import { CheckList } from "@/components/ui";
 import { serviceInterests } from "@/lib/interests";
-import { CTA, site } from "@/lib/site";
+import { CTA, consultationCalendarUrl, site } from "@/lib/site";
 
 export const metadata = pageMetadata({
   title: "Book a 10 Minute Free Consultation",
@@ -44,7 +44,7 @@ export default function BookConsultationPage() {
           kind="consultation"
           interests={serviceInterests}
           queryKey="service"
-          calendarUrl={process.env.NEXT_PUBLIC_CONSULTATION_CALENDAR_URL}
+          calendarUrl={consultationCalendarUrl}
           submitLabel="Continue to choose a time"
         />
       </div>

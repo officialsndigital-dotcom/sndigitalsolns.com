@@ -17,7 +17,7 @@ Next.js 16 (App Router, Cache Components) + Tailwind v4. The blog reads posts fr
 | NEXT_PUBLIC_SITE_URL | build | Canonical URL, default https://sndigitalsolns.com |
 | GHL_API_KEY | server only | HighLevel Private Integration token for the S N Digital Solns sub-account (contacts write, notes write) |
 | GHL_LOCATION_ID | server only | HighLevel location id of that sub-account |
-| NEXT_PUBLIC_CONSULTATION_CALENDAR_URL | build | HighLevel booking widget URL shown after the consultation form |
+| NEXT_PUBLIC_CONSULTATION_CALENDAR_URL | build | Optional. Overrides the default HighLevel booking widget (the "10 Minute Free Consultation" calendar) shown after the consultation form |
 | WORDPRESS_URL | server | WordPress install for blog posts, e.g. https://cms.sndigitalsolns.com |
 | NEXT_PUBLIC_GTM_ID | build | Google Tag Manager container id |
 | NEXT_PUBLIC_WHATSAPP_URL | build | Optional WhatsApp link override |
