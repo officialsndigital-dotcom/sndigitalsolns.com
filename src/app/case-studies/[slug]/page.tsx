@@ -55,19 +55,51 @@ export default async function CaseStudyPage({ params }: PageProps<"/case-studies
             <p className="font-semibold">{c.source.replace(" [CONTENT REQUIRED]", "").replace(/\. Dated dashboard screenshots\.$/, ".")}</p>
           </div>
         </div>
-        {c.proof && (
-          <figure className="mt-10">
+        {c.table && (
+          <div className="mt-10">
+            <div className="-mx-4 overflow-x-auto px-4">
+              <table className="w-full min-w-[640px] border-collapse text-left text-[0.95rem]">
+                <caption className="caption-bottom pt-3 text-left text-sm text-muted">{c.table.caption}</caption>
+                <thead>
+                  <tr className="border-b-2 border-navy-800">
+                    {c.table.columns.map((col) => (
+                      <th key={col} scope="col" className="py-2.5 pr-5 font-bold text-navy-900">
+                        {col}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {c.table.rows.map((row) => (
+                    <tr key={row[0]} className="border-b border-line">
+                      <th scope="row" className="py-2.5 pr-5 text-left font-semibold text-navy-900">
+                        {row[0]}
+                      </th>
+                      {row.slice(1).map((cell, i) => (
+                        <td key={`${row[0]}-${c.table!.columns[i + 1]}`} className="py-2.5 pr-5 text-muted">
+                          {cell}
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        )}
+        {c.proofs?.map((proof) => (
+          <figure key={proof.src} className="mt-10">
             <Image
-              src={c.proof.src}
-              alt={c.proof.caption}
-              width={c.proof.width}
-              height={c.proof.height}
+              src={proof.src}
+              alt={proof.caption}
+              width={proof.width}
+              height={proof.height}
               sizes="(min-width: 1024px) 900px, 100vw"
               className="w-full rounded-[var(--radius-card)] border border-line"
             />
-            <figcaption className="mt-3 text-sm text-muted">{c.proof.caption}</figcaption>
+            <figcaption className="mt-3 text-sm text-muted">{proof.caption}</figcaption>
           </figure>
-        )}
+        ))}
         {sourceNeeds && (
           <div className="mt-6">
             <ContentRequired>Dated dashboard screenshots to support these figures.</ContentRequired>

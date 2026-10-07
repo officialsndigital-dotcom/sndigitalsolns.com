@@ -118,7 +118,7 @@ export const marketingServices: Service[] = [
     ],
     industries: ["ecommerce-retail", "real-estate", "education", "saas-technology"],
     related: ["marketing/ecommerce-growth", "marketing/seo-aeo", "marketing/b2b-lead-generation", "marketing/crm-marketing-automation"],
-    caseStudies: ["google-ads-2025-account-a", "google-ads-2025-account-b"],
+    caseStudies: ["google-ads-2025-four-accounts"],
     faqs: [
       { q: "What budget do we need?", a: "Enough for the platform to collect conversion data each month. We recommend a starting budget after reviewing your market, average order or deal value and goals." },
       { q: "Which platform should we start with?", a: "If buyers search for your product, start with Google. For visual products and broad audiences, Meta. For B2B offers with a high deal value, LinkedIn. Many accounts use two together." },
