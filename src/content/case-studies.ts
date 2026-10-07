@@ -14,6 +14,8 @@ export type CaseStudy = {
   objective?: string;
   approach?: string[];
   source: string;
+  /** Dashboard screenshot from the supplied marketing portfolio PDF. */
+  proof?: { src: string; width: number; height: number; caption: string };
   services: string[];
   /** Draft case studies are not listed or linked until the company confirms them. */
   status: "published" | "draft";
@@ -68,6 +70,7 @@ export const caseStudies: CaseStudy[] = [
       { label: "ROAS", value: "4.30" },
     ],
     source: "Marketing portfolio, Performance Snapshot and Shopify analytics screenshot",
+    proof: { src: "/case-studies/kids-apparel-d2c-2025.webp", width: 1200, height: 608, caption: "Shopify analytics for the store, full year 2025 against 2024 (marketing portfolio, page 2)." },
     services: ["marketing/ecommerce-growth", "marketing/performance-marketing"],
     status: "published",
   },
@@ -87,6 +90,7 @@ export const caseStudies: CaseStudy[] = [
       { label: "ROAS", value: "6.50" },
     ],
     source: "Marketing portfolio, Performance Snapshot and Shopify analytics screenshot",
+    proof: { src: "/case-studies/premium-womenswear-2025.webp", width: 1200, height: 1290, caption: "Shopify analytics for the store, full year 2025 against 2024 (marketing portfolio, page 3)." },
     services: ["marketing/ecommerce-growth", "marketing/performance-marketing"],
     status: "published",
   },
@@ -106,6 +110,7 @@ export const caseStudies: CaseStudy[] = [
       { label: "ROAS", value: "4.70" },
     ],
     source: "Marketing portfolio, Performance Snapshot and Shopify analytics screenshot",
+    proof: { src: "/case-studies/women-ethnic-wear-2025.webp", width: 1200, height: 1246, caption: "Shopify analytics for the store, full year 2025 against 2024 (marketing portfolio, page 6)." },
     services: ["marketing/ecommerce-growth"],
     status: "published",
   },
@@ -125,6 +130,7 @@ export const caseStudies: CaseStudy[] = [
       { label: "ROAS", value: "5.50" },
     ],
     source: "Marketing portfolio, Performance Snapshot and Shopify analytics screenshot",
+    proof: { src: "/case-studies/women-ethnic-wear-b-2025.webp", width: 1200, height: 1230, caption: "Shopify analytics for the store, full year 2025 (marketing portfolio, page 7)." },
     services: ["marketing/ecommerce-growth"],
     status: "published",
   },
@@ -144,6 +150,7 @@ export const caseStudies: CaseStudy[] = [
       { label: "ROAS", value: "4.50" },
     ],
     source: "Marketing portfolio, Performance Snapshot and Shopify analytics screenshot",
+    proof: { src: "/case-studies/gifting-decor-2025.webp", width: 1200, height: 611, caption: "Shopify analytics for the store, full year 2025 against 2024 (marketing portfolio, page 8)." },
     services: ["marketing/ecommerce-growth"],
     status: "published",
   },
@@ -163,6 +170,7 @@ export const caseStudies: CaseStudy[] = [
       { label: "ROAS", value: "4.10" },
     ],
     source: "Marketing portfolio, Performance Snapshot and Shopify analytics screenshot",
+    proof: { src: "/case-studies/jewellery-brand-2025.webp", width: 1200, height: 597, caption: "Shopify analytics for the store, full year 2025 against 2024 (marketing portfolio, page 9)." },
     services: ["marketing/ecommerce-growth"],
     status: "published",
   },
@@ -203,6 +211,7 @@ export const caseStudies: CaseStudy[] = [
       { label: "Purchases", value: "3.55K" },
     ],
     source: "Google Ads dashboard screenshot in the marketing portfolio",
+    proof: { src: "/case-studies/google-ads-2025-account-a.webp", width: 1200, height: 440, caption: "Google Ads account overview, 30 Dec 2024 to 29 Dec 2025 (marketing portfolio, page 14)." },
     services: ["marketing/performance-marketing", "marketing/ecommerce-growth"],
     status: "published",
   },
@@ -223,6 +232,7 @@ export const caseStudies: CaseStudy[] = [
       { label: "Impressions", value: "95.6M" },
     ],
     source: "Google Ads dashboard screenshot in the marketing portfolio",
+    proof: { src: "/case-studies/google-ads-2025-account-b.webp", width: 1200, height: 556, caption: "Google Ads account overview, 30 Dec 2024 to 29 Dec 2025 (marketing portfolio, page 16)." },
     services: ["marketing/performance-marketing"],
     status: "published",
   },
@@ -243,6 +253,7 @@ export const caseStudies: CaseStudy[] = [
       { label: "Impressions", value: "277M" },
     ],
     source: "Google Ads dashboard screenshot in the marketing portfolio",
+    proof: { src: "/case-studies/google-ads-2025-account-c.webp", width: 1200, height: 423, caption: "Google Ads account overview, 30 Dec 2024 to 29 Dec 2025 (marketing portfolio, page 13)." },
     services: ["marketing/performance-marketing"],
     status: "published",
   },
@@ -263,6 +274,7 @@ export const caseStudies: CaseStudy[] = [
       { label: "Avg. CPC", value: "₹25.19" },
     ],
     source: "Google Ads dashboard screenshot in the marketing portfolio",
+    proof: { src: "/case-studies/google-ads-2025-account-d.webp", width: 1200, height: 543, caption: "Google Ads account overview, 30 Dec 2024 to 29 Dec 2025 (marketing portfolio, page 15)." },
     services: ["marketing/performance-marketing"],
     status: "published",
   },

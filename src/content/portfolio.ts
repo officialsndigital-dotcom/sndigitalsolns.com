@@ -1,9 +1,12 @@
 // Development portfolio from the supplied PDF. These are websites we delivered;
-// no functionality is claimed beyond that. Screenshots: [CONTENT REQUIRED].
-export type PortfolioItem = { url: string; category: string; type: "Website" };
+// no functionality is claimed beyond that. The screenshots in public/portfolio/
+// are the home-page captures from that same PDF (supplied 2026-10-03).
+export type PortfolioItem = { url: string; category: string; type: "Website"; shot: string };
+
+export const hostOf = (url: string) => new URL(url).hostname.replace(/^www\./, "");
 
 const group = (category: string, urls: string[]): PortfolioItem[] =>
-  urls.map((url) => ({ url, category, type: "Website" }));
+  urls.map((url) => ({ url, category, type: "Website", shot: `/portfolio/${hostOf(url)}.webp` }));
 
 export const portfolio: PortfolioItem[] = [
   ...group("Real Estate", [
@@ -47,5 +50,3 @@ export const portfolio: PortfolioItem[] = [
 ];
 
 export const portfolioCategories = [...new Set(portfolio.map((p) => p.category))];
-
-export const hostOf = (url: string) => new URL(url).hostname.replace(/^www\./, "");

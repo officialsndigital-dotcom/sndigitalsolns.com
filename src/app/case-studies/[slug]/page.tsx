@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CtaBand, PageHero, RelatedServices } from "@/components/blocks";
@@ -54,6 +55,19 @@ export default async function CaseStudyPage({ params }: PageProps<"/case-studies
             <p className="font-semibold">{c.source.replace(" [CONTENT REQUIRED]", "").replace(/\. Dated dashboard screenshots\.$/, ".")}</p>
           </div>
         </div>
+        {c.proof && (
+          <figure className="mt-10">
+            <Image
+              src={c.proof.src}
+              alt={c.proof.caption}
+              width={c.proof.width}
+              height={c.proof.height}
+              sizes="(min-width: 1024px) 900px, 100vw"
+              className="w-full rounded-[var(--radius-card)] border border-line"
+            />
+            <figcaption className="mt-3 text-sm text-muted">{c.proof.caption}</figcaption>
+          </figure>
+        )}
         {sourceNeeds && (
           <div className="mt-6">
             <ContentRequired>Dated dashboard screenshots to support these figures.</ContentRequired>

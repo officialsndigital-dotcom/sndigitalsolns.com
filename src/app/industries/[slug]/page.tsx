@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CtaBand, PageHero, RelatedCaseStudies, RelatedServices } from "@/components/blocks";
@@ -83,11 +84,19 @@ export default async function IndustryPage({ params }: PageProps<"/industries/[s
         {sites.length > 0 && (
           <div className="mt-8">
             <p className="mb-3 font-bold">Websites we have delivered in this sector</p>
-            <ul className="flex flex-wrap gap-2.5">
+            <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {sites.map((s) => (
                 <li key={s.url}>
-                  <a href={s.url} target="_blank" rel="noopener nofollow" className="inline-block rounded-full border border-line bg-white px-4 py-2 text-sm font-semibold text-navy-800 hover:border-navy-600">
-                    {hostOf(s.url)}
+                  <a href={s.url} target="_blank" rel="noopener nofollow" data-track="portfolio_click" className="block overflow-hidden rounded-[var(--radius-card)] border border-line bg-white hover:border-navy-600 hover:shadow-md">
+                    <Image
+                      src={s.shot}
+                      alt={`Home page of ${hostOf(s.url)}`}
+                      width={800}
+                      height={374}
+                      sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                      className="aspect-[800/374] w-full border-b border-line object-cover object-top"
+                    />
+                    <span className="block break-all p-4 text-sm font-bold text-navy-800">{hostOf(s.url)} ↗</span>
                   </a>
                 </li>
               ))}
