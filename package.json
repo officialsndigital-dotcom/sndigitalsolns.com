@@ -8,16 +8,17 @@
     "start": "next start",
     "lint": "eslint",
     "test": "node --test tests/*.test.ts",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "build:webpack": "next build --webpack"
   },
   "dependencies": {
-    "jspdf": "^3.0.4",
+    "jspdf": "^4.2.1",
     "next": "16.4.0",
     "react": "19.3.0",
     "react-dom": "19.3.0"
   },
   "devDependencies": {
-    "@tailwindcss/turbopack": "^4",
+    "@tailwindcss/postcss": "^4.3.3",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",

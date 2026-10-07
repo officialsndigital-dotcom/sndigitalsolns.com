@@ -1,18 +1,15 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
+/**
+ * Plain JavaScript rather than TypeScript: Hostinger's shared hosting runs an
+ * old glibc, so Next cannot load its native SWC binary there and falls back to
+ * the WebAssembly build, which cannot compile a TypeScript config file.
+ *
+ * @type {import("next").NextConfig}
+ */
+const nextConfig = {
   cacheComponents: true,
   partialPrefetching: true,
   trailingSlash: true,
   poweredByHeader: false,
-  turbopack: {
-    rules: {
-      "*.css": {
-        loaders: ["@tailwindcss/turbopack"],
-        as: "*.css",
-      },
-    },
-  },
   async headers() {
     return [
       {
