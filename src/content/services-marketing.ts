@@ -20,7 +20,7 @@ export const marketingServices: Service[] = [
     metaTitle: "B2B & LinkedIn Lead Generation Company",
     h1: "B2B Lead Generation Company",
     metaDescription:
-      "B2B and LinkedIn lead generation services: decision-maker research, LinkedIn and email outreach, and booked sales meetings. 217 calls in 72 days from our own outreach.",
+      "B2B and LinkedIn lead generation: decision-maker research, LinkedIn and email outreach, and booked sales meetings. 217 calls in 72 days from our own outreach.",
     outcome: "Qualified conversations, sales meetings and product demos with the decision makers you actually want to sell to.",
     summary: "ICP research, LinkedIn and email outreach, booked sales meetings.",
     problem: {

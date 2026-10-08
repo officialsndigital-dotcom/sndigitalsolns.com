@@ -8,7 +8,10 @@ export const site = {
   brandLine: "Build Your Brand Voice",
   founded: "2020",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://sndigitalsolns.com",
-  email: "info@sndigitalsolns.com",
+  // Kept in two parts so the full address never appears in server-rendered HTML;
+  // EmailLink joins them in the browser.
+  emailUser: "info",
+  emailDomain: "sndigitalsolns.com",
   phone: "+91 7061699889",
   phoneHref: "tel:+917061699889",
   // Same number as the phone; the eheera handover lists it as the WhatsApp contact.
@@ -19,6 +22,15 @@ export const site = {
     linkedin: "https://www.linkedin.com/company/s-n-digital-solns/",
   },
 } as const;
+
+// Public measurement IDs (they appear in every page's HTML, so they are not
+// secrets). Each tag loads only when its ID is set. Waiting on the company for
+// the GA4 measurement ID (G-...) and the Meta pixel ID.
+export const analytics = {
+  gtmId: process.env.NEXT_PUBLIC_GTM_ID ?? "",
+  ga4Id: process.env.NEXT_PUBLIC_GA4_ID ?? "",
+  metaPixelId: process.env.NEXT_PUBLIC_META_PIXEL_ID ?? "",
+};
 
 // Supplied by the founder on 2026-10-07.
 export const founder = {

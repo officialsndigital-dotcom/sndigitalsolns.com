@@ -1,6 +1,6 @@
+import { EmailLink } from "@/components/EmailLink";
 import { LegalPage } from "@/components/LegalPage";
 import { pageMetadata } from "@/components/seo";
-import { site } from "@/lib/site";
 
 export const metadata = pageMetadata({ title: "Cookie Policy", description: "How the S N Digital Solns website uses cookies and similar technologies.", path: "/cookie-policy/" });
 
@@ -41,7 +41,7 @@ export default function Page() {
       </p>
       <h2>Changes and contact</h2>
       <p>
-        We update this page when the tags we run change. Questions about it go to <a href={`mailto:${site.email}`}>{site.email}</a>.
+        We update this page when the tags we run change. Questions about it go to <EmailLink />.
       </p>
     </LegalPage>
   );

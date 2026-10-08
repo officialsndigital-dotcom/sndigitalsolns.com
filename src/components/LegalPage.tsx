@@ -1,3 +1,4 @@
+import { EmailLink } from "@/components/EmailLink";
 import type { ReactNode } from "react";
 import { offices, site } from "@/lib/site";
 import { PageHero } from "./blocks";
@@ -19,9 +20,7 @@ export function LegalPage({ title, path, children }: { title: string; path: stri
             </p>
             <p className="mt-2">
               Registered office: {hq.lines.join(", ")}. Questions about this page go to{" "}
-              <a href={`mailto:${site.email}`} className="font-semibold text-navy-700 hover:text-amber-600">
-                {site.email}
-              </a>
+              <EmailLink className="font-semibold text-navy-700 hover:text-amber-600" />
               .
             </p>
           </div>

@@ -36,7 +36,7 @@ export const locations: LocationPage[] = [
     country: "India",
     metaTitle: "Digital Marketing Agency & SEO Company in Mumbai",
     metaDescription:
-      "SEO, digital marketing, PR, website and software development for Mumbai businesses, from our head office in CBD Belapur, Navi Mumbai. Book a 30 minute consultation.",
+      "SEO, digital marketing, PR, website and software development for Mumbai businesses, from our head office in CBD Belapur, Navi Mumbai. Book a free call.",
     h1: "Digital Marketing, SEO and Website Development Company in Mumbai",
     intro:
       "Mumbai businesses compete for attention in one of India's busiest markets. We help them get found on Google, generate enquiries and sales meetings, and build websites and software that convert, from our head office in Navi Mumbai.",

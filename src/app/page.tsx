@@ -1,20 +1,23 @@
 import Link from "next/link";
 import { CtaBand, ServiceCard, StatsStrip } from "@/components/blocks";
-import { FaqSection, pageMetadata } from "@/components/seo";
+import { FaqSection, JsonLd, localBusinessJsonLd, pageMetadata } from "@/components/seo";
 import { Arrow, ButtonLink, CheckList, Section, SectionHead } from "@/components/ui";
 import { publishedCaseStudies } from "@/content/case-studies";
 import { industries } from "@/content/industries";
 import { products } from "@/content/products";
 import { getServiceByKey, servicesFor, verticals } from "@/content/services";
 import type { Service, Vertical } from "@/content/types";
-import { CTA, markets, marketingStats, site } from "@/lib/site";
+import { CTA, markets, marketingStats, offices, site } from "@/lib/site";
 
 export const metadata = pageMetadata({
   title: "Software Development, Digital Marketing & PR Company",
   description:
-    "S N Digital Solns builds websites, software and SaaS, runs digital marketing and B2B lead generation, and builds visibility through PR. 11+ years, 417+ websites, 580+ clients.",
+    "Software development, digital marketing and PR company in Navi Mumbai: websites, apps, SaaS, B2B lead generation and PR. 11+ years, 417+ websites built.",
   path: "/",
 });
+
+/** "a, b and c" */
+const listOf = (items: string[]) => (items.length > 1 ? `${items.slice(0, -1).join(", ")} and ${items.at(-1)}` : (items[0] ?? ""));
 
 const verticalOrder: Vertical[] = ["development", "marketing", "pr"];
 
@@ -39,6 +42,21 @@ const faqs = [
     a: `We are based in India and work with clients in markets including ${markets.join(", ")}.`,
   },
   {
+    q: "Where is S N Digital Solns located?",
+    a: `Our head office is in CBD Belapur, Navi Mumbai, India. We also have postal offices in ${offices
+      .filter((o) => o.kind === "Postal office")
+      .map((o) => o.name)
+      .join(" and ")}, and we work with most clients remotely.`,
+  },
+  {
+    q: "Which industries do you work with?",
+    a: "We work across industries, with the most experience in education, real estate, jewellery and diamonds, ecommerce and retail, SaaS and technology, and IT services.",
+  },
+  {
+    q: "Do you have your own software products?",
+    a: "Yes. ACADMiN is our ERP for schools and colleges, and eheera is our jewellery management software and diamond ERP. Both are built and supported by our own team.",
+  },
+  {
     q: "What happens in the 30 minute consultation?",
     a: "You tell us what you want to achieve. We ask a few questions and tell you honestly whether and how we can help, and what the next step would be. There is no obligation.",
   },
@@ -56,9 +74,11 @@ export default function Home() {
         <div aria-hidden className="pointer-events-none absolute -right-32 -top-32 h-[520px] w-[520px] rounded-full bg-navy-700/40 blur-3xl" />
         <div className="container-site relative grid gap-12 py-16 md:py-24 lg:grid-cols-[1.3fr_1fr] lg:items-center">
           <div>
-            <p className="eyebrow mb-4 !text-amber-300">{site.brandLine}</p>
-            <h1 className="text-[2.3rem] font-extrabold leading-[1.08] tracking-tight md:text-6xl">
-              We build the technology, generate the demand and build the credibility.
+            <h1>
+              <span className="eyebrow mb-4 block !text-amber-300">Software development, digital marketing &amp; PR company</span>
+              <span className="block text-[2.3rem] font-extrabold leading-[1.08] tracking-tight md:text-6xl">
+                We build the technology, generate the demand and build the credibility.
+              </span>
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-navy-100 md:text-xl">
               Software and website development, B2B lead generation and performance marketing, and PR, from one team with 11+ years of experience.
@@ -98,7 +118,7 @@ export default function Home() {
       </Section>
 
       <Section tone="mist">
-        <SectionHead eyebrow="What we do" title="Three teams, one partner" intro="Most businesses need technology, demand and credibility at the same time. We provide all three, so nothing gets lost between agencies." />
+        <SectionHead eyebrow="What we do" title="Software development, digital marketing and PR from one partner" intro="Most businesses need technology, demand and credibility at the same time. We provide all three, so nothing gets lost between agencies." />
         <div className="grid gap-5 md:grid-cols-3">
           {verticalOrder.map((v) => (
             <div key={v} className="flex flex-col rounded-[var(--radius-card)] border border-line bg-white p-6">
@@ -200,7 +220,42 @@ export default function Home() {
       </Section>
 
       <Section>
-        <div className="grid gap-8 rounded-2xl border border-line p-8 md:grid-cols-[1.4fr_1fr] md:items-center md:p-10">
+        <div className="grid gap-10 lg:grid-cols-[1fr_1.6fr]">
+          <SectionHead
+            className="!mb-0"
+            eyebrow={`About ${site.shortName}`}
+            title="A software development, digital marketing and PR company in Navi Mumbai"
+          />
+          <div className="space-y-5 text-lg leading-relaxed text-muted">
+            <p>
+              {site.name} is headquartered in CBD Belapur, Navi Mumbai. Our development team brings 11+ years of experience and 72 technology
+              professionals, and has delivered 417+ websites and 74+ applications for 580+ clients in India and in markets including {listOf([...markets])}.
+            </p>
+            <p>
+              <strong className="text-navy-900">Software development.</strong> We design and build websites and online stores, custom software, web and mobile
+              applications, SaaS products, CRM and ERP systems, AI automation and API integrations, with UI and UX design throughout. We also build and run
+              our own software: ACADMiN, an ERP for schools and colleges, and eheera, jewellery management software and a diamond ERP. Running our own
+              products means we support what we ship, long after launch.
+            </p>
+            <p>
+              <strong className="text-navy-900">Digital marketing.</strong> Our marketing team runs B2B and LinkedIn lead generation, performance marketing
+              on Google, Meta and LinkedIn, SEO and AEO, social media and content, CRM and marketing automation, and ecommerce growth. We measure the work on enquiries, meetings and revenue rather than clicks and impressions, and we report it plainly every month.
+            </p>
+            <p>
+              <strong className="text-navy-900">PR.</strong> We build visibility and credibility through public relations, digital PR, founder and
+              executive thought leadership, influencer marketing and awards submissions, planned alongside your marketing so that coverage, content and campaigns support each other.
+            </p>
+            <p>
+              Because the three teams work together, one partner can build the website or software, bring in the demand and build the reputation that
+              makes buyers trust you. If you only need one of the three, that is fine too. Start with a free 30 minute consultation and we will tell you
+              honestly whether and how we can help.
+            </p>
+          </div>
+        </div>
+      </Section>
+
+      <Section tone="mist">
+        <div className="grid gap-8 rounded-2xl border border-line bg-white p-8 md:grid-cols-[1.4fr_1fr] md:items-center md:p-10">
           <div>
             <p className="eyebrow mb-2">Free tool</p>
             <h2 className="text-2xl font-extrabold md:text-3xl">How many leads do you need to hit your revenue target?</h2>
@@ -214,12 +269,13 @@ export default function Home() {
         </div>
       </Section>
 
-      <Section tone="mist">
+      <Section>
         <div className="mx-auto max-w-3xl">
           <FaqSection faqs={faqs} />
         </div>
       </Section>
 
+      <JsonLd data={localBusinessJsonLd} />
       <CtaBand title="Tell us what you want to achieve." text="Book a 30 minute consultation. We will tell you honestly whether and how we can help." />
     </>
   );

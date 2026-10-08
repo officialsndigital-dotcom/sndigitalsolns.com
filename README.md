@@ -25,6 +25,8 @@ Next.js 16 (App Router, Cache Components) + Tailwind v4. The blog reads posts fr
 | NEXT_PUBLIC_CONSULTATION_CALENDAR_URL | build | Optional. Overrides the default HighLevel booking widget (the 30 minute free consultation calendar) shown after the consultation form |
 | WORDPRESS_URL | server | WordPress install for blog posts, e.g. https://cms.sndigitalsolns.com |
 | NEXT_PUBLIC_GTM_ID | build | Google Tag Manager container id |
+| NEXT_PUBLIC_GA4_ID | build | Optional. GA4 measurement id (G-...), loaded directly without GTM |
+| NEXT_PUBLIC_META_PIXEL_ID | build | Optional. Meta (Facebook) pixel id |
 | NEXT_PUBLIC_WHATSAPP_URL | build | Optional WhatsApp link override |
 | NEXT_PUBLIC_NOINDEX | build | "true" on preview deployments: robots disallow + noindex |
 

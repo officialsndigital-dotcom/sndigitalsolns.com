@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { founder, site } from "@/lib/site";
+import { founder, markets, site } from "@/lib/site";
 import type { Faq } from "@/content/types";
 
 export function pageMetadata({
@@ -116,7 +116,6 @@ export const organizationJsonLd = {
   alternateName: [site.shortName, "S N Digital Solutions", "SN Digital Solns"],
   url: site.url,
   logo: `${site.url}/brand/sn-logo.png`,
-  email: site.email,
   telephone: site.phone,
   slogan: site.brandLine,
   foundingDate: site.founded,
@@ -129,5 +128,23 @@ export const organizationJsonLd = {
     postalCode: "400614",
     addressCountry: "IN",
   },
+  sameAs: Object.values(site.social),
+};
+
+/** The Navi Mumbai head office as a local business, for Google's local results. */
+export const localBusinessJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "@id": `${site.url}/#localbusiness`,
+  name: site.name,
+  alternateName: site.shortName,
+  description: "Software development, digital marketing and PR company in CBD Belapur, Navi Mumbai.",
+  url: site.url,
+  logo: `${site.url}/brand/sn-logo.png`,
+  image: `${site.url}/team/team-office.jpg`,
+  telephone: site.phone,
+  parentOrganization: { "@id": `${site.url}/#organization` },
+  address: organizationJsonLd.address,
+  areaServed: ["India", ...markets],
   sameAs: Object.values(site.social),
 };

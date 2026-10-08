@@ -1,7 +1,8 @@
-import Image from "next/image";
+import Image from "@/components/Img";
 import Link from "next/link";
 import { footerColumns } from "@/lib/nav";
 import { offices, site } from "@/lib/site";
+import { EmailLink } from "./EmailLink";
 import { SocialIcons, WhatsAppGlyph } from "./SocialIcons";
 
 export function Footer() {
@@ -10,7 +11,7 @@ export function Footer() {
       <div className="container-site grid gap-10 py-14 md:grid-cols-2 lg:grid-cols-6">
         <div className="lg:col-span-1">
           <div className="inline-block rounded-md bg-white p-2.5">
-            <Image src="/brand/sn-logo.png" alt={site.name} width={3601} height={422} className="h-6 w-auto" />
+            <Image src="/brand/sn-logo-sm.webp" alt={site.name} width={614} height={72} unoptimized className="h-6 w-auto" />
           </div>
           <p className="mt-4 text-sm leading-relaxed">{site.tagline}</p>
           <SocialIcons className="mt-5 text-white" />
@@ -57,9 +58,7 @@ export function Footer() {
           <a href={site.phoneHref} data-track="phone_click" className="block hover:text-white">
             {site.phone}
           </a>
-          <a href={`mailto:${site.email}`} data-track="email_click" className="block hover:text-white">
-            {site.email}
-          </a>
+          <EmailLink className="block hover:text-white" />
           <a
             href={site.whatsappHref}
             data-track="whatsapp_click"

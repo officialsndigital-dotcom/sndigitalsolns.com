@@ -1,3 +1,4 @@
+import { EmailLink } from "@/components/EmailLink";
 import { PageHero } from "@/components/blocks";
 import { LeadForm } from "@/components/LeadForm";
 import { pageMetadata } from "@/components/seo";
@@ -8,7 +9,7 @@ import { offices, site } from "@/lib/site";
 
 export const metadata = pageMetadata({
   title: "Contact Us",
-  description: `Contact S N Digital Solns: call ${site.phone}, email ${site.email}, or visit our Navi Mumbai head office.`,
+  description: `Contact S N Digital Solns: call or WhatsApp ${site.phone}, send us an email, or visit our head office in CBD Belapur, Navi Mumbai.`,
   path: "/contact/",
 });
 
@@ -30,9 +31,7 @@ export default function ContactPage() {
             </div>
             <div>
               <p className="eyebrow mb-2">Email</p>
-              <a href={`mailto:${site.email}`} data-track="email_click" className="text-xl font-extrabold text-navy-900 hover:text-amber-600">
-                {site.email}
-              </a>
+              <EmailLink className="text-xl font-extrabold text-navy-900 hover:text-amber-600" />
             </div>
             {offices.map((o) => (
               <address key={o.name} className="not-italic leading-relaxed">

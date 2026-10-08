@@ -10,6 +10,11 @@ const nextConfig = {
   partialPrefetching: true,
   trailingSlash: true,
   poweredByHeader: false,
+  experimental: {
+    // Ships the (small, Tailwind) stylesheet inside the HTML instead of as a
+    // separate render-blocking request.
+    inlineCss: true,
+  },
   /**
    * The WordPress site this one replaces was built on an off-the-shelf theme and
    * carried its demo pages and demo shop into Google's index. These send the

@@ -1,6 +1,6 @@
 import { CtaBand, PageHero, StatsStrip } from "@/components/blocks";
 import { pageMetadata } from "@/components/seo";
-import Image from "next/image";
+import Image from "@/components/Img";
 import { CheckList, Section, SectionHead } from "@/components/ui";
 import { founder, markets, site, teamPhotos } from "@/lib/site";
 

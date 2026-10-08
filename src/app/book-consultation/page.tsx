@@ -1,3 +1,4 @@
+import { EmailLink } from "@/components/EmailLink";
 import { LeadForm } from "@/components/LeadForm";
 import { pageMetadata } from "@/components/seo";
 import { CheckList } from "@/components/ui";
@@ -34,9 +35,7 @@ export default function BookConsultationPage() {
               {site.phone}
             </a>{" "}
             or email{" "}
-            <a href={`mailto:${site.email}`} data-track="email_click" className="font-semibold text-navy-800 underline">
-              {site.email}
-            </a>
+            <EmailLink className="font-semibold text-navy-800 underline" />
             .
           </p>
         </div>

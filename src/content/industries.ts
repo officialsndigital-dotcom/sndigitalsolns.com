@@ -9,7 +9,7 @@ export const industries: Industry[] = [
     metaTitle: "Education Marketing Agency & School Management Software",
     h1: "Education Marketing and Software for Schools and Colleges",
     metaDescription:
-      "Digital marketing for schools and colleges, institution websites, and ACADMiN, our school and college management software. Admissions enquiries to accreditation records.",
+      "Digital marketing for schools and colleges, institution websites, and ACADMiN, our school and college management software, from admissions to accreditation.",
     intro: "We have built websites for more than 15 schools, colleges and education organisations, and we build our own education ERP, ACADMiN.",
     challenges: [
       "Admissions enquiries arrive through many channels and are hard to follow up.",
@@ -57,7 +57,7 @@ export const industries: Industry[] = [
     metaTitle: "Jewellery Website Design, ERP & Marketing",
     h1: "Jewellery Website Design, ERP and Marketing",
     metaDescription:
-      "Jewellery website design and ecommerce, marketing for jewellery brands, and eheera, our jewellery ERP and diamond inventory software for traders and manufacturers.",
+      "Jewellery website design and ecommerce, marketing for jewellery brands, and eheera, our jewellery ERP and diamond inventory software for the trade.",
     intro: "We work with jewellery brands, diamond businesses, B2B suppliers and industry organisations, and we offer eheera, jewellery management software and diamond ERP.",
     challenges: [
       "Large, detailed inventories are hard to present online.",

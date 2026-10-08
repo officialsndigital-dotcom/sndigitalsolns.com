@@ -8,7 +8,7 @@ const path = "/free-tools/b2b-pipeline-revenue-calculator/";
 
 export const metadata = pageMetadata({
   title: "B2B Pipeline & Revenue Calculator (Free)",
-  description: "Free B2B pipeline calculator: see how many prospects, meetings and opportunities you need to hit your revenue target, find your bottleneck and download a PDF report.",
+  description: "Free B2B pipeline calculator: the prospects, meetings and opportunities you need to hit your revenue target, where your funnel leaks, and a PDF report.",
   path,
 });
 

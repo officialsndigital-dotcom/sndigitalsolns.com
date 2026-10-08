@@ -1,7 +1,8 @@
-import Image from "next/image";
+import Image from "@/components/Img";
 import Link from "next/link";
 import { mainNav } from "@/lib/nav";
 import { CTA, site } from "@/lib/site";
+import { EmailLink } from "./EmailLink";
 import { NavBehaviour } from "./NavBehaviour";
 import { SocialIcons } from "./SocialIcons";
 
@@ -16,9 +17,7 @@ export function Header() {
             <a href={site.phoneHref} data-track="phone_click" className="hover:text-white">
               {site.phone}
             </a>
-            <a href={`mailto:${site.email}`} data-track="email_click" className="hover:text-white">
-              {site.email}
-            </a>
+            <EmailLink className="hover:text-white" />
           </div>
           <SocialIcons className="text-navy-100" size={15} />
         </div>
@@ -26,7 +25,7 @@ export function Header() {
 
       <div className="container-site flex h-16 items-center justify-between gap-6 md:h-[72px]">
         <Link href="/" aria-label={`${site.name} home`} className="flex-none">
-          <Image src="/brand/sn-logo.png" alt={site.name} width={3601} height={422} priority className="h-7 w-auto xl:h-8" />
+          <Image src="/brand/sn-logo-sm.webp" alt={site.name} width={614} height={72} unoptimized fetchPriority="high" loading="eager" className="h-7 w-auto xl:h-8" />
         </Link>
 
         {/* Desktop navigation with mega menus (CSS only: hover and keyboard focus) */}

@@ -1,6 +1,6 @@
+import { EmailLink } from "@/components/EmailLink";
 import { LegalPage } from "@/components/LegalPage";
 import { pageMetadata } from "@/components/seo";
-import { site } from "@/lib/site";
 
 export const metadata = pageMetadata({ title: "Privacy Policy", description: "How S N Digital Solns collects, uses and protects personal information submitted through this website.", path: "/privacy-policy/" });
 
@@ -21,7 +21,7 @@ export default function Page() {
       <h2>Where it is stored</h2>
       <p>Some of the providers we use store data outside India. Where that happens we rely on the provider&rsquo;s standard contractual protections for that transfer.</p>
       <h2>Your choices</h2>
-      <p>You can ask us to access, correct or delete your personal information, or to stop sending you marketing, by emailing <a href={`mailto:${site.email}`}>{site.email}</a>. We respond within 30 days. Every marketing email we send also carries an unsubscribe link.</p>
+      <p>You can ask us to access, correct or delete your personal information, or to stop sending you marketing, by emailing <EmailLink />. We respond within 30 days. Every marketing email we send also carries an unsubscribe link.</p>
       <h2>Changes to this page</h2>
       <p>When we change how we handle personal information we update this page and the effective date at the top of it.</p>
     </LegalPage>

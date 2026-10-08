@@ -7,7 +7,7 @@ import { markets, offices } from "@/lib/site";
 
 export const metadata = pageMetadata({
   title: "Global Presence",
-  description: "S N Digital Solns works from its head office in Navi Mumbai, India, with postal offices in Florida and Ontario, and serves clients in the UAE, USA, UK, Canada, Australia, Saudi Arabia, Kuwait and Europe.",
+  description: "Head office in Navi Mumbai, India, postal offices in Florida and Ontario, and clients across the UAE, USA, UK, Canada, Australia, the Gulf and Europe.",
   path: "/company/global-presence/",
 });
 

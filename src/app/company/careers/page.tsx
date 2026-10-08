@@ -1,7 +1,7 @@
+import { EmailLink } from "@/components/EmailLink";
 import { PageHero } from "@/components/blocks";
 import { pageMetadata } from "@/components/seo";
-import { ButtonLink, CheckList, Section, SectionHead } from "@/components/ui";
-import { site } from "@/lib/site";
+import { CheckList, Section, SectionHead } from "@/components/ui";
 
 export const metadata = pageMetadata({
   title: "Careers",
@@ -65,9 +65,9 @@ export default function CareersPage() {
               We do not always have a role open in every discipline. If none is advertised and you think you are a fit, write to us anyway, and tell us
               what you would want to work on.
             </p>
-            <ButtonLink href={`mailto:${site.email}?subject=Career%20enquiry`} className="mt-6" track="email_click">
+            <EmailLink subject="Career enquiry" className="mt-6 inline-flex items-center justify-center gap-2 rounded-lg bg-amber-500 px-5 py-3 text-[0.95rem] font-bold text-navy-900 transition-colors hover:bg-amber-300">
               Email your CV
-            </ButtonLink>
+            </EmailLink>
           </div>
         </div>
       </Section>

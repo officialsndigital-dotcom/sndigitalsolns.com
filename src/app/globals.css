@@ -29,6 +29,11 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Hides alt text while an image loads; next/image normally inlines this. */
+img[data-nimg] {
+  color: transparent;
+}
+
 body {
   background: var(--color-paper);
   color: var(--color-ink);

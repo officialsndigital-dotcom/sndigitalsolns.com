@@ -1,6 +1,6 @@
+import { EmailLink } from "@/components/EmailLink";
 import { LegalPage } from "@/components/LegalPage";
 import { pageMetadata } from "@/components/seo";
-import { site } from "@/lib/site";
 
 export const metadata = pageMetadata({ title: "Terms of Use", description: "Terms of use for the S N Digital Solns website and free tools.", path: "/terms/" });
 
@@ -52,7 +52,7 @@ export default function Page() {
       <p>These terms are governed by the laws of India, and the courts at Mumbai, Maharashtra have jurisdiction over any dispute about them.</p>
       <h2>Contact</h2>
       <p>
-        Questions about these terms go to <a href={`mailto:${site.email}`}>{site.email}</a>.
+        Questions about these terms go to <EmailLink />.
       </p>
     </LegalPage>
   );

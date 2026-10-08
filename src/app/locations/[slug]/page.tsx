@@ -138,7 +138,6 @@ export default async function LocationPage({ params }: PageProps<"/locations/[sl
                 name: site.name,
                 url,
                 telephone: site.phone,
-                email: site.email,
                 parentOrganization: { "@id": `${site.url}/#organization` },
                 address: {
                   "@type": "PostalAddress",
