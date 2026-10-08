@@ -57,7 +57,6 @@ export const mainNav: NavItem[] = [
         links: [
           { label: "Blog", href: "/blog/" },
           { label: "Free Tools", href: "/free-tools/" },
-          { label: "B2B Pipeline Calculator", href: "/free-tools/b2b-pipeline-revenue-calculator/" },
           { label: "FAQs", href: "/resources/faqs/" },
         ],
       },

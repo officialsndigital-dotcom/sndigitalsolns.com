@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { CtaBand, ServiceCard, StatsStrip } from "@/components/blocks";
 import { FaqSection, pageMetadata } from "@/components/seo";
-import { Arrow, ButtonLink, CheckList, ContentRequired, Section, SectionHead } from "@/components/ui";
+import { Arrow, ButtonLink, CheckList, Section, SectionHead } from "@/components/ui";
 import { publishedCaseStudies } from "@/content/case-studies";
 import { industries } from "@/content/industries";
 import { products } from "@/content/products";
@@ -39,7 +39,7 @@ const faqs = [
     a: `We are based in India and work with clients in markets including ${markets.join(", ")}.`,
   },
   {
-    q: "What happens in the 10 minute consultation?",
+    q: "What happens in the 30 minute consultation?",
     a: "You tell us what you want to achieve. We ask a few questions and tell you honestly whether and how we can help, and what the next step would be. There is no obligation.",
   },
   {
@@ -185,24 +185,18 @@ export default function Home() {
       </Section>
 
       <Section tone="mist">
-        <div className="grid gap-10 lg:grid-cols-2">
-          <div>
-            <SectionHead eyebrow="Why S N Digital Solns" title="Built for businesses that want accountable partners" />
-            <CheckList
-              items={[
-                "11+ years of development experience and 72 technology professionals.",
-                "417+ websites and 74+ applications developed, for 580+ clients.",
-                "Our own SaaS products, ACADMiN and eheera, built and supported in-house.",
-                "Clients in India, the Middle East, North America, Europe and beyond.",
-                "Clear reporting, and no promises we cannot keep.",
-              ]}
-            />
-          </div>
-          <div>
-            <SectionHead eyebrow="Testimonials" title="What clients say" />
-            <ContentRequired>Client testimonials with name, role and company, approved for publication.</ContentRequired>
-          </div>
-        </div>
+        <SectionHead eyebrow="Why S N Digital Solns" title="Built for businesses that want accountable partners" />
+        <CheckList
+          columns={2}
+          items={[
+            "11+ years of development experience and 72 technology professionals.",
+            "417+ websites and 74+ applications developed, for 580+ clients.",
+            "Our own SaaS products, ACADMiN and eheera, built and supported in-house.",
+            "Clients in India, the Middle East, North America, Europe and beyond.",
+            "Every figure on this site comes from a dashboard we can show you.",
+            "Clear reporting, and no promises we cannot keep.",
+          ]}
+        />
       </Section>
 
       <Section>
@@ -226,7 +220,7 @@ export default function Home() {
         </div>
       </Section>
 
-      <CtaBand title="Tell us what you want to achieve." text="Book a 10 minute consultation. We will tell you honestly whether and how we can help." />
+      <CtaBand title="Tell us what you want to achieve." text="Book a 30 minute consultation. We will tell you honestly whether and how we can help." />
     </>
   );
 }

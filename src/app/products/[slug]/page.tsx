@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { CtaBand, PageHero } from "@/components/blocks";
 import { FaqSection, JsonLd, pageMetadata } from "@/components/seo";
-import { CheckList, ContentRequired, Section, SectionHead } from "@/components/ui";
+import { CheckList, Section, SectionHead } from "@/components/ui";
 import { getIndustry } from "@/content/industries";
 import { getProduct, products } from "@/content/products";
 import { CTA, site } from "@/lib/site";
@@ -37,12 +37,6 @@ export default async function ProductPage({ params }: PageProps<"/products/[slug
       >
         {p.attribution && <p className="mt-6 text-sm text-navy-100">{p.attribution}</p>}
       </PageHero>
-
-      {p.needsConfirmation && (
-        <div className="container-site pt-8">
-          <ContentRequired>{p.needsConfirmation}</ContentRequired>
-        </div>
-      )}
 
       <Section>
         <div className="grid gap-12 lg:grid-cols-2">

@@ -71,7 +71,7 @@ export const developmentServices: Service[] = [
       { q: "Can you redesign our website without losing our Google rankings?", a: "Yes. We map every existing URL to its new page and set up permanent redirects, keep content that already ranks, and check indexing after launch." },
       { q: "Will we be able to update the website ourselves?", a: "Yes. We set up an editing system suited to how often you update content, and train your team to use it." },
       { q: "Do you offer website maintenance after launch?", a: "Yes. We provide ongoing maintenance, updates and technical support for websites we build and for existing websites." },
-      { q: "What does a website cost?", a: "Cost depends on scope, design and functionality. Share your requirement in a 10 minute consultation and we will recommend an approach and give a quote." },
+      { q: "What does a website cost?", a: "Cost depends on scope, design and functionality. Share your requirement in a 30 minute consultation and we will recommend an approach and give a quote." },
     ],
   },
   {
@@ -193,7 +193,7 @@ export const developmentServices: Service[] = [
     outcome: "A web application that lets your customers, staff or partners do real work online, securely and without friction.",
     summary: "Customer portals, admin dashboards and role-based web apps.",
     problem: {
-      intro: "A website informs. A web application has to let people get something done.",
+      intro: "A website tells people about your business. A web application lets them actually do something in it, and that is a different job for software.",
       points: [
         "Customers email or call for information they should be able to see themselves.",
         "Partners and vendors exchange files and status updates manually.",
@@ -325,7 +325,7 @@ export const developmentServices: Service[] = [
       ...devProof,
     ],
     industries: ["saas-technology", "education", "jewellery-diamonds"],
-    related: ["development/web-application-development", "development/custom-software-development", "development/mobile-app-development", "development/ai-automation", "marketing/b2b-lead-generation"],
+    related: ["development/web-application-development", "development/custom-software-development", "development/mobile-app-development", "development/ai-automation"],
     faqs: [
       { q: "What should a SaaS MVP include?", a: "Only what a first paying customer needs to get value: the core workflow, sign-up and login, basic account management and a way to pay. Everything else waits for real feedback." },
       { q: "Can you help after launch?", a: "Yes. We continue development, add modules and integrations, and support the product as it grows. Our marketing team can also run B2B lead generation for the product." },
@@ -376,9 +376,9 @@ export const developmentServices: Service[] = [
     industries: ["education", "jewellery-diamonds", "real-estate", "it-services"],
     related: ["development/custom-software-development", "development/api-integration", "marketing/crm-marketing-automation", "development/ai-automation"],
     faqs: [
-      { q: "Should we build a custom CRM or use an existing one?", a: "If an existing CRM fits your sales process with light configuration, use it. Custom development makes sense when your workflow, data or integrations are specific to your business. We will recommend one after reviewing the requirement." },
-      { q: "Can you migrate our existing data?", a: "Yes. We migrate data from spreadsheets and existing systems where it can be exported, and check it with your team before go-live." },
-      { q: "Can the ERP be built in phases?", a: "Yes. Most ERP projects start with the modules that solve the biggest problem first, then add departments in later phases." },
+      { q: "Should we build a custom CRM or buy a SaaS CRM?", a: "Buy it if your sales process looks like most sales processes. A SaaS CRM is live in weeks, somebody else maintains it, and you pay per user forever. Build it when your pipeline, your data model or your integrations are genuinely unusual, when per-user pricing has become the larger cost, or when the data cannot sit on somebody else's platform. We will tell you which one your situation is after looking at how your team actually sells, and we have no reason to push you towards the build." },
+      { q: "Should we build a custom ERP or buy a SaaS ERP?", a: "The honest default is to buy. ERP touches finance, inventory, purchasing and HR at once, and a custom build is a long project before it returns anything. Buying makes sense when a standard product covers most of what you do and you are willing to change some processes to fit it. Build when the operation is the business, for example manufacturing or distribution with rules no product supports, or when you have already outgrown a product and are paying for workarounds. A common middle path is to buy the core and build only the modules that are specific to you." },
+      { q: "What happens to the systems and spreadsheets we use today?", a: "They get migrated, not abandoned. We export what can be exported from your existing systems and spreadsheets, map it to the new structure, and have your team check it against their own records before go-live. Most projects run the old and new side by side for a short period so nobody is working blind." },
     ],
   },
   {

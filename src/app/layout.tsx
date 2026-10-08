@@ -4,6 +4,7 @@ import Script from "next/script";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { MobileActionBar } from "@/components/MobileActionBar";
+import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { JsonLd, organizationJsonLd } from "@/components/seo";
 import { Tracking } from "@/components/Tracking";
 import { site } from "@/lib/site";
@@ -46,6 +47,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         </main>
         <Footer />
         <MobileActionBar />
+        <WhatsAppButton />
         <Tracking />
         <JsonLd data={organizationJsonLd} />
       </body>

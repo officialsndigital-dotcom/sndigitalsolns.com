@@ -269,7 +269,7 @@ function Results({ input, result, currency, mode, siteUrl, consultationHref }: {
           <p className="mt-1 text-muted">{rec.service.pitch}</p>
           <div className="mt-4 flex flex-col gap-3 sm:flex-row">
             <a href={`${consultationHref}?service=${rec.service.key.split("/")[1]}`} data-track="cta_click" className="rounded-lg bg-amber-500 px-5 py-3 text-center font-bold text-navy-900 hover:bg-amber-300">
-              Book a 10 Minute Free Consultation
+              Book a 30 Minute Free Consultation
             </a>
             <a href={`/${rec.service.key}/`} className="rounded-lg border border-navy-800 px-5 py-3 text-center font-bold text-navy-800 hover:bg-navy-50">
               About {rec.service.name}

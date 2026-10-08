@@ -1,7 +1,7 @@
 import { CtaBand, PageHero } from "@/components/blocks";
 import { PortfolioGrid } from "@/components/PortfolioGrid";
 import { pageMetadata } from "@/components/seo";
-import { ContentRequired, Section } from "@/components/ui";
+import { Section } from "@/components/ui";
 import { portfolio, portfolioCategories } from "@/content/portfolio";
 import { CTA } from "@/lib/site";
 
@@ -23,9 +23,11 @@ export default function PortfolioPage() {
       />
       <Section>
         <PortfolioGrid items={portfolio} categories={portfolioCategories} />
-        <div className="mt-10">
-          <ContentRequired>Screenshots of each website, and application and SaaS portfolio items.</ContentRequired>
-        </div>
+        <p className="mt-10 max-w-3xl leading-relaxed text-muted">
+          Each card shows the live home page as it is today and links straight to the site, so you can judge the work rather than take our word for it.
+          Mobile applications, internal systems and SaaS builds are not shown here because most of them sit behind a client login. If you want to see work
+          closer to what you are planning, ask on a call and we will walk you through it.
+        </p>
       </Section>
       <CtaBand title="Discuss your website project." label={CTA.development} />
     </>

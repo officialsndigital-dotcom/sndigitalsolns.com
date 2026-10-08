@@ -22,7 +22,6 @@ export const portfolio: PortfolioItem[] = [
     "https://www.enchantedjewels.co.in/",
     "https://colourjewels.com/",
     "https://diamonddeal.ae/",
-    "https://dmcc.ae/",
     "https://anitadiam.com/",
     "http://www.kavirdiamhk.com/",
     "https://vramsimpex.com/",

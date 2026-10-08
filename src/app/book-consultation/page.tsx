@@ -5,8 +5,8 @@ import { serviceInterests } from "@/lib/interests";
 import { CTA, consultationCalendarUrl, site } from "@/lib/site";
 
 export const metadata = pageMetadata({
-  title: "Book a 10 Minute Free Consultation",
-  description: "Tell us what you want to achieve and pick a time. In 10 minutes we will tell you honestly whether and how we can help.",
+  title: "Book a 30 Minute Free Consultation",
+  description: "Tell us what you want to achieve and pick a time. In 30 minutes we will tell you honestly whether and how we can help.",
   path: "/book-consultation/",
 });
 
@@ -19,7 +19,7 @@ export default function BookConsultationPage() {
           <h1 className="text-3xl font-extrabold leading-tight tracking-tight md:text-5xl">{CTA.consultation}</h1>
           <p className="mt-5 text-lg leading-relaxed text-muted">Share a few details, then choose a time that suits you.</p>
           <div className="mt-8">
-            <p className="mb-3 font-bold">In 10 minutes you will get</p>
+            <p className="mb-3 font-bold">In 30 minutes you will get</p>
             <CheckList
               items={[
                 "A clear read on whether we can help",

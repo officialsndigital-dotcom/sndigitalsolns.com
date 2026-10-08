@@ -1,3 +1,4 @@
+import { notifyByEmail } from "@/lib/leads/notify.ts";
 import { getCrmProvider } from "@/lib/leads/provider.ts";
 import { validateLead } from "@/lib/leads/validate.ts";
 
@@ -41,6 +42,8 @@ export async function POST(request: Request) {
       console.error(`[leads] ${crm.name}: ${sent.error}`);
       return Response.json({ ok: false, error: "We could not send your details right now. Please call or email us." }, { status: 502 });
     }
+    // The CRM is the system of record, so a failed email never fails the form.
+    await notifyByEmail(result.lead).catch((e) => console.error("[leads] email copy failed", e));
     return Response.json({ ok: true });
   } catch (e) {
     console.error(`[leads] ${crm.name} threw`, e);

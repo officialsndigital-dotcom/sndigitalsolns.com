@@ -21,7 +21,6 @@ export type Product = {
   industry: string;
   faqs: Faq[];
   /** Set while a claim on the page still needs the company's confirmation. */
-  needsConfirmation?: string;
 };
 
 export const products: Product[] = [
@@ -34,7 +33,7 @@ export const products: Product[] = [
       "ACADMiN is a cloud-based education ERP for schools and colleges: admissions, fees, attendance, examinations, NAAC support, HR, payroll, LMS and more.",
     hero: "One cloud system for admissions, academics, administration and accreditation records.",
     externalUrl: "https://www.acadmin.in/",
-    needsConfirmation: "acadmin.in lists Future Face Tech as its contact. Confirm how ACADMiN should be attributed before launch.",
+    attribution: "ACADMiN is a product of S N Digital Solns Pvt. Ltd., in partnership with Future Face Tech Private Limited.",
     problem: [
       "Admissions, fees, attendance and examination records sit in separate registers and spreadsheets.",
       "Staff spend days compiling data for management, audits and accreditation.",

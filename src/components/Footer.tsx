@@ -2,24 +2,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { locations } from "@/content/locations";
 import { footerColumns } from "@/lib/nav";
-import { CTA, offices, site } from "@/lib/site";
-import { SocialIcons } from "./SocialIcons";
+import { offices, site } from "@/lib/site";
+import { SocialIcons, WhatsAppGlyph } from "./SocialIcons";
 
 export function Footer() {
   return (
     <footer className="bg-navy-950 text-navy-100">
-      <div className="border-b border-white/10">
-        <div className="container-site flex flex-col items-start justify-between gap-6 py-12 md:flex-row md:items-center">
-          <div>
-            <p className="text-2xl font-extrabold text-white md:text-3xl">Have a project, growth challenge or product idea?</p>
-            <p className="mt-2 text-navy-100">Talk to us for 10 minutes. We will tell you honestly whether and how we can help.</p>
-          </div>
-          <Link href="/book-consultation/" data-track="cta_click" className="flex-none rounded-lg bg-amber-500 px-6 py-3.5 font-bold text-navy-900 hover:bg-amber-300">
-            {CTA.consultation}
-          </Link>
-        </div>
-      </div>
-
       <div className="container-site grid gap-10 py-14 md:grid-cols-2 lg:grid-cols-6">
         <div className="lg:col-span-1">
           <div className="inline-block rounded-md bg-white p-2.5">
@@ -44,7 +32,7 @@ export function Footer() {
         ))}
       </div>
 
-      <div className="container-site grid gap-8 border-t border-white/10 py-10 text-sm md:grid-cols-3">
+      <div className="container-site grid gap-8 border-t border-white/10 py-10 text-sm sm:grid-cols-2 lg:grid-cols-4">
         {offices.map((o) => (
           <address key={o.name} className="not-italic leading-relaxed">
             <p className="font-bold text-white">
@@ -55,7 +43,14 @@ export function Footer() {
                 {l}
               </span>
             ))}
-            {o.phone && <span className="block">{o.phone}</span>}
+            {o.phone &&
+              (o.phoneHref ? (
+                <a href={o.phoneHref} data-track="phone_click" className="block hover:text-white">
+                  {o.phone}
+                </a>
+              ) : (
+                <span className="block">{o.phone}</span>
+              ))}
           </address>
         ))}
         <div className="leading-relaxed">
@@ -65,6 +60,16 @@ export function Footer() {
           </a>
           <a href={`mailto:${site.email}`} data-track="email_click" className="block hover:text-white">
             {site.email}
+          </a>
+          <a
+            href={site.whatsappHref}
+            data-track="whatsapp_click"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-2 inline-flex items-center gap-2 rounded-lg border border-white/25 px-3 py-2 font-semibold text-white hover:border-white hover:bg-white/10"
+          >
+            <WhatsAppGlyph className="h-4 w-4" />
+            WhatsApp us
           </a>
         </div>
       </div>

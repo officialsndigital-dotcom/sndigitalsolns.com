@@ -70,7 +70,7 @@ export const industries: Industry[] = [
     portfolioCategory: "Jewellery & Diamonds",
     caseStudies: ["jewellery-brand-2025"],
     why: [
-      "Jewellery and diamond websites in our portfolio include dmcc.ae, diamonddeal.ae, thecaratcreations.com and colourjewels.com.",
+      "Jewellery and diamond websites in our portfolio include diamonddeal.ae, thecaratcreations.com, colourjewels.com and anitadiam.com.",
       "eheera, our jewellery and diamond ERP, is built around memo, 4C inventory, karigar and Kapan processes.",
     ],
     faqs: [

@@ -52,9 +52,9 @@ export function Section({
   );
 }
 
-export function SectionHead({ eyebrow, title, intro, center }: { eyebrow?: string; title: string; intro?: string; center?: boolean }) {
+export function SectionHead({ eyebrow, title, intro, center, className = "" }: { eyebrow?: string; title: string; intro?: string; center?: boolean; className?: string }) {
   return (
-    <div className={`mb-10 max-w-3xl ${center ? "mx-auto text-center" : ""}`}>
+    <div className={`mb-10 max-w-3xl ${center ? "mx-auto text-center" : ""} ${className}`}>
       {eyebrow && <p className="eyebrow mb-3">{eyebrow}</p>}
       <h2 className="text-2xl font-extrabold leading-tight tracking-tight md:text-[2.1rem]">{title}</h2>
       {intro && <p className="mt-4 text-lg leading-relaxed text-muted [.bg-navy-900_&]:text-navy-100">{intro}</p>}
@@ -62,15 +62,6 @@ export function SectionHead({ eyebrow, title, intro, center }: { eyebrow?: strin
   );
 }
 
-export function ContentRequired({ children }: { children: ReactNode }) {
-  // Visible on preview builds only, so placeholders are never shipped to production silently.
-  if (process.env.NEXT_PUBLIC_SHOW_PLACEHOLDERS === "false") return null;
-  return (
-    <p className="content-required" role="note">
-      <strong>[CONTENT REQUIRED]</strong> {children}
-    </p>
-  );
-}
 
 export function Card({ children, className = "" }: { children: ReactNode; className?: string }) {
   return <div className={`rounded-[var(--radius-card)] border border-line bg-white p-6 ${className}`}>{children}</div>;
@@ -85,10 +76,12 @@ export function Check() {
 }
 
 export function CheckList({ items, columns = 1 }: { items: string[]; columns?: 1 | 2 }) {
+  // Two columns use CSS columns rather than a grid, so a two-line item in one
+  // column does not leave a gap beside it in the other.
   return (
-    <ul className={`grid gap-3 ${columns === 2 ? "md:grid-cols-2" : ""}`}>
+    <ul className={columns === 2 ? "md:columns-2 md:gap-x-10" : ""}>
       {items.map((i) => (
-        <li key={i} className="flex gap-3 leading-relaxed">
+        <li key={i} className="mb-3 flex break-inside-avoid gap-3 leading-relaxed last:mb-0">
           <Check />
           <span>{i}</span>
         </li>

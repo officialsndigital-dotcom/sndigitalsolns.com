@@ -47,7 +47,7 @@ export default function ApproachPage() {
           ]}
         />
       </Section>
-      <CtaBand title="Start with a 10 minute conversation." />
+      <CtaBand title="Start with a 30 minute conversation." />
     </>
   );
 }

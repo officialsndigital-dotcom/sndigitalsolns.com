@@ -3,21 +3,20 @@ import { CtaBand, PageHero } from "@/components/blocks";
 import { pageMetadata } from "@/components/seo";
 import { Arrow, Section } from "@/components/ui";
 
-export const metadata = pageMetadata({ title: "Resources", description: "Articles, free tools, case studies and answers to common questions from S N Digital Solns.", path: "/resources/" });
+export const metadata = pageMetadata({ title: "Resources", description: "Articles, free tools and answers to common questions from S N Digital Solns.", path: "/resources/" });
 
 const items = [
   { href: "/blog/", title: "Blog", text: "Practical articles on development, marketing and PR." },
   { href: "/free-tools/", title: "Free tools", text: "Calculators for planning pipeline and growth." },
-  { href: "/case-studies/", title: "Case studies", text: "Results from our marketing and lead generation work." },
   { href: "/resources/faqs/", title: "FAQs", text: "Answers to the questions we hear most." },
 ];
 
 export default function ResourcesPage() {
   return (
     <>
-      <PageHero crumbs={[{ name: "Resources", href: "/resources/" }]} eyebrow="Resources" title="Resources" lead="Guides, tools and proof to help you plan your next step." />
+      <PageHero crumbs={[{ name: "Resources", href: "/resources/" }]} eyebrow="Resources" title="Resources" lead="Guides, tools and answers to help you plan your next step." />
       <Section>
-        <div className="grid gap-5 md:grid-cols-2">
+        <div className="grid gap-5 md:grid-cols-3">
           {items.map((i) => (
             <Link key={i.href} href={i.href} className="group rounded-[var(--radius-card)] border border-line bg-white p-6 hover:border-navy-600">
               <h2 className="text-xl font-extrabold text-navy-900">{i.title}</h2>

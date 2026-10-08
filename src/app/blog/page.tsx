@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { CtaBand, PageHero } from "@/components/blocks";
 import { pageMetadata } from "@/components/seo";
-import { Arrow, ContentRequired, Section } from "@/components/ui";
+import { Arrow, ButtonLink, Section } from "@/components/ui";
 import { getPosts } from "@/lib/wp/posts";
 
 export const metadata = pageMetadata({
@@ -19,7 +19,16 @@ export default async function BlogPage() {
       <PageHero crumbs={[{ name: "Blog", href: "/blog/" }]} eyebrow="Blog" title="Insights" lead="Practical guidance on building, growing and being heard." />
       <Section>
         {posts.length === 0 ? (
-          <ContentRequired>Blog posts are published from WordPress. Set WORDPRESS_URL to the WordPress install to show them here.</ContentRequired>
+          <div className="mx-auto max-w-2xl rounded-[var(--radius-card)] border border-line bg-mist p-8 text-center md:p-12">
+            <h2 className="text-2xl font-extrabold text-navy-900">The first articles are on their way</h2>
+            <p className="mt-3 text-lg leading-relaxed text-muted">
+              We are writing up what we actually do day to day: what a website build costs and why, how B2B lead generation works when it works, what we
+              change first on an ad account that is losing money. If there is a question you want answered, ask us and we will write that one next.
+            </p>
+            <ButtonLink href="/contact/" className="mt-6">
+              Suggest a topic
+            </ButtonLink>
+          </div>
         ) : (
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {posts.map((p) => (

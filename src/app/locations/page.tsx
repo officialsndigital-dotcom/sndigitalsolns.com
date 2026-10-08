@@ -39,7 +39,7 @@ export default function LocationsPage() {
           ))}
         </ul>
       </Section>
-      <CtaBand title="Wherever you are, start with a 10 minute call." />
+      <CtaBand title="Wherever you are, start with a 30 minute call." />
     </>
   );
 }

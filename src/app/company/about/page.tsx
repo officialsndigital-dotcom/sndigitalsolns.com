@@ -41,7 +41,7 @@ export default function AboutPage() {
           <div>
             <SectionHead eyebrow="Where we work" title="India-based, serving clients worldwide" />
             <p className="text-lg leading-relaxed text-muted">
-              Our head office is in Navi Mumbai with a branch office in Deoghar, Jharkhand. We work with clients in markets including {markets.join(", ")}.
+              Our head office is in Navi Mumbai, with postal offices in Florida, USA and Ontario, Canada. We work with clients in markets including {markets.join(", ")}.
             </p>
           </div>
         </div>

@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CtaBand, PageHero, RelatedServices } from "@/components/blocks";
 import { JsonLd, pageMetadata } from "@/components/seo";
-import { CheckList, ContentRequired, Section, SectionHead } from "@/components/ui";
+import { CheckList, Section, SectionHead } from "@/components/ui";
 import { getCaseStudy, publishedCaseStudies } from "@/content/case-studies";
 import { site } from "@/lib/site";
 
@@ -20,7 +20,6 @@ export async function generateMetadata({ params }: PageProps<"/case-studies/[slu
 export default async function CaseStudyPage({ params }: PageProps<"/case-studies/[slug]">) {
   const c = getCaseStudy((await params).slug);
   if (!c) notFound();
-  const sourceNeeds = c.source.includes("[CONTENT REQUIRED]");
   return (
     <>
       <PageHero
@@ -100,11 +99,6 @@ export default async function CaseStudyPage({ params }: PageProps<"/case-studies
             <figcaption className="mt-3 text-sm text-muted">{proof.caption}</figcaption>
           </figure>
         ))}
-        {sourceNeeds && (
-          <div className="mt-6">
-            <ContentRequired>Dated dashboard screenshots to support these figures.</ContentRequired>
-          </div>
-        )}
       </Section>
 
       {(c.objective || c.approach) && (
@@ -123,12 +117,6 @@ export default async function CaseStudyPage({ params }: PageProps<"/case-studies
               </div>
             )}
           </div>
-        </Section>
-      )}
-
-      {!c.approach && (
-        <Section tone="mist">
-          <ContentRequired>Client challenge, strategy and approach for this account, plus client approval to name the brand.</ContentRequired>
         </Section>
       )}
 

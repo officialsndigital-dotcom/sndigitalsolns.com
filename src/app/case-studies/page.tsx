@@ -1,6 +1,7 @@
+import Link from "next/link";
 import { CaseStudyCard, CtaBand, PageHero } from "@/components/blocks";
 import { pageMetadata } from "@/components/seo";
-import { ContentRequired, Section, SectionHead } from "@/components/ui";
+import { Section, SectionHead } from "@/components/ui";
 import { publishedCaseStudies } from "@/content/case-studies";
 import { CTA } from "@/lib/site";
 
@@ -40,10 +41,18 @@ export default function CaseStudiesPage() {
         </div>
       </Section>
       <Section>
-        <SectionHead eyebrow="Development and PR" title="More case studies" />
-        <ContentRequired>Development and PR case studies (client, problem, solution, outcome) approved for publication.</ContentRequired>
+        <SectionHead eyebrow="Development and PR" title="Why those are not here yet" />
+        <p className="max-w-3xl text-lg leading-relaxed text-muted">
+          Every case study on this page is backed by a dashboard we can put in front of you. Our development and PR work is just as real, but the proof for
+          it sits in client systems and press coverage we do not have written permission to publish yet. Rather than write those up from memory, we are
+          collecting the approvals first. In the meantime the{" "}
+          <Link href="/portfolio/" className="font-semibold text-navy-700 underline underline-offset-4 hover:text-amber-600">
+            portfolio
+          </Link>{" "}
+          shows the websites we have delivered, each one live and linked, and on a call we will walk you through the work closest to yours.
+        </p>
       </Section>
-      <CtaBand title="Want results like these?" text="Results depend on your offer, market and budget. In 10 minutes we can tell you what is realistic." />
+      <CtaBand title="Want results like these?" text="Results depend on your offer, market and budget. In 30 minutes we can tell you what is realistic." />
     </>
   );
 }

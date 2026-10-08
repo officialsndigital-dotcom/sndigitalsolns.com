@@ -126,7 +126,7 @@ export default async function LocationPage({ params }: PageProps<"/locations/[sl
         </div>
       </Section>
 
-      <CtaBand title={`Growing a business in ${l.city}?`} text="Book a 10 minute consultation. We will tell you honestly whether and how we can help." />
+      <CtaBand title={`Growing a business in ${l.city}?`} text="Book a 30 minute consultation. We will tell you honestly whether and how we can help." />
 
       <JsonLd
         data={

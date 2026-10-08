@@ -21,15 +21,19 @@ export function noteFor(lead: Lead): string {
   return lines.filter(Boolean).join("\n");
 }
 
+export type GhlPipeline = { pipelineId: string; stageId: string };
+
 export class GhlProvider implements CRMProvider {
   readonly name = "ghl";
   private token: string;
   private locationId: string;
+  private pipeline?: GhlPipeline;
   private fetcher: typeof fetch;
 
-  constructor(token: string, locationId: string, fetcher: typeof fetch = fetch) {
+  constructor(token: string, locationId: string, pipeline?: GhlPipeline, fetcher: typeof fetch = fetch) {
     this.token = token;
     this.locationId = locationId;
+    this.pipeline = pipeline;
     this.fetcher = fetcher;
   }
 
@@ -65,6 +69,23 @@ export class GhlProvider implements CRMProvider {
         headers: this.headers(),
         body: JSON.stringify({ body: noteFor(lead) }),
       }).catch(() => undefined);
+
+      // Put the enquiry on the sales board as well, so it is worked rather than
+      // sitting in the contact list. A failure here must not lose the lead.
+      if (this.pipeline) {
+        await this.fetcher(`${BASE}/opportunities/`, {
+          method: "POST",
+          headers: this.headers(),
+          body: JSON.stringify({
+            locationId: this.locationId,
+            pipelineId: this.pipeline.pipelineId,
+            pipelineStageId: this.pipeline.stageId,
+            contactId,
+            name: `${lead.name}${lead.company ? ` (${lead.company})` : ""} - website ${lead.kind}`,
+            status: "open",
+          }),
+        }).catch(() => undefined);
+      }
     }
     return { ok: true, contactId };
   }

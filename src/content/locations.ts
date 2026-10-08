@@ -36,7 +36,7 @@ export const locations: LocationPage[] = [
     country: "India",
     metaTitle: "Digital Marketing Agency & SEO Company in Mumbai",
     metaDescription:
-      "SEO, digital marketing, PR, website and software development for Mumbai businesses, from our head office in CBD Belapur, Navi Mumbai. Book a 10 minute consultation.",
+      "SEO, digital marketing, PR, website and software development for Mumbai businesses, from our head office in CBD Belapur, Navi Mumbai. Book a 30 minute consultation.",
     h1: "Digital Marketing, SEO and Website Development Company in Mumbai",
     intro:
       "Mumbai businesses compete for attention in one of India's busiest markets. We help them get found on Google, generate enquiries and sales meetings, and build websites and software that convert, from our head office in Navi Mumbai.",
@@ -108,7 +108,7 @@ export const locations: LocationPage[] = [
       { key: "marketing/social-media-content", angle: "Social media content and management." },
       { key: "marketing/b2b-lead-generation", angle: "LinkedIn and email outreach to decision makers in the UAE and the wider Gulf." },
     ],
-    portfolioHosts: ["investwithdion.ae", "diamonddeal.ae", "dmcc.ae"],
+    portfolioHosts: ["investwithdion.ae", "diamonddeal.ae"],
     faqs: [
       { q: "Do you have an office in Dubai?", a: "No. We work with Dubai clients remotely from India, with calls at times that suit you and shared dashboards for reporting." },
       { q: "How much does app development cost in Dubai?", a: "It depends on platforms, number of screens, the backend and features such as payments or maps. We give a fixed quote after scoping." },

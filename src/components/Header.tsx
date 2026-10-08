@@ -2,11 +2,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { mainNav } from "@/lib/nav";
 import { CTA, site } from "@/lib/site";
+import { NavBehaviour } from "./NavBehaviour";
 import { SocialIcons } from "./SocialIcons";
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-50 border-b border-line bg-white/95 backdrop-blur">
+    <>
+    <NavBehaviour />
+    <header className="sticky top-0 z-50 border-b border-line bg-white xl:bg-white/95 xl:backdrop-blur">
       <div className="hidden bg-navy-900 text-[0.8rem] text-navy-100 md:block">
         <div className="container-site flex h-9 items-center justify-between">
           <div className="flex gap-5">
@@ -43,7 +46,7 @@ export function Header() {
                   )}
                 </Link>
                 {item.groups && (
-                  <div className="invisible absolute left-1/2 top-full z-50 -translate-x-1/2 pt-3 opacity-0 transition group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100">
+                  <div data-megamenu className="invisible absolute left-1/2 top-full z-50 -translate-x-1/2 pt-3 opacity-0 transition group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100">
                     <div className={`flex gap-8 rounded-xl border border-line bg-white p-6 shadow-xl ${item.feature ? "w-[760px]" : "w-[340px]"}`}>
                       <div className={`grid flex-1 gap-6 ${item.groups.length > 1 ? "grid-cols-2" : ""}`}>
                         {item.groups.map((g, gi) => (
@@ -87,7 +90,7 @@ export function Header() {
           </Link>
 
           {/* Mobile navigation: native <details>, works without JavaScript */}
-          <details className="group xl:hidden">
+          <details data-nav="mobile" className="group xl:hidden">
             <summary className="flex h-11 w-11 cursor-pointer list-none items-center justify-center rounded-md border border-line" aria-label="Menu">
               <svg aria-hidden viewBox="0 0 24 24" className="h-5 w-5 group-open:hidden" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M4 7h16M4 12h16M4 17h16" />
@@ -101,7 +104,7 @@ export function Header() {
                 {mainNav.map((item) => (
                   <li key={item.label}>
                     {item.groups ? (
-                      <details className="group/sub">
+                      <details data-nav="mobile-sub" className="group/sub">
                         <summary className="flex cursor-pointer list-none items-center justify-between py-3.5 text-lg font-bold text-navy-900">
                           {item.label}
                           <span aria-hidden className="text-amber-600 group-open/sub:rotate-45">+</span>
@@ -138,5 +141,6 @@ export function Header() {
         </div>
       </div>
     </header>
+    </>
   );
 }

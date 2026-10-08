@@ -4,7 +4,7 @@ import type { Faq, Step, Vertical } from "@/content/types";
 import { CTA, marketingStats, stats } from "@/lib/site";
 import { CaseStudyCard, CtaBand, PageHero, ProcessSteps, ServiceCard, StatsStrip } from "./blocks";
 import { FaqSection } from "./seo";
-import { ContentRequired, Section, SectionHead } from "./ui";
+import { ButtonLink, Section, SectionHead } from "./ui";
 
 const processes: Record<Vertical, Step[]> = {
   development: [
@@ -87,19 +87,28 @@ export function VerticalPage({ vertical }: { vertical: Vertical }) {
       </Section>
 
       <Section tone="mist">
-        <SectionHead eyebrow="Proof" title={vertical === "development" ? "Our own products" : "Selected results"} />
+        <SectionHead eyebrow="Proof" title={vertical === "development" ? "Our own products" : "Related case studies"} />
         {vertical === "pr" ? (
-          <ContentRequired>PR portfolio and case studies, to be supplied by the company.</ContentRequired>
+          <p className="max-w-3xl text-lg leading-relaxed text-muted">
+            PR results belong to the client more than to us, and most coverage we have placed is not ours to publish. We are collecting written approvals
+            before we write those up. Ask on a call and we will talk you through comparable work in your sector, including which publications we reached
+            and what it took.
+          </p>
         ) : vertical === "development" ? (
           <p className="max-w-3xl text-lg leading-relaxed text-muted">
             Our development experience includes building and operating our own SaaS products: ACADMiN, an education ERP for schools and colleges, and eheera, jewellery management software and diamond ERP.
           </p>
         ) : (
-          <div className="grid gap-5 md:grid-cols-3">
-            {proof.map((c) => (
-              <CaseStudyCard key={c.slug} cs={c} />
-            ))}
-          </div>
+          <>
+            <div className="grid gap-5 md:grid-cols-3">
+              {proof.map((c) => (
+                <CaseStudyCard key={c.slug} cs={c} />
+              ))}
+            </div>
+            <ButtonLink href="/case-studies/" variant="secondary" className="mt-8">
+              See all case studies
+            </ButtonLink>
+          </>
         )}
       </Section>
 

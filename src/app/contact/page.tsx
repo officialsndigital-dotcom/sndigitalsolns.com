@@ -15,7 +15,7 @@ export const metadata = pageMetadata({
 export default function ContactPage() {
   return (
     <>
-      <PageHero crumbs={[{ name: "Contact", href: "/contact/" }]} eyebrow="Contact" title="Talk to us" lead="Send us a message, call, or book a 10 minute consultation." primary={{ href: "/book-consultation/", label: "Book a 10 Minute Free Consultation" }} />
+      <PageHero crumbs={[{ name: "Contact", href: "/contact/" }]} eyebrow="Contact" title="Talk to us" lead="Send us a message, call, or book a 30 minute consultation." primary={{ href: "/book-consultation/", label: "Book a 30 Minute Free Consultation" }} />
       <Section>
         <div className="grid gap-10 lg:grid-cols-[1fr_1.5fr]">
           <div className="space-y-8">

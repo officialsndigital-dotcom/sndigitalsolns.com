@@ -66,13 +66,14 @@ export const markets = [
 
 export type Office = {
   name: string;
-  kind: "Head office" | "Branch office";
+  kind: "Head office" | "Postal office";
   lines: string[];
   phone?: string;
+  phoneHref?: string;
 };
 
-// Florida and Ontario appear in the brochure as "PO". They stay off the site
-// until the company confirms what PO means and whether they are offices.
+// Supplied by the company on 2026-10-08. The Deoghar branch office was removed
+// from the site at the same time, at the company's request.
 export const offices: Office[] = [
   {
     name: "Mumbai",
@@ -82,26 +83,32 @@ export const offices: Office[] = [
       "Sector 11, CBD Belapur, Navi Mumbai",
       "Maharashtra 400614, India",
     ],
+    phone: "+91 70637 67680",
+    phoneHref: "tel:+917063767680",
   },
   {
-    name: "Deoghar",
-    kind: "Branch office",
-    lines: [
-      "Ground floor, Ishwar Kunj, in front of Bijli Kothi No. 1",
-      "Bompass Town, B. Deoghar",
-      "Jharkhand 814112, India",
-    ],
-    phone: "+91 9905704155",
+    name: "Florida, USA",
+    kind: "Postal office",
+    lines: ["17312 NW 112th Blvd.", "Alachua, FL 32615", "United States"],
+    phone: "+1 (352) 888-0026",
+    phoneHref: "tel:+13528880026",
+  },
+  {
+    name: "Ontario, Canada",
+    kind: "Postal office",
+    lines: ["2208 St. Joseph Blvd, Unit #111", "Orléans, ON K1C 1E8", "Canada"],
+    phone: "+1 (514) 963-2296",
+    phoneHref: "tel:+15149632296",
   },
 ];
 
 // GHL calendar created 2026-10-07 in the "S N Digital Solns Pvt Ltd" sub-account,
-// assigned to Sanjan Sharma: 10 minute slots, Mon-Fri 10:00-19:00 and Sat 10:00-14:00 IST.
+// assigned to Sanjan Sharma: 30 minute slots (widened from 10 on 2026-10-08 at the company's request), Mon-Fri 10:00-19:00 and Sat 10:00-14:00 IST.
 export const consultationCalendarUrl =
   process.env.NEXT_PUBLIC_CONSULTATION_CALENDAR_URL ?? "https://api.leadconnectorhq.com/widget/booking/zrm07lF5VdPFbjJoSsOt";
 
 export const CTA = {
-  consultation: "Book a 10 Minute Free Consultation",
+  consultation: "Book a 30 Minute Free Consultation",
   consultationShort: "Book a Consultation",
   work: "View Our Work",
   portfolio: "View Our Portfolio",

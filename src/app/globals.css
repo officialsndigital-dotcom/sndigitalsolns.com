@@ -65,14 +65,6 @@ body {
   margin-top: 1rem;
 }
 
-.content-required {
-  border: 1px dashed var(--color-amber-500);
-  background: var(--color-amber-100);
-  color: #7a4d06;
-  border-radius: 8px;
-  padding: 0.5rem 0.75rem;
-  font-size: 0.85rem;
-}
 
 @media (prefers-reduced-motion: reduce) {
   html {
@@ -82,4 +74,17 @@ body {
     transition: none !important;
     animation: none !important;
   }
+}
+
+/* The page behind the mobile menu must not scroll while the menu is open. */
+body.menu-open {
+  overflow: hidden;
+}
+
+/* Briefly hide the desktop mega menus right after a navigation, so a menu the
+   pointer is still resting in does not stay open over the new page. */
+.nav-suppressed [data-megamenu] {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
 }

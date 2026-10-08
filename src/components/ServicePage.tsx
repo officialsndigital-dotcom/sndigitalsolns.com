@@ -43,9 +43,22 @@ export function ServicePage({ service }: { service: Service }) {
           <div>
             <p className="eyebrow mb-3">What we do</p>
             <div className="prose-site text-lg leading-relaxed">
-              {service.whatWeDo.map((p) => (
-                <p key={p}>{p}</p>
-              ))}
+              {service.whatWeDo.map((p) => {
+                // Paragraphs that open with a short label ("CRM: ...", "SEO: ...")
+                // read better with the label picked out.
+                const m = /^([A-Za-z0-9 &+-]{1,28}):\s([\s\S]*)$/.exec(p);
+                return (
+                  <p key={p}>
+                    {m ? (
+                      <>
+                        <strong className="font-bold text-navy-900">{m[1]}:</strong> {m[2]}
+                      </>
+                    ) : (
+                      p
+                    )}
+                  </p>
+                );
+              })}
             </div>
           </div>
         </div>
@@ -126,7 +139,7 @@ export function ServicePage({ service }: { service: Service }) {
         <RelatedServices keys={service.related} />
       </Section>
 
-      <CtaBand title={`${v.cta}.`} text="Book a 10 minute consultation. We will tell you honestly whether and how we can help." />
+      <CtaBand title={`${v.cta}.`} text="Book a 30 minute consultation. We will tell you honestly whether and how we can help." />
 
       <JsonLd
         data={{

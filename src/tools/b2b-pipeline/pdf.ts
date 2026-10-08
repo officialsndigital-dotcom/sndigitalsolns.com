@@ -72,7 +72,7 @@ export async function downloadReportPdf(sections: ReportSection[], meta: { name:
     doc.setPage(i);
     doc.setFontSize(9);
     doc.setTextColor(110, 110, 110);
-    doc.text(`S N Digital Solns Pvt. Ltd. · ${meta.siteUrl.replace(/^https?:\/\//, "")} · Book a 10 minute free consultation: ${meta.siteUrl}/book-consultation/`, M, H - 30);
+    doc.text(`S N Digital Solns Pvt. Ltd. · ${meta.siteUrl.replace(/^https?:\/\//, "")} · Book a 30 minute free consultation: ${meta.siteUrl}/book-consultation/`, M, H - 30);
   }
   doc.save("b2b-pipeline-report.pdf");
 }
