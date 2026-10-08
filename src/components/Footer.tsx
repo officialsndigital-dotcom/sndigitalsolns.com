@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { locations } from "@/content/locations";
 import { footerColumns } from "@/lib/nav";
 import { offices, site } from "@/lib/site";
 import { SocialIcons, WhatsAppGlyph } from "./SocialIcons";
@@ -72,18 +71,6 @@ export function Footer() {
             WhatsApp us
           </a>
         </div>
-      </div>
-
-      <div className="container-site border-t border-white/10 py-5 text-sm">
-        <span className="font-bold text-white">Locations: </span>
-        {locations.map((l, i) => (
-          <span key={l.slug}>
-            {i > 0 && " · "}
-            <Link href={`/locations/${l.slug}/`} className="hover:text-white">
-              {l.city}
-            </Link>
-          </span>
-        ))}
       </div>
 
       <div className="border-t border-white/10">
