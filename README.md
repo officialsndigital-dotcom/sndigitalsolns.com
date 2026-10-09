@@ -19,8 +19,9 @@ Next.js 16 (App Router, Cache Components) + Tailwind v4. The blog reads posts fr
 | GHL_LOCATION_ID | server only | HighLevel location id of that sub-account |
 | GHL_PIPELINE_ID | server only | Optional. Opens an opportunity on this pipeline for every enquiry |
 | GHL_PIPELINE_STAGE_ID | server only | Optional. Stage the new opportunity lands in (required with GHL_PIPELINE_ID) |
-| LEAD_NOTIFY_EMAIL | server only | Optional. Mailbox that receives a copy of every enquiry, e.g. info@sndigitalsolns.com |
-| SMTP_HOST / SMTP_PORT / SMTP_USER / SMTP_PASS | server only | Mailbox used to send that copy. Port defaults to 465 (TLS) |
+| LEAD_NOTIFY_EMAIL | server only | Optional. Mailbox that receives a copy of every enquiry. Defaults to info@sndigitalsolns.com |
+| SMTP_USER / SMTP_PASS | server only | Mailbox the enquiry copy is sent from, e.g. website@sndigitalsolns.com. These two are the only mail settings that must be set |
+| SMTP_HOST / SMTP_PORT | server only | Optional. Default to smtp.hostinger.com and 465 (TLS) |
 | SMTP_FROM | server only | Optional from address; defaults to SMTP_USER |
 | NEXT_PUBLIC_CONSULTATION_CALENDAR_URL | build | Optional. Overrides the default HighLevel booking widget (the 30 minute free consultation calendar) shown after the consultation form |
 | WORDPRESS_URL | server | WordPress install for blog posts, e.g. https://cms.sndigitalsolns.com |
@@ -30,8 +31,12 @@ Next.js 16 (App Router, Cache Components) + Tailwind v4. The blog reads posts fr
 | NEXT_PUBLIC_WHATSAPP_URL | build | Optional WhatsApp link override |
 | NEXT_PUBLIC_NOINDEX | build | "true" on preview deployments: robots disallow + noindex |
 
-Without GHL_API_KEY / GHL_LOCATION_ID the lead API returns 503 and asks visitors to call or email, so no lead is silently lost. The email copy and the
-pipeline opportunity are both optional: if their variables are missing the enquiry still reaches the CRM, and a failure in either never fails the form.
+The CRM record and the email copy are two independent routes for an enquiry. `/api/leads` attempts both and treats the enquiry as received if either lands,
+so a CRM outage does not turn a real enquiry into an error message. Only when both fail does the form ask the visitor to call or WhatsApp, and the enquiry
+is written to the server log so it can still be recovered.
+
+`GET /api/health?token=<GHL_LOCATION_ID>` reports which variables are set and whether the CRM token and the mailbox credentials actually work. It returns
+no values, and 404s without the right token.
 
 ## Where things live
 

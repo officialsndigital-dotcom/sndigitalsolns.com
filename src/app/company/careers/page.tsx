@@ -68,6 +68,9 @@ export default function CareersPage() {
             <EmailLink subject="Career enquiry" className="mt-6 inline-flex items-center justify-center gap-2 rounded-lg bg-amber-500 px-5 py-3 text-[0.95rem] font-bold text-navy-900 transition-colors hover:bg-amber-300">
               Email your CV
             </EmailLink>
+            <p className="mt-3 text-sm text-muted">
+              The button opens your email app. If it does not, send your CV to <EmailLink className="font-semibold text-navy-700 underline" />.
+            </p>
           </div>
         </div>
       </Section>

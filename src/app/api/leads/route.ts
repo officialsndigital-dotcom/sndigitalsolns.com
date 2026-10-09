@@ -29,24 +29,28 @@ export async function POST(request: Request) {
 
   const result = validateLead(body);
   if (!result.ok) return Response.json({ ok: false, errors: result.errors }, { status: 422 });
+  const lead = result.lead;
 
+  // The CRM and the email copy are two independent ways of receiving the enquiry.
+  // Both are attempted, and the enquiry counts as received if either one lands, so
+  // a CRM outage does not turn a real enquiry into an error message.
   const crm = getCrmProvider();
-  if (!crm) {
-    console.error("[leads] No CRM configured (GHL_API_KEY / GHL_LOCATION_ID missing); lead not stored.");
-    return Response.json({ ok: false, error: "We could not send your details right now. Please call or email us." }, { status: 503 });
+  const [crmResult, emailResult] = await Promise.all([
+    crm
+      ? crm.submit(lead).catch((e) => ({ ok: false as const, error: e instanceof Error ? e.message : String(e) }))
+      : Promise.resolve({ ok: false as const, error: "No CRM configured (GHL_API_KEY / GHL_LOCATION_ID missing)" }),
+    notifyByEmail(lead),
+  ]);
+
+  if (!crmResult.ok) console.error(`[leads] CRM (${crm?.name ?? "none"}): ${crmResult.error}`);
+  if (!emailResult.ok) console.error(`[leads] email copy: ${emailResult.error}`);
+
+  if (crmResult.ok || emailResult.ok) {
+    // Logged so an enquiry that reached only one of the two is still traceable.
+    console.log(`[leads] ${lead.kind} from ${lead.email}: crm=${crmResult.ok} email=${emailResult.ok}`);
+    return Response.json({ ok: true });
   }
 
-  try {
-    const sent = await crm.submit(result.lead);
-    if (!sent.ok) {
-      console.error(`[leads] ${crm.name}: ${sent.error}`);
-      return Response.json({ ok: false, error: "We could not send your details right now. Please call or email us." }, { status: 502 });
-    }
-    // The CRM is the system of record, so a failed email never fails the form.
-    await notifyByEmail(result.lead).catch((e) => console.error("[leads] email copy failed", e));
-    return Response.json({ ok: true });
-  } catch (e) {
-    console.error(`[leads] ${crm.name} threw`, e);
-    return Response.json({ ok: false, error: "We could not send your details right now. Please call or email us." }, { status: 502 });
-  }
+  console.error(`[leads] LOST ENQUIRY ${JSON.stringify(lead)}`);
+  return Response.json({ ok: false, error: "We could not send your details right now. Please call or WhatsApp us on +91 70616 99889." }, { status: 502 });
 }
