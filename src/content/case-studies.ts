@@ -18,8 +18,8 @@ export type CaseStudy = {
   table?: { caption: string; columns: string[]; rows: string[][] };
   /** Dashboard screenshots from the supplied marketing portfolio PDF. */
   proofs?: { src: string; width: number; height: number; caption: string }[];
-  /** Recorded walkthrough of the live campaign dashboard, when the company has published one. */
-  video?: { url: string; label: string };
+  /** Recorded walkthroughs of the live campaign dashboards, when the company has published them. */
+  videos?: { url: string; label: string }[];
   services: string[];
   /** Draft case studies are not listed or linked until the company confirms them. */
   status: "published" | "draft";
@@ -335,6 +335,12 @@ export const caseStudies: CaseStudy[] = [
       ],
     },
     source: "Campaign dashboard screenshots from the four managed campaigns",
+    videos: [
+      { url: "https://drive.google.com/file/d/1LYvQs0vUp1-cMTGJcPpA0I4sXAAAy0tw/view", label: "Campaign A dashboard walkthrough" },
+      { url: "https://drive.google.com/file/d/17HhlJSOe6b7LCdpfgM3y3h6qpEDJ4h9d/view", label: "Campaign B dashboard walkthrough" },
+      { url: "https://drive.google.com/file/d/1aWP6hj3ASMIq4Bc_aIIqj2FyjywYJ_kR/view", label: "Campaign C dashboard walkthrough" },
+      { url: "https://drive.google.com/file/d/1qDMMRnk7ILl4J0s9sUFgnMw34x_v1Wrt/view", label: "Campaign D dashboard walkthrough" },
+    ],
     services: ["marketing/b2b-lead-generation"],
     status: "published",
     note:
@@ -378,6 +384,7 @@ export const caseStudies: CaseStudy[] = [
       ],
     },
     source: "Campaign dashboard screenshot, plus the campaign booking records for the meetings figure",
+    videos: [{ url: "https://drive.google.com/file/d/1qDMMRnk7ILl4J0s9sUFgnMw34x_v1Wrt/view", label: "Watch the campaign dashboard walkthrough" }],
     services: ["marketing/b2b-lead-generation"],
     status: "published",
     note:

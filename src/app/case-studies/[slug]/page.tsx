@@ -86,18 +86,26 @@ export default async function CaseStudyPage({ params }: PageProps<"/case-studies
             </div>
           </div>
         )}
-        {c.video && (
-          <p className="mt-10">
-            <a
-              href={c.video.url}
-              target="_blank"
-              rel="noopener"
-              className="inline-flex items-center gap-2 rounded-[var(--radius-card)] bg-navy-800 px-6 py-3 font-bold text-white hover:bg-navy-700"
-            >
-              {c.video.label} <span aria-hidden="true">→</span>
-            </a>
-          </p>
-        )}
+        {c.videos?.length ? (
+          <div className="mt-10">
+            <p className="eyebrow mb-3">Recorded walkthroughs</p>
+            <ul className="flex flex-wrap gap-3">
+              {c.videos.map((v) => (
+                <li key={v.url}>
+                  <a
+                    href={v.url}
+                    target="_blank"
+                    rel="noopener"
+                    className="inline-flex items-center gap-2 rounded-[var(--radius-card)] bg-navy-800 px-5 py-3 font-bold text-white hover:bg-navy-700"
+                  >
+                    {v.label} <span aria-hidden="true">→</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-3 text-sm text-muted">Each recording is a walkthrough of the live campaign dashboard the figures above are taken from.</p>
+          </div>
+        ) : null}
         {c.proofs?.map((proof) => (
           <figure key={proof.src} className="mt-10">
             <Image
