@@ -35,7 +35,7 @@ The CRM record and the email copy are two independent routes for an enquiry. `/a
 so a CRM outage does not turn a real enquiry into an error message. Only when both fail does the form ask the visitor to call or WhatsApp, and the enquiry
 is written to the server log so it can still be recovered.
 
-`GET /api/health?token=<GHL_LOCATION_ID>` reports which variables are set and whether the CRM token and the mailbox credentials actually work. It returns
+`GET /deployment-check/?token=<GHL_LOCATION_ID>` reports which variables are set and whether the CRM token and the mailbox credentials actually work. It returns
 no values, and 404s without the right token.
 
 ## Where things live
