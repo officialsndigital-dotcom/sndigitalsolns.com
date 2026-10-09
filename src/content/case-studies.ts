@@ -18,6 +18,8 @@ export type CaseStudy = {
   table?: { caption: string; columns: string[]; rows: string[][] };
   /** Dashboard screenshots from the supplied marketing portfolio PDF. */
   proofs?: { src: string; width: number; height: number; caption: string }[];
+  /** Recorded walkthrough of the live campaign dashboard, when the company has published one. */
+  video?: { url: string; label: string };
   services: string[];
   /** Draft case studies are not listed or linked until the company confirms them. */
   status: "published" | "draft";
@@ -295,6 +297,91 @@ export const caseStudies: CaseStudy[] = [
     ],
     services: ["marketing/performance-marketing", "marketing/ecommerce-growth"],
     status: "published",
+  },
+  {
+    slug: "linkedin-outbound-four-campaigns",
+    vertical: "marketing",
+    title: "Four LinkedIn Outbound Campaigns: 1,086 Replies From Decision Makers",
+    client: "Three B2B clients and our own outreach",
+    industry: "B2B services",
+    period: "Four managed campaigns",
+    channels: ["LinkedIn", "Email"],
+    summary:
+      "Four managed LinkedIn outbound campaigns, each reported from its own campaign dashboard. These are activity and engagement figures: invitations sent, connections accepted and replies received.",
+    metrics: [
+      { label: "Invitations sent", value: "5,076" },
+      { label: "Connections accepted", value: "1,255" },
+      { label: "Messages sent", value: "14,800" },
+      { label: "Replies received", value: "1,086" },
+    ],
+    objective:
+      "Put a consistent outbound channel in front of named decision makers for each business, instead of relying on referrals or inbound.",
+    approach: [
+      "Each campaign starts with its own ideal customer profile, so the invitations go to verified decision makers rather than a bought list.",
+      "Messaging is written for the role and the market, and every sequence carries three to five follow-up steps so conversations do not stall after one message.",
+      "LinkedIn and email run together as one system, and every reply is read and qualified by our team.",
+      "Activity, engagement and outcome are reported separately, so you can tell which figure comes from which source.",
+    ],
+    table: {
+      caption:
+        "Each campaign reported from its own dashboard. Rates differ because the markets, offers and decision makers differ, so no blended rate is shown.",
+      columns: ["Campaign", "Invitations", "Accepted", "Acceptance rate", "Messages", "Replies", "Reply rate"],
+      rows: [
+        ["Campaign A", "863", "262", "30.4%", "2,325", "208", "22.9%"],
+        ["Campaign B", "1,081", "151", "14%", "4,184", "276", "13.7%"],
+        ["Campaign C (our own outreach)", "2,357", "532", "22.6%", "7,252", "494", "17%"],
+        ["Campaign D", "775", "310", "40%", "1,039", "108", "34.8%"],
+        ["Total", "5,076", "1,255", "—", "14,800", "1,086", "—"],
+      ],
+    },
+    source: "Campaign dashboard screenshots from the four managed campaigns",
+    services: ["marketing/b2b-lead-generation"],
+    status: "published",
+    note:
+      "A reply is not a meeting. Every figure on this page is campaign activity or engagement taken from the campaign dashboards. Meetings are reported separately, and only where booking evidence exists.",
+  },
+  {
+    slug: "linkedin-33-meetings-58-days",
+    vertical: "marketing",
+    title: "33 Qualified Sales Meetings in 58 Days From LinkedIn Outbound",
+    client: "B2B software company",
+    industry: "B2B services",
+    period: "58 days",
+    channels: ["LinkedIn"],
+    summary:
+      "A targeted LinkedIn outbound campaign reached a 40% connection acceptance rate and a 34.8% reply rate, and converted those conversations into 33 booked sales meetings over a 58-day campaign.",
+    metrics: [
+      { label: "Connections accepted", value: "310" },
+      { label: "Acceptance rate", value: "40%" },
+      { label: "Replies received", value: "108" },
+      { label: "Meetings booked", value: "33" },
+    ],
+    objective:
+      "Book qualified sales conversations with decision makers in a defined target market, without adding headcount to the sales team.",
+    approach: [
+      "Targeting was narrowed to the roles and company profiles that matched the offer, which is what produced a 40% acceptance rate rather than a broad, untargeted list.",
+      "Messaging was written for that specific role and market, and over a third of the prospects who were messaged replied.",
+      "Replies were qualified by our team, and only genuine buying interest was moved toward a meeting.",
+      "The campaign ran for a stated 58-day period, so the result can be read against a defined window rather than an open-ended one.",
+    ],
+    table: {
+      caption: "Campaign dashboard figures for the 58-day period.",
+      columns: ["Measure", "Figure", "Tier"],
+      rows: [
+        ["Invitations sent", "775", "Activity"],
+        ["Connections accepted", "310", "Engagement"],
+        ["Acceptance rate", "40%", "Engagement"],
+        ["Messages sent", "1,039", "Activity"],
+        ["Message replies", "108", "Engagement"],
+        ["Reply rate", "34.8%", "Engagement"],
+        ["Meetings booked", "33", "Outcome"],
+      ],
+    },
+    source: "Campaign dashboard screenshot, plus the campaign booking records for the meetings figure",
+    services: ["marketing/b2b-lead-generation"],
+    status: "published",
+    note:
+      "The dashboard shows the activity and engagement figures. The 33 booked meetings come from the campaign booking records for the same period, not from the dashboard screenshot. This campaign is also included in the four-campaign totals as Campaign D.",
   },
 ];
 

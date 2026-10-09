@@ -86,6 +86,18 @@ export default async function CaseStudyPage({ params }: PageProps<"/case-studies
             </div>
           </div>
         )}
+        {c.video && (
+          <p className="mt-10">
+            <a
+              href={c.video.url}
+              target="_blank"
+              rel="noopener"
+              className="inline-flex items-center gap-2 rounded-[var(--radius-card)] bg-navy-800 px-6 py-3 font-bold text-white hover:bg-navy-700"
+            >
+              {c.video.label} <span aria-hidden="true">→</span>
+            </a>
+          </p>
+        )}
         {c.proofs?.map((proof) => (
           <figure key={proof.src} className="mt-10">
             <Image
