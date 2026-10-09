@@ -1,4 +1,17 @@
-import { smtpConfigured, verifySmtp } from "@/lib/leads/notify.ts";
+import { notifyByEmail, smtpConfigured, verifySmtp } from "@/lib/leads/notify.ts";
+import { getCrmProvider } from "@/lib/leads/provider.ts";
+import type { Lead } from "@/lib/leads/types.ts";
+
+// Marked plainly so it is obvious in the CRM and the inbox, and easy to remove.
+const SELF_TEST: Lead = {
+  kind: "contact",
+  name: "Deployment Self Test",
+  email: "website-selftest@sndigitalsolns.com",
+  phone: "+91 70616 99889",
+  company: "S N Digital Solns (internal test)",
+  message: "Automated check that a website enquiry reaches the CRM and the inbox. Safe to delete.",
+  page: "/deployment-check/",
+};
 
 /**
  * Deployment check for the lead pipeline, so whether a real enquiry would reach
@@ -29,7 +42,19 @@ export async function GET(request: Request) {
 
   const smtp = smtpConfigured() ? await verifySmtp() : { ok: false, error: "SMTP not configured" };
 
+  // ?selftest=1 puts one clearly-labelled enquiry through the real code path, so
+  // the write permissions can be proved without waiting for a visitor.
+  let selfTest: { crm: unknown; email: unknown } | undefined;
+  if (new URL(request.url).searchParams.get("selftest") === "1") {
+    const crm = getCrmProvider();
+    selfTest = {
+      crm: crm ? await crm.submit(SELF_TEST).catch((e) => ({ ok: false, error: String(e) })) : { ok: false, error: "No CRM configured" },
+      email: await notifyByEmail(SELF_TEST),
+    };
+  }
+
   return Response.json({
+    selfTest,
     env: Object.fromEntries(
       [
         "GHL_API_KEY",
