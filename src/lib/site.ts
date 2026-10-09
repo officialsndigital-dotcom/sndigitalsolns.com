@@ -29,7 +29,10 @@ export const site = {
 export const analytics = {
   gtmId: process.env.NEXT_PUBLIC_GTM_ID ?? "",
   ga4Id: process.env.NEXT_PUBLIC_GA4_ID ?? "",
-  metaPixelId: process.env.NEXT_PUBLIC_META_PIXEL_ID ?? "",
+  // Meta pixel for sndigitalsolns.com, supplied by the founder on 2026-10-09. A pixel
+  // ID is public by design (it ships in the page source), so it lives here rather than
+  // in the environment; NEXT_PUBLIC_META_PIXEL_ID still overrides it.
+  metaPixelId: process.env.NEXT_PUBLIC_META_PIXEL_ID ?? "925949210348777",
 };
 
 // Supplied by the founder on 2026-10-07.
