@@ -3,11 +3,12 @@ import { getCrmProvider } from "@/lib/leads/provider.ts";
 import type { Lead } from "@/lib/leads/types.ts";
 
 // Marked plainly so it is obvious in the CRM and the inbox, and easy to remove.
+// No phone number: HighLevel matches an upsert on phone when the email is new,
+// so a real number here would merge the test into somebody's existing contact.
 const SELF_TEST: Lead = {
   kind: "contact",
   name: "Deployment Self Test",
   email: "website-selftest@sndigitalsolns.com",
-  phone: "+91 70616 99889",
   company: "S N Digital Solns (internal test)",
   message: "Automated check that a website enquiry reaches the CRM and the inbox. Safe to delete.",
   page: "/deployment-check/",
