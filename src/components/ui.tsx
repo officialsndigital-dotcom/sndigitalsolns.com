@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { Reveal } from "./motion";
 
 type ButtonProps = {
   href: string;
@@ -47,7 +48,7 @@ export function Section({
   const tones = { white: "bg-paper", mist: "bg-mist", navy: "bg-navy-900 text-white" };
   return (
     <section id={id} className={`${tones[tone]} py-14 md:py-20 ${className}`}>
-      <div className="container-site">{children}</div>
+      <Reveal className="container-site">{children}</Reveal>
     </section>
   );
 }
@@ -64,7 +65,7 @@ export function SectionHead({ eyebrow, title, intro, center, className = "" }: {
 
 
 export function Card({ children, className = "" }: { children: ReactNode; className?: string }) {
-  return <div className={`rounded-[var(--radius-card)] border border-line bg-white p-6 ${className}`}>{children}</div>;
+  return <div className={`lift rounded-[var(--radius-card)] border border-line bg-white p-6 ${className}`}>{children}</div>;
 }
 
 export function Check() {
@@ -92,7 +93,7 @@ export function CheckList({ items, columns = 1 }: { items: string[]; columns?: 1
 
 export function Arrow() {
   return (
-    <svg aria-hidden viewBox="0 0 20 20" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2">
+    <svg aria-hidden viewBox="0 0 20 20" className="arrow-slide h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2">
       <path d="M4 10h12M11 5l5 5-5 5" />
     </svg>
   );

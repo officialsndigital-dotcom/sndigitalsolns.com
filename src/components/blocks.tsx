@@ -5,6 +5,7 @@ import { getIndustry } from "@/content/industries";
 import { getServiceByKey, serviceKey } from "@/content/services";
 import type { Service, Step } from "@/content/types";
 import { CTA, stats } from "@/lib/site";
+import { CountUp } from "./motion";
 import { Breadcrumbs, type Crumb } from "./seo";
 import { Arrow, ButtonLink, SectionHead } from "./ui";
 
@@ -27,10 +28,10 @@ export function PageHero({
 }) {
   return (
     <section className="relative overflow-hidden bg-navy-900 text-white">
-      <div aria-hidden className="pointer-events-none absolute -right-24 -top-24 h-[420px] w-[420px] rounded-full bg-navy-700/40 blur-3xl" />
+      <div aria-hidden className="hero-glow pointer-events-none absolute -right-24 -top-24 h-[420px] w-[420px] rounded-full bg-navy-700/40 blur-3xl" />
       <div className="container-site relative py-14 md:py-20">
         {crumbs && <Breadcrumbs items={crumbs} />}
-        <div className="mt-6 max-w-3xl">
+        <div className="hero-in mt-6 max-w-3xl">
           {eyebrow && <p className="eyebrow mb-4 !text-amber-300">{eyebrow}</p>}
           <h1 className="text-[2.1rem] font-extrabold leading-[1.1] tracking-tight md:text-5xl">{title}</h1>
           <p className="mt-5 text-lg leading-relaxed text-navy-100 md:text-xl">{lead}</p>
@@ -63,7 +64,7 @@ export function StatsStrip({ items = stats, tone = "light" }: { items?: readonly
         <div key={s.label} className="flex flex-col-reverse border-l-2 border-amber-500 pl-4">
           <dt className={`text-sm ${tone === "dark" ? "text-navy-100" : "text-muted"}`}>{s.label}</dt>
           <dd className={`font-[family-name:var(--font-display)] text-4xl font-bold md:text-5xl ${tone === "dark" ? "text-white" : "text-navy-800"}`}>
-            {s.value}
+            <CountUp value={s.value} />
           </dd>
         </div>
       ))}
@@ -113,7 +114,7 @@ export function ProcessSteps({ steps }: { steps: Step[] }) {
   return (
     <ol className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
       {steps.map((s, i) => (
-        <li key={s.title} className="rounded-[var(--radius-card)] border border-line bg-white p-5">
+        <li key={s.title} className="lift rounded-[var(--radius-card)] border border-line bg-white p-5">
           <span className="font-[family-name:var(--font-display)] text-3xl font-bold text-amber-500">{String(i + 1).padStart(2, "0")}</span>
           <h3 className="mt-1 text-lg font-extrabold">{s.title}</h3>
           <p className="mt-1.5 leading-relaxed text-muted">{s.text}</p>

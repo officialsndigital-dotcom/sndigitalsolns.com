@@ -2,6 +2,7 @@ import Image from "@/components/Img";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CtaBand, PageHero, RelatedServices } from "@/components/blocks";
+import { CountUp } from "@/components/motion";
 import { JsonLd, pageMetadata } from "@/components/seo";
 import { CheckList, Section, SectionHead } from "@/components/ui";
 import { getCaseStudy, publishedCaseStudies } from "@/content/case-studies";
@@ -36,7 +37,9 @@ export default async function CaseStudyPage({ params }: PageProps<"/case-studies
           {c.metrics.map((m) => (
             <div key={m.label} className="flex flex-col-reverse border-l-2 border-amber-500 pl-4">
               <dt className="text-sm text-muted">{m.label}</dt>
-              <dd className="font-[family-name:var(--font-display)] text-3xl font-bold text-navy-800 md:text-4xl">{m.value}</dd>
+              <dd className="font-[family-name:var(--font-display)] text-3xl font-bold text-navy-800 md:text-4xl">
+                <CountUp value={m.value} />
+              </dd>
             </div>
           ))}
         </dl>
