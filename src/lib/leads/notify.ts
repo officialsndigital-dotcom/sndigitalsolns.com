@@ -7,11 +7,14 @@ import type { Lead } from "./types.ts";
 const HOST = process.env.SMTP_HOST ?? "smtp.hostinger.com";
 const PORT = Number(process.env.SMTP_PORT ?? 465);
 const TO = process.env.LEAD_NOTIFY_EMAIL ?? `${site.emailUser}@${site.emailDomain}`;
+// Hostinger's SMTP login is case sensitive, and the address is easily typed or
+// autocapitalised into capitals, which fails authentication with a bare 535.
+const USER = process.env.SMTP_USER?.trim().toLowerCase();
 
 export type NotifyResult = { ok: true } | { ok: false; error: string };
 
 export function smtpConfigured() {
-  return Boolean(HOST && TO && process.env.SMTP_USER && process.env.SMTP_PASS);
+  return Boolean(HOST && TO && USER && process.env.SMTP_PASS);
 }
 
 function transport() {
@@ -19,7 +22,7 @@ function transport() {
     host: HOST,
     port: PORT,
     secure: PORT === 465,
-    auth: { user: process.env.SMTP_USER!, pass: process.env.SMTP_PASS! },
+    auth: { user: USER!, pass: process.env.SMTP_PASS! },
   });
 }
 
@@ -81,7 +84,7 @@ export async function notifyByEmail(lead: Lead): Promise<NotifyResult> {
 
   try {
     await transport().sendMail({
-      from: `"S N Digital Solns website" <${process.env.SMTP_FROM ?? process.env.SMTP_USER}>`,
+      from: `"S N Digital Solns website" <${process.env.SMTP_FROM ?? USER}>`,
       to: TO,
       replyTo: `"${lead.name}" <${lead.email}>`,
       subject,
@@ -104,7 +107,7 @@ export function describeSmtp() {
   return {
     host: HOST,
     port: PORT,
-    user: process.env.SMTP_USER ?? null,
+    user: USER ?? null,
     to: TO,
     passLength: pass.length,
     passHasWhitespaceEnds: pass !== pass.trim(),
