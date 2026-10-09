@@ -302,12 +302,12 @@ export const caseStudies: CaseStudy[] = [
     slug: "linkedin-outbound-four-campaigns",
     vertical: "marketing",
     title: "Four LinkedIn Accounts: 1,086 Replies From Decision Makers",
-    client: "Our own outreach accounts",
+    client: "Two of our own accounts and two client accounts",
     industry: "B2B services",
     period: "Four LinkedIn accounts",
     channels: ["LinkedIn", "Email"],
     summary:
-      "We run outbound from four separate LinkedIn accounts, each carrying multiple campaigns. Every account is reported from its own dashboard. These are activity and engagement figures: invitations sent, connections accepted and replies received.",
+      "We run outbound from four separate LinkedIn accounts, two belonging to our own team and two belonging to clients whose outreach we run. Each account carries several campaigns and is reported from its own dashboard. These are activity and engagement figures: invitations sent, connections accepted and replies received.",
     metrics: [
       { label: "Invitations sent", value: "5,076" },
       { label: "Connections accepted", value: "1,255" },
@@ -324,33 +324,33 @@ export const caseStudies: CaseStudy[] = [
     ],
     table: {
       caption:
-        "Each account reported from its own dashboard, covering all the campaigns run from it. Rates differ because the markets, offers and decision makers differ, so no blended rate is shown.",
+        "Each account reported from its own dashboard, covering all the campaigns run from it. Client accounts stay unnamed until the client agrees to be named. Rates differ because the markets, offers and decision makers differ, so no blended rate is shown.",
       columns: ["Account", "Invitations", "Accepted", "Acceptance rate", "Messages", "Replies", "Reply rate"],
       rows: [
-        ["Account 1", "2,357", "532", "22.6%", "7,252", "494", "17%"],
-        ["Account 2", "775", "310", "40%", "1,039", "108", "34.8%"],
-        ["Account 3", "863", "262", "30.4%", "2,325", "208", "22.9%"],
-        ["Account 4", "1,081", "151", "14%", "4,184", "276", "13.7%"],
+        ["Sanjan Sharma, our founder", "2,357", "532", "22.6%", "7,252", "494", "17%"],
+        ["Client account A", "775", "310", "40%", "1,039", "108", "34.8%"],
+        ["Client account B", "863", "262", "30.4%", "2,325", "208", "22.9%"],
+        ["Diwakar Sharma, our team", "1,081", "151", "14%", "4,184", "276", "13.7%"],
         ["Total", "5,076", "1,255", "—", "14,800", "1,086", "—"],
       ],
     },
     source: "Dashboard screenshots from the four LinkedIn accounts",
     videos: [
-      { url: "https://drive.google.com/file/d/1LYvQs0vUp1-cMTGJcPpA0I4sXAAAy0tw/view", label: "Account 1 dashboard walkthrough" },
-      { url: "https://drive.google.com/file/d/17HhlJSOe6b7LCdpfgM3y3h6qpEDJ4h9d/view", label: "Account 2 dashboard walkthrough" },
-      { url: "https://drive.google.com/file/d/1aWP6hj3ASMIq4Bc_aIIqj2FyjywYJ_kR/view", label: "Account 3 dashboard walkthrough" },
-      { url: "https://drive.google.com/file/d/1qDMMRnk7ILl4J0s9sUFgnMw34x_v1Wrt/view", label: "Account 4 dashboard walkthrough" },
+      { url: "https://drive.google.com/file/d/1LYvQs0vUp1-cMTGJcPpA0I4sXAAAy0tw/view", label: "Sanjan Sharma's account" },
+      { url: "https://drive.google.com/file/d/17HhlJSOe6b7LCdpfgM3y3h6qpEDJ4h9d/view", label: "Client account A" },
+      { url: "https://drive.google.com/file/d/1aWP6hj3ASMIq4Bc_aIIqj2FyjywYJ_kR/view", label: "Client account B" },
+      { url: "https://drive.google.com/file/d/1qDMMRnk7ILl4J0s9sUFgnMw34x_v1Wrt/view", label: "Diwakar Sharma's account" },
     ],
     services: ["marketing/b2b-lead-generation"],
     status: "published",
     note:
-      "A reply is not a meeting. Every figure on this page is activity or engagement taken from the account dashboards. Meetings are reported separately, and only where booking evidence exists.",
+      "A reply is not a meeting. Every figure on this page is activity or engagement taken from the account dashboards. Meetings are reported separately, and only where booking evidence exists. The two client accounts are unnamed here until those clients agree to be named.",
   },
   {
     slug: "linkedin-33-meetings-58-days",
     vertical: "marketing",
     title: "33 Qualified Sales Meetings in 58 Days From LinkedIn Outbound",
-    client: "Campaign run from one of our LinkedIn accounts",
+    client: "Client account, outreach run by our team",
     industry: "B2B services",
     period: "58 days",
     channels: ["LinkedIn"],
@@ -388,7 +388,7 @@ export const caseStudies: CaseStudy[] = [
     services: ["marketing/b2b-lead-generation"],
     status: "published",
     note:
-      "The dashboard shows the activity and engagement figures. The 33 booked meetings come from the campaign booking records for the same period, not from the dashboard screenshot. This campaign is also included in the four-account totals as Account 2.",
+      "The dashboard shows the activity and engagement figures. The 33 booked meetings come from the campaign booking records for the same period, not from the dashboard screenshot. This campaign is also included in the four-account totals as Client account A.",
   },
 ];
 
