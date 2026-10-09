@@ -28,7 +28,10 @@ export const site = {
 // the GA4 measurement ID (G-...) and the Meta pixel ID.
 export const analytics = {
   gtmId: process.env.NEXT_PUBLIC_GTM_ID ?? "",
-  ga4Id: process.env.NEXT_PUBLIC_GA4_ID ?? "",
+  // GA4 property for sndigitalsolns.com, supplied by the founder on 2026-10-09. A
+  // measurement ID is public by design, so it sits here rather than in the
+  // environment; NEXT_PUBLIC_GA4_ID still overrides it.
+  ga4Id: process.env.NEXT_PUBLIC_GA4_ID ?? "G-FCRQ47NV84",
   // Meta pixel for sndigitalsolns.com, supplied by the founder on 2026-10-09. A pixel
   // ID is public by design (it ships in the page source), so it lives here rather than
   // in the environment; NEXT_PUBLIC_META_PIXEL_ID still overrides it.
