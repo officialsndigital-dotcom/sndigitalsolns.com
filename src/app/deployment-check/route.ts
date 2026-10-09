@@ -16,7 +16,9 @@ export async function GET(request: Request) {
   let ghl: { configured: boolean; status?: number; error?: string } = { configured: Boolean(token) };
   if (token) {
     try {
-      const res = await fetch(`https://services.leadconnectorhq.com/locations/${locationId}`, {
+      // Deliberately a contacts call: that is the scope the website actually needs,
+      // so a pass here means a real enquiry would be accepted.
+      const res = await fetch(`https://services.leadconnectorhq.com/contacts/?locationId=${locationId}&limit=1`, {
         headers: { Authorization: `Bearer ${token}`, Version: "2021-07-28", Accept: "application/json" },
       });
       ghl = { ...ghl, status: res.status, error: res.ok ? undefined : (await res.text()).slice(0, 300) };
