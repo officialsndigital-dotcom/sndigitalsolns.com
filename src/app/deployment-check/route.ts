@@ -1,4 +1,4 @@
-import { notifyByEmail, smtpConfigured, verifySmtp } from "@/lib/leads/notify.ts";
+import { describeSmtp, notifyByEmail, smtpConfigured, verifySmtp } from "@/lib/leads/notify.ts";
 import { getCrmProvider } from "@/lib/leads/provider.ts";
 import type { Lead } from "@/lib/leads/types.ts";
 
@@ -41,7 +41,10 @@ export async function GET(request: Request) {
     }
   }
 
-  const smtp = smtpConfigured() ? await verifySmtp() : { ok: false, error: "SMTP not configured" };
+  const smtp = {
+    ...describeSmtp(),
+    ...(smtpConfigured() ? await verifySmtp() : { ok: false, error: "SMTP not configured" }),
+  };
 
   // ?selftest=1 puts one clearly-labelled enquiry through the real code path, so
   // the write permissions can be proved without waiting for a visitor.

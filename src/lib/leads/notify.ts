@@ -93,3 +93,21 @@ export async function notifyByEmail(lead: Lead): Promise<NotifyResult> {
     return { ok: false, error: e instanceof Error ? e.message : String(e) };
   }
 }
+
+/**
+ * Non-secret shape of the mail settings, for the deployment check. It gives the
+ * mailbox address (public) and only the shape of the password, so a typo, a
+ * stray quote or trailing whitespace can be spotted without revealing it.
+ */
+export function describeSmtp() {
+  const pass = process.env.SMTP_PASS ?? "";
+  return {
+    host: HOST,
+    port: PORT,
+    user: process.env.SMTP_USER ?? null,
+    to: TO,
+    passLength: pass.length,
+    passHasWhitespaceEnds: pass !== pass.trim(),
+    passHasQuoteEnds: /^["'].*["']$/.test(pass),
+  };
+}
