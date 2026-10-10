@@ -107,6 +107,14 @@ export default async function CaseStudyPage({ params }: PageProps<"/case-studies
                       </div>
                     ))}
                   </dl>
+                  {a.callsBooked && (
+                    <div className="mt-4 flex items-baseline gap-3 border-t border-line pt-4">
+                      <span className="font-[family-name:var(--font-display)] text-3xl font-bold text-amber-600">
+                        <CountUp value={a.callsBooked} />
+                      </span>
+                      <span className="font-semibold text-navy-900">sales calls booked</span>
+                    </div>
+                  )}
                   <a
                     href={a.video}
                     target="_blank"
@@ -119,7 +127,8 @@ export default async function CaseStudyPage({ params }: PageProps<"/case-studies
               ))}
             </div>
             <p className="mt-3 text-sm text-muted">
-              Each recording is a walkthrough of that account&apos;s live dashboard, which is where its figures above are taken from.
+              Each recording is a walkthrough of that account&apos;s live dashboard, which is where its invitations, connections, messages and replies
+              come from. The calls booked are counted from that account&apos;s booking records.
             </p>
           </div>
         ) : null}

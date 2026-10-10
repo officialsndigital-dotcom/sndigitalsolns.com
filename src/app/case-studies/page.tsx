@@ -39,12 +39,12 @@ export default function CaseStudiesPage() {
             <h3 className="text-xl font-extrabold text-navy-900 md:text-2xl">Watch the dashboards for yourself</h3>
             <p className="mt-2 max-w-3xl leading-relaxed text-muted">
               Four LinkedIn accounts, two our own and two belonging to clients whose outreach we run. Each recording is a walkthrough of that
-              account&apos;s live dashboard, which is where its figures come from.
+              account&apos;s live dashboard, which is where its replies come from. The calls booked are counted from each account&apos;s booking
+              records.
             </p>
             <div className="mt-6 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
               {accounts.map((a) => {
                 const replies = a.figures.find((f) => f.label === "Replies received");
-                const rate = a.figures.find((f) => f.label === "Reply rate");
                 return (
                   <a
                     key={a.name}
@@ -62,10 +62,10 @@ export default function CaseStudiesPage() {
                           <dd className="font-[family-name:var(--font-display)] text-2xl font-bold text-navy-800">{replies.value}</dd>
                         </div>
                       )}
-                      {rate && (
+                      {a.callsBooked && (
                         <div>
-                          <dt className="text-xs text-muted">Reply rate</dt>
-                          <dd className="font-[family-name:var(--font-display)] text-2xl font-bold text-navy-800">{rate.value}</dd>
+                          <dt className="text-xs text-muted">Calls booked</dt>
+                          <dd className="font-[family-name:var(--font-display)] text-2xl font-bold text-amber-600">{a.callsBooked}</dd>
                         </div>
                       )}
                     </dl>

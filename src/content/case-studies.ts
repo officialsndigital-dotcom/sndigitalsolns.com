@@ -30,7 +30,14 @@ export type CaseStudy = {
    * carries that account's own figures and its own dashboard recording, which
    * reads better than one wide table.
    */
-  accounts?: { name: string; role: string; video: string; figures: { label: string; value: string }[] }[];
+  accounts?: {
+    name: string;
+    role: string;
+    video: string;
+    figures: { label: string; value: string }[];
+    /** Calls booked off that account. From the booking records, not the dashboard. */
+    callsBooked?: string;
+  }[];
   services: string[];
   /** Draft case studies are not listed or linked until the company confirms them. */
   status: "published" | "draft";
@@ -312,18 +319,18 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "linkedin-outbound-four-campaigns",
     vertical: "marketing",
-    title: "Four LinkedIn Accounts: 1,086 Replies From Decision Makers",
+    title: "Four LinkedIn Accounts: 1,086 Replies and 369 Sales Calls Booked",
     client: "Sanjan Sharma, Marios Dionysopoulos, Kiran Kalshetti and Diwakar Sharma",
     industry: "B2B services",
     period: "Four LinkedIn accounts",
     channels: ["LinkedIn", "Email"],
     summary:
-      "We run outbound from four separate LinkedIn accounts, two belonging to our own team and two belonging to clients whose outreach we run. Each account carries several campaigns and is reported from its own dashboard. Every figure here is activity and engagement taken from those dashboards, and each account has a recording of the dashboard it came from.",
+      "We run outbound from four separate LinkedIn accounts, two belonging to our own team and two belonging to clients whose outreach we run. Each account carries several campaigns and is reported from its own dashboard, and each has a recording of that dashboard. The invitations, connections, messages and replies come from those dashboards. The calls booked come from the booking records for each account.",
     metrics: [
-      { label: "Invitations sent", value: "5,076" },
       { label: "Replies received", value: "1,086" },
+      { label: "Sales calls booked", value: "369" },
+      { label: "Invitations sent", value: "5,076" },
       { label: "Connections accepted", value: "1,255" },
-      { label: "Messages sent", value: "14,800" },
     ],
     objective:
       "Run a consistent outbound channel from real, established LinkedIn accounts, so invitations arrive from a person with a genuine profile rather than from an anonymous one.",
@@ -346,6 +353,7 @@ export const caseStudies: CaseStudy[] = [
           { label: "Replies received", value: "494" },
           { label: "Reply rate", value: "17%" },
         ],
+        callsBooked: "217",
       },
       {
         name: "Marios Dionysopoulos",
@@ -359,6 +367,7 @@ export const caseStudies: CaseStudy[] = [
           { label: "Replies received", value: "108" },
           { label: "Reply rate", value: "34.8%" },
         ],
+        callsBooked: "32",
       },
       {
         name: "Kiran Kalshetti",
@@ -372,6 +381,7 @@ export const caseStudies: CaseStudy[] = [
           { label: "Replies received", value: "208" },
           { label: "Reply rate", value: "22.9%" },
         ],
+        callsBooked: "63",
       },
       {
         name: "Diwakar Sharma",
@@ -385,13 +395,14 @@ export const caseStudies: CaseStudy[] = [
           { label: "Replies received", value: "276" },
           { label: "Reply rate", value: "13.7%" },
         ],
+        callsBooked: "57",
       },
     ],
-    source: "Dashboard screenshots and recordings from the four LinkedIn accounts",
+    source: "Dashboard recordings from the four LinkedIn accounts, and the booking records behind each account for the calls",
     services: ["marketing/b2b-lead-generation"],
     status: "published",
     note:
-      "A reply is not a meeting. Every figure on this page is activity or engagement taken from the account dashboards, and the recordings show the dashboards they came from. What those conversations went on to produce depends on the offer and the market, and we will talk you through that on a call rather than put an estimate on a page.",
+      "Two kinds of figure sit on this page and they come from different places. Invitations, connections, messages and replies are read off each account's dashboard, and the recordings show those dashboards. The calls booked are counted from the booking records for each account. Nothing here is estimated or scaled up from anything else. Rates differ widely by account because the markets, the offers and the people being contacted differ, which is also why your own numbers will be your own.",
   },
   {
     slug: "linkedin-33-meetings-58-days",
