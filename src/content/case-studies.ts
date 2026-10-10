@@ -25,6 +25,12 @@ export type CaseStudy = {
    * Each one names its own source, because the dashboards stop at replies.
    */
   outcomes?: { label: string; value: string; source: string }[];
+  /**
+   * One block per account, for work run across several accounts. Each block
+   * carries that account's own figures and its own dashboard recording, which
+   * reads better than one wide table.
+   */
+  accounts?: { name: string; role: string; video: string; figures: { label: string; value: string }[] }[];
   services: string[];
   /** Draft case studies are not listed or linked until the company confirms them. */
   status: "published" | "draft";
@@ -327,30 +333,67 @@ export const caseStudies: CaseStudy[] = [
       "LinkedIn and email run together as one system, and every reply is read and qualified by our team.",
       "Activity, engagement and outcome are reported separately, so you can tell which figure comes from which source.",
     ],
-    table: {
-      caption:
-        "Each account reported from its own dashboard, covering all the campaigns run from it. Rates differ because the markets, offers and decision makers differ, so no blended rate is shown.",
-      columns: ["Account", "Invitations", "Accepted", "Acceptance rate", "Messages", "Replies", "Reply rate"],
-      rows: [
-        ["Sanjan Sharma, our founder", "2,357", "532", "22.6%", "7,252", "494", "17%"],
-        ["Marios Dionysopoulos, client", "775", "310", "40%", "1,039", "108", "34.8%"],
-        ["Kiran Kalshetti, client", "863", "262", "30.4%", "2,325", "208", "22.9%"],
-        ["Diwakar Sharma, our team", "1,081", "151", "14%", "4,184", "276", "13.7%"],
-        ["Total", "5,076", "1,255", "—", "14,800", "1,086", "—"],
-      ],
-    },
-    source: "Dashboard screenshots from the four LinkedIn accounts",
-    videos: [
-      { url: "https://drive.google.com/file/d/1LYvQs0vUp1-cMTGJcPpA0I4sXAAAy0tw/view", label: "Sanjan Sharma's account" },
-      { url: "https://drive.google.com/file/d/17HhlJSOe6b7LCdpfgM3y3h6qpEDJ4h9d/view", label: "Marios Dionysopoulos's account" },
-      { url: "https://drive.google.com/file/d/1aWP6hj3ASMIq4Bc_aIIqj2FyjywYJ_kR/view", label: "Kiran Kalshetti's account" },
-      { url: "https://drive.google.com/file/d/1qDMMRnk7ILl4J0s9sUFgnMw34x_v1Wrt/view", label: "Diwakar Sharma's account" },
+    accounts: [
+      {
+        name: "Sanjan Sharma",
+        role: "Our founder",
+        video: "https://drive.google.com/file/d/1LYvQs0vUp1-cMTGJcPpA0I4sXAAAy0tw/view",
+        figures: [
+          { label: "Invitations sent", value: "2,357" },
+          { label: "Connections accepted", value: "532" },
+          { label: "Acceptance rate", value: "22.6%" },
+          { label: "Messages sent", value: "7,252" },
+          { label: "Replies received", value: "494" },
+          { label: "Reply rate", value: "17%" },
+        ],
+      },
+      {
+        name: "Marios Dionysopoulos",
+        role: "Client",
+        video: "https://drive.google.com/file/d/17HhlJSOe6b7LCdpfgM3y3h6qpEDJ4h9d/view",
+        figures: [
+          { label: "Invitations sent", value: "775" },
+          { label: "Connections accepted", value: "310" },
+          { label: "Acceptance rate", value: "40%" },
+          { label: "Messages sent", value: "1,039" },
+          { label: "Replies received", value: "108" },
+          { label: "Reply rate", value: "34.8%" },
+        ],
+      },
+      {
+        name: "Kiran Kalshetti",
+        role: "Client",
+        video: "https://drive.google.com/file/d/1aWP6hj3ASMIq4Bc_aIIqj2FyjywYJ_kR/view",
+        figures: [
+          { label: "Invitations sent", value: "863" },
+          { label: "Connections accepted", value: "262" },
+          { label: "Acceptance rate", value: "30.4%" },
+          { label: "Messages sent", value: "2,325" },
+          { label: "Replies received", value: "208" },
+          { label: "Reply rate", value: "22.9%" },
+        ],
+      },
+      {
+        name: "Diwakar Sharma",
+        role: "Our team",
+        video: "https://drive.google.com/file/d/1qDMMRnk7ILl4J0s9sUFgnMw34x_v1Wrt/view",
+        figures: [
+          { label: "Invitations sent", value: "1,081" },
+          { label: "Connections accepted", value: "151" },
+          { label: "Acceptance rate", value: "14%" },
+          { label: "Messages sent", value: "4,184" },
+          { label: "Replies received", value: "276" },
+          { label: "Reply rate", value: "13.7%" },
+        ],
+      },
     ],
+    source: "Dashboard screenshots and recordings from the four LinkedIn accounts",
     outcomes: [
       {
         label: "Qualified sales meetings, in 58 days",
         value: "33",
-        source: "Marios Dionysopoulos's account. Taken from the booking records for that 58 day campaign, not from the dashboard above.",
+        source:
+          "Marios Dionysopoulos's account. Taken from the booking records for that 58 day campaign. His 108 replies produced 33 meetings, a 30.6% reply to meeting rate. This is the only account we hold booking records for.",
       },
       {
         label: "Sales calls booked, in 72 days",

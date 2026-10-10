@@ -89,6 +89,40 @@ export default async function CaseStudyPage({ params }: PageProps<"/case-studies
             </div>
           </div>
         )}
+        {c.accounts?.length ? (
+          <div className="mt-10">
+            <p className="eyebrow mb-3">Account by account</p>
+            <div className="grid gap-5 md:grid-cols-2">
+              {c.accounts.map((a) => (
+                <div key={a.name} className="lift flex flex-col rounded-[var(--radius-card)] border border-line bg-white p-6">
+                  <p className="eyebrow">{a.role}</p>
+                  <h3 className="mt-1 text-xl font-extrabold text-navy-900">{a.name}</h3>
+                  <dl className="mt-4 grid grid-cols-2 gap-x-6 gap-y-3">
+                    {a.figures.map((f) => (
+                      <div key={f.label} className="flex flex-col-reverse">
+                        <dt className="text-sm text-muted">{f.label}</dt>
+                        <dd className="font-[family-name:var(--font-display)] text-2xl font-bold text-navy-800">
+                          <CountUp value={f.value} />
+                        </dd>
+                      </div>
+                    ))}
+                  </dl>
+                  <a
+                    href={a.video}
+                    target="_blank"
+                    rel="noopener"
+                    className="mt-5 inline-flex items-center justify-center gap-2 self-start rounded-[var(--radius-card)] bg-navy-800 px-5 py-3 font-bold text-white hover:bg-navy-700"
+                  >
+                    Watch the dashboard walkthrough <span aria-hidden="true">→</span>
+                  </a>
+                </div>
+              ))}
+            </div>
+            <p className="mt-3 text-sm text-muted">
+              Each recording is a walkthrough of that account&apos;s live dashboard, which is where its figures above are taken from.
+            </p>
+          </div>
+        ) : null}
         {c.outcomes?.length ? (
           <div className="mt-10">
             <p className="eyebrow mb-3">What the conversations turned into</p>
