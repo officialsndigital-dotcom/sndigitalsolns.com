@@ -116,7 +116,7 @@ export const industries: Industry[] = [
     ],
     needs: ["SaaS MVP and product development", "B2B lead generation and demo booking", "SaaS SEO and content", "Founder visibility"],
     services: ["development/saas-development", "development/web-application-development", "marketing/b2b-lead-generation", "marketing/seo-aeo", "pr/founder-thought-leadership"],
-    caseStudies: ["linkedin-217-sales-calls-72-days"],
+    caseStudies: ["linkedin-outbound-four-campaigns"],
     why: ["We build and run our own SaaS products, ACADMiN and eheera.", "217 sales calls booked in 72 days through our own LinkedIn outreach."],
     faqs: [
       { q: "Can you book demos for our SaaS product?", a: "Yes. Our B2B lead generation service books product demos with decision makers who match your ICP." },
@@ -138,7 +138,7 @@ export const industries: Industry[] = [
     ],
     needs: ["Targeted B2B outreach", "A credible corporate website", "CRM and follow-up automation", "Founder and leadership visibility"],
     services: ["marketing/b2b-lead-generation", "development/website-development", "marketing/crm-marketing-automation", "pr/founder-thought-leadership", "development/ai-automation"],
-    caseStudies: ["linkedin-217-sales-calls-72-days"],
+    caseStudies: ["linkedin-outbound-four-campaigns"],
     why: ["217 sales calls booked in 72 days through our own LinkedIn outreach system."],
     faqs: [
       { q: "Which markets can you reach?", a: "We run outreach to decision makers in markets including the UAE, USA, UK, Canada, Australia, Saudi Arabia, Kuwait, South Africa and Europe." },

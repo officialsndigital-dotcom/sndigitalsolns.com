@@ -89,6 +89,22 @@ export default async function CaseStudyPage({ params }: PageProps<"/case-studies
             </div>
           </div>
         )}
+        {c.outcomes?.length ? (
+          <div className="mt-10">
+            <p className="eyebrow mb-3">What the conversations turned into</p>
+            <ul className="grid gap-4 md:grid-cols-2">
+              {c.outcomes.map((o) => (
+                <li key={o.label} className="rounded-[var(--radius-card)] border border-line bg-mist p-5">
+                  <p className="font-[family-name:var(--font-display)] text-3xl font-bold text-navy-800">
+                    <CountUp value={o.value} />
+                  </p>
+                  <p className="mt-1 font-semibold text-navy-900">{o.label}</p>
+                  <p className="mt-2 text-sm leading-relaxed text-muted">{o.source}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ) : null}
         {c.videos?.length ? (
           <div className="mt-10">
             <p className="eyebrow mb-3">Recorded walkthroughs</p>

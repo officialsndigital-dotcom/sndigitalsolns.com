@@ -33,6 +33,10 @@ const nextConfig = {
       to("/shop", "/"),
       to("/product/:slug", "/"),
       to("/influencer-marketing-trends-2023-what-you-need-know", "/blog/"),
+      // Two LinkedIn case studies were folded into the four-account one, because
+      // both were slices of the same campaigns reported twice.
+      to("/case-studies/linkedin-217-sales-calls-72-days", "/case-studies/linkedin-outbound-four-campaigns/"),
+      to("/case-studies/linkedin-33-meetings-58-days", "/case-studies/linkedin-outbound-four-campaigns/"),
     ];
   },
   async headers() {

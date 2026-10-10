@@ -20,6 +20,11 @@ export type CaseStudy = {
   proofs?: { src: string; width: number; height: number; caption: string }[];
   /** Recorded walkthroughs of the live campaign dashboards, when the company has published them. */
   videos?: { url: string; label: string }[];
+  /**
+   * Results that come from booking records rather than the campaign dashboard.
+   * Each one names its own source, because the dashboards stop at replies.
+   */
+  outcomes?: { label: string; value: string; source: string }[];
   services: string[];
   /** Draft case studies are not listed or linked until the company confirms them. */
   status: "published" | "draft";
@@ -55,7 +60,7 @@ export const caseStudies: CaseStudy[] = [
     ],
     source: "Our own sales calendar and LinkedIn account, for the 72 day period. This is our campaign, so the record is internal rather than a client dashboard.",
     services: ["marketing/b2b-lead-generation", "marketing/crm-marketing-automation"],
-    status: "published",
+    status: "draft",
     note: "This was our own outreach, run on our own network and our own offer. We are showing it because it is the process we run for clients, not because your numbers will be these numbers. What you get depends on who you sell to, how strong your offer is and how warm your network already is. We will give you an honest read on all three before you commit to anything.",
   },
   {
@@ -307,12 +312,12 @@ export const caseStudies: CaseStudy[] = [
     period: "Four LinkedIn accounts",
     channels: ["LinkedIn", "Email"],
     summary:
-      "We run outbound from four separate LinkedIn accounts, two belonging to our own team and two belonging to clients whose outreach we run. Each account carries several campaigns and is reported from its own dashboard. These are activity and engagement figures: invitations sent, connections accepted and replies received.",
+      "We run outbound from four separate LinkedIn accounts, two belonging to our own team and two belonging to clients whose outreach we run. Each account carries several campaigns and is reported from its own dashboard. The headline figures are activity and engagement taken from those dashboards. Where we also hold booking records, the meetings and calls those conversations turned into are shown separately below.",
     metrics: [
       { label: "Invitations sent", value: "5,076" },
+      { label: "Replies received", value: "1,086" },
       { label: "Connections accepted", value: "1,255" },
       { label: "Messages sent", value: "14,800" },
-      { label: "Replies received", value: "1,086" },
     ],
     objective:
       "Run a consistent outbound channel from real, established LinkedIn accounts, so invitations arrive from a person with a genuine profile rather than from an anonymous one.",
@@ -341,10 +346,22 @@ export const caseStudies: CaseStudy[] = [
       { url: "https://drive.google.com/file/d/1aWP6hj3ASMIq4Bc_aIIqj2FyjywYJ_kR/view", label: "Kiran Kalshetti's account" },
       { url: "https://drive.google.com/file/d/1qDMMRnk7ILl4J0s9sUFgnMw34x_v1Wrt/view", label: "Diwakar Sharma's account" },
     ],
+    outcomes: [
+      {
+        label: "Qualified sales meetings, in 58 days",
+        value: "33",
+        source: "Marios Dionysopoulos's account. Taken from the booking records for that 58 day campaign, not from the dashboard above.",
+      },
+      {
+        label: "Sales calls booked, in 72 days",
+        value: "217",
+        source: "Our own outreach, run on the same system. Taken from our sales calendar over a 72 day period.",
+      },
+    ],
     services: ["marketing/b2b-lead-generation"],
     status: "published",
     note:
-      "A reply is not a meeting. Every figure on this page is activity or engagement taken from the account dashboards. Meetings are reported separately, and only where booking evidence exists.",
+      "A reply is not a meeting. The headline figures and the table are activity and engagement taken from the account dashboards. The meetings and calls are listed separately because they come from booking records, and they cover one account and one period each rather than all four accounts.",
   },
   {
     slug: "linkedin-33-meetings-58-days",
@@ -386,7 +403,7 @@ export const caseStudies: CaseStudy[] = [
     source: "Campaign dashboard screenshot, plus the campaign booking records for the meetings figure",
     videos: [{ url: "https://drive.google.com/file/d/17HhlJSOe6b7LCdpfgM3y3h6qpEDJ4h9d/view", label: "Watch the dashboard walkthrough" }],
     services: ["marketing/b2b-lead-generation"],
-    status: "published",
+    status: "draft",
     note:
       "The dashboard shows the activity and engagement figures. The 33 booked meetings come from the campaign booking records for the same period, not from the dashboard screenshot. This campaign is also included in the four-account totals as Marios Dionysopoulos's account.",
   },

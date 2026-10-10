@@ -28,7 +28,7 @@ export const mainNav: NavItem[] = [
       { title: "Demand", links: serviceLinks(["marketing/b2b-lead-generation", "marketing/performance-marketing", "marketing/seo-aeo"]) },
       { title: "Nurture & grow", links: serviceLinks(["marketing/social-media-content", "marketing/crm-marketing-automation", "marketing/ecommerce-growth"]) },
     ],
-    feature: { title: "217 sales calls in 72 days", text: "How our own LinkedIn outreach system booked meetings.", href: "/case-studies/linkedin-217-sales-calls-72-days/", cta: "Read the case study" },
+    feature: { title: "1,086 replies from decision makers", text: "Four LinkedIn accounts, the dashboards behind them and what the conversations turned into.", href: "/case-studies/linkedin-outbound-four-campaigns/", cta: "Read the case study" },
   },
   {
     label: "PR",

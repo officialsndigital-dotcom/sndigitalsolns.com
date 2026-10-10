@@ -63,7 +63,7 @@ export const marketingServices: Service[] = [
     ],
     industries: ["saas-technology", "it-services", "education", "real-estate"],
     related: ["marketing/crm-marketing-automation", "marketing/performance-marketing", "pr/founder-thought-leadership", "development/saas-development"],
-    caseStudies: ["linkedin-33-meetings-58-days", "linkedin-outbound-four-campaigns", "linkedin-217-sales-calls-72-days"],
+    caseStudies: ["linkedin-outbound-four-campaigns"],
     faqs: [
       { q: "How is this different from LinkedIn automation tools?", a: "Automation tools send messages. We decide who to contact and what to say, handle the replies, qualify interest and book meetings. The outcome we work towards is sales conversations, not message volume." },
       { q: "How many meetings can we expect?", a: "It depends on your market, offer, deal size and how narrow the ICP is. We set targets after reviewing these, and report reply, meeting and opportunity rates every week. Use our B2B Pipeline Calculator to estimate what your revenue target requires." },
