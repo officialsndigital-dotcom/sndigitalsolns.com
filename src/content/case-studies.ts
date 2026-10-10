@@ -318,7 +318,7 @@ export const caseStudies: CaseStudy[] = [
     period: "Four LinkedIn accounts",
     channels: ["LinkedIn", "Email"],
     summary:
-      "We run outbound from four separate LinkedIn accounts, two belonging to our own team and two belonging to clients whose outreach we run. Each account carries several campaigns and is reported from its own dashboard. The headline figures are activity and engagement taken from those dashboards. Where we also hold booking records, the meetings and calls those conversations turned into are shown separately below.",
+      "We run outbound from four separate LinkedIn accounts, two belonging to our own team and two belonging to clients whose outreach we run. Each account carries several campaigns and is reported from its own dashboard. Every figure here is activity and engagement taken from those dashboards, and each account has a recording of the dashboard it came from.",
     metrics: [
       { label: "Invitations sent", value: "5,076" },
       { label: "Replies received", value: "1,086" },
@@ -388,18 +388,10 @@ export const caseStudies: CaseStudy[] = [
       },
     ],
     source: "Dashboard screenshots and recordings from the four LinkedIn accounts",
-    outcomes: [
-      {
-        label: "Qualified sales meetings, in 58 days",
-        value: "33",
-        source:
-          "Marios Dionysopoulos's account. Taken from the booking records for that 58 day campaign. His 108 replies produced 33 meetings, a 30.6% reply to meeting rate. This is the only account we hold booking records for.",
-      },
-    ],
     services: ["marketing/b2b-lead-generation"],
     status: "published",
     note:
-      "A reply is not a meeting. The headline figures and the table are activity and engagement taken from the account dashboards. The meetings and calls are listed separately because they come from booking records, and they cover one account and one period each rather than all four accounts.",
+      "A reply is not a meeting. Every figure on this page is activity or engagement taken from the account dashboards, and the recordings show the dashboards they came from. What those conversations went on to produce depends on the offer and the market, and we will talk you through that on a call rather than put an estimate on a page.",
   },
   {
     slug: "linkedin-33-meetings-58-days",
