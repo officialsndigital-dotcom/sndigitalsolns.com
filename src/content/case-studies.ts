@@ -395,11 +395,6 @@ export const caseStudies: CaseStudy[] = [
         source:
           "Marios Dionysopoulos's account. Taken from the booking records for that 58 day campaign. His 108 replies produced 33 meetings, a 30.6% reply to meeting rate. This is the only account we hold booking records for.",
       },
-      {
-        label: "Sales calls booked, in 72 days",
-        value: "217",
-        source: "Our own outreach, run on the same system. Taken from our sales calendar over a 72 day period.",
-      },
     ],
     services: ["marketing/b2b-lead-generation"],
     status: "published",
