@@ -319,7 +319,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "linkedin-outbound-four-campaigns",
     vertical: "marketing",
-    title: "Four LinkedIn Accounts: 1,086 Replies and 369 Sales Calls Booked",
+    title: "Four LinkedIn Accounts: 1,086 Replies and 370 Sales Calls Booked",
     client: "Sanjan Sharma, Marios Dionysopoulos, Kiran Kalshetti and Diwakar Sharma",
     industry: "B2B services",
     period: "Four LinkedIn accounts",
@@ -328,7 +328,7 @@ export const caseStudies: CaseStudy[] = [
       "We run outbound from four separate LinkedIn accounts, two belonging to our own team and two belonging to clients whose outreach we run. Each account carries several campaigns and is reported from its own dashboard, and each has a recording of that dashboard. The invitations, connections, messages and replies come from those dashboards. The calls booked come from the booking records for each account.",
     metrics: [
       { label: "Replies received", value: "1,086" },
-      { label: "Sales calls booked", value: "369" },
+      { label: "Sales calls booked", value: "370" },
       { label: "Invitations sent", value: "5,076" },
       { label: "Connections accepted", value: "1,255" },
     ],
@@ -367,7 +367,7 @@ export const caseStudies: CaseStudy[] = [
           { label: "Replies received", value: "108" },
           { label: "Reply rate", value: "34.8%" },
         ],
-        callsBooked: "32",
+        callsBooked: "33",
       },
       {
         name: "Kiran Kalshetti",
