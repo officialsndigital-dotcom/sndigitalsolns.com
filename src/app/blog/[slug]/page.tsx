@@ -5,7 +5,9 @@ import { site } from "@/lib/site";
 import { getPost, getPosts } from "@/lib/wp/posts";
 
 export async function generateStaticParams() {
-  const posts = await getPosts(50);
+  // The most recent posts are prerendered; older ones are generated on request,
+  // so this stays a fixed build cost however large the archive grows.
+  const posts = await getPosts(100);
   // At least one param is required; an unknown slug simply 404s.
   return posts.length ? posts.map((p) => ({ slug: p.slug })) : [{ slug: "welcome" }];
 }
