@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useRef, useState, type FormEvent } from "react";
-import { readAttribution, track } from "@/components/Tracking";
+import { readAttribution, track } from "@/lib/analytics";
 import { calculate, PLANNING_ASSUMPTIONS, validate, type PipelineInput, type PipelineResult, type Stage } from "./engine";
 import { count, CURRENCIES, money, pct, type CurrencyCode } from "./format";
 import { AREA_LABELS, recommend } from "./recommendations";

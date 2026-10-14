@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import type { LeadKind } from "@/lib/leads/types";
-import { readAttribution, track } from "./Tracking";
+import { readAttribution, track } from "@/lib/analytics";
 
 type Option = { value: string; label: string; group?: string };
 
