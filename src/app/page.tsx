@@ -75,7 +75,9 @@ export default function Home() {
         <div className="container-site relative grid gap-12 py-16 md:py-24 lg:grid-cols-[1.3fr_1fr] lg:items-center">
           <div>
             <p className="eyebrow mb-4 block !text-amber-300">Software development, digital marketing &amp; PR company</p>
-            <h1 className="text-[2.3rem] font-extrabold leading-[1.08] tracking-tight md:text-6xl">
+            {/* Capped and balanced so the headline breaks into even lines on a
+                wide screen rather than leaving a short one trailing. */}
+            <h1 className="max-w-[20ch] text-balance text-[2.3rem] font-extrabold leading-[1.16] tracking-tight md:text-6xl">
               We build the technology, generate the demand and build the credibility.
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-navy-100 md:text-xl">
