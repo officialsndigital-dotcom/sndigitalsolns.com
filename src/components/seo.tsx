@@ -3,6 +3,9 @@ import type { Metadata } from "next";
 import { founder, markets, site } from "@/lib/site";
 import type { Faq } from "@/content/types";
 
+/** Shared share card. Every page uses it unless it sets its own. */
+export const OG_IMAGE = { url: "/brand/og-default.png", width: 1200, height: 630, alt: site.name };
+
 export function pageMetadata({
   title,
   description,
@@ -19,8 +22,8 @@ export function pageMetadata({
     title,
     description,
     alternates: { canonical: url },
-    openGraph: { title, description, url, siteName: site.shortName, type: "website", locale: "en_IN" },
-    twitter: { card: "summary_large_image", title, description },
+    openGraph: { title, description, url, siteName: site.shortName, type: "website", locale: "en_IN", images: [OG_IMAGE] },
+    twitter: { card: "summary_large_image", title, description, images: [OG_IMAGE.url] },
     robots: noindex || process.env.NEXT_PUBLIC_NOINDEX === "true" ? { index: false, follow: !process.env.NEXT_PUBLIC_NOINDEX } : undefined,
   };
 }

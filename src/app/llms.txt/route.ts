@@ -1,72 +1,70 @@
-import { publishedCaseStudies } from "@/content/case-studies";
-import { industries } from "@/content/industries";
 import { products } from "@/content/products";
-import { servicesFor, verticals } from "@/content/services";
+import { services, verticals } from "@/content/services";
+import { site } from "@/lib/site";
 import type { Vertical } from "@/content/types";
-import { markets, offices, site, stats } from "@/lib/site";
-import { tools } from "@/tools/registry";
 
 /**
- * llms.txt (https://llmstxt.org): a plain Markdown map of the site for AI
- * assistants and answer engines, built from the same content as the pages.
+ * llms.txt: a plain-text map of the site for the assistants that now answer
+ * questions people used to type into a search box. The convention is young and
+ * no engine promises to read it, but it costs one generated file and it is the
+ * only place we can state plainly what this company does and which page says
+ * what.
+ *
+ * Built from the same data as the sitemap so it cannot drift into listing URLs
+ * that do not exist. The email address is deliberately absent: it is kept out
+ * of server-rendered output on purpose, and this file is server-rendered.
+ *
+ * No route segment config: under Cache Components a GET handler prerenders on
+ * its own when it touches no uncached or runtime data, and this one only reads
+ * modules that are compiled in.
  */
-export function GET() {
-  const url = (path: string) => new URL(path, site.url).toString();
-  const link = (name: string, path: string, note?: string) => `- [${name}](${url(path)})${note ? `: ${note}` : ""}`;
-  const order: Vertical[] = ["development", "marketing", "pr"];
 
+const order: Vertical[] = ["development", "marketing", "pr"];
+
+function build() {
   const lines = [
     `# ${site.name}`,
     "",
-    `> ${site.shortName} is a software development, digital marketing and PR company headquartered in Navi Mumbai, India. ` +
-      "We build websites, applications, SaaS and business systems, generate leads and sales opportunities, and build brand visibility and credibility.",
+    "> Software development, digital marketing and PR company in Navi Mumbai,",
+    "> India, working with clients in the United States, Canada, Australia, the",
+    "> United Arab Emirates and Saudi Arabia. 11+ years, 417+ websites built.",
     "",
-    `Key facts: ${stats.map((s) => `${s.value} ${s.label.toLowerCase()}`).join("; ")}. Markets served include ${markets.join(", ")}.`,
-    "",
-    `Offices: ${offices.map((o) => `${o.name} (${o.kind.toLowerCase()}): ${o.lines.join(", ")}`).join(". ")}.`,
-    "",
-    `Contact: phone ${site.phone}, or ${url("/contact/")}. Free 30 minute consultation: ${url("/book-consultation/")}.`,
-    "",
-    ...order.flatMap((v) => [
-      `## ${verticals[v].name}`,
-      "",
-      verticals[v].intro,
-      "",
-      link(`${verticals[v].name} overview`, `/${v}/`),
-      ...servicesFor(v).map((s) => link(s.name, `/${s.vertical}/${s.slug}/`, s.summary)),
-      "",
-    ]),
-    "## Products",
-    "",
-    ...products.map((p) => link(p.name, `/products/${p.slug}/`, p.category)),
-    "",
-    "## Industries",
-    "",
-    ...industries.map((i) => link(i.name, `/industries/${i.slug}/`)),
-    "",
-    "## Case studies",
-    "",
-    ...publishedCaseStudies.map((c) => link(c.title, `/case-studies/${c.slug}/`, c.summary)),
-    "",
-    "## Company",
-    "",
-    link("About us", "/company/about/"),
-    link("Our approach", "/company/approach/"),
-    link("Global presence", "/company/global-presence/"),
-    link("Portfolio", "/portfolio/"),
-    link("FAQs", "/resources/faqs/"),
-    link("Contact", "/contact/"),
-    "",
-    "## Optional",
-    "",
-    ...tools.filter((t) => t.status === "live").map((t) => link(t.name, `/free-tools/${t.slug}/`, t.summary)),
-    link("Blog", "/blog/"),
-    link("Privacy policy", "/privacy-policy/"),
-    link("Terms", "/terms/"),
+    "Three things, usually bought together: we build the software and websites,",
+    "we generate the demand, and we build the credibility.",
     "",
   ];
 
-  return new Response(lines.join("\n"), {
-    headers: { "Content-Type": "text/plain; charset=utf-8", "Cache-Control": "public, max-age=3600" },
+  for (const v of order) {
+    lines.push(`## ${verticals[v].name}`, "", `${verticals[v].intro}`, "");
+    for (const s of services.filter((x) => x.vertical === v)) {
+      lines.push(`- [${s.name}](${site.url}/${v}/${s.slug}/): ${s.summary}`);
+    }
+    lines.push("");
+  }
+
+  lines.push("## Software we build and run ourselves", "");
+  for (const p of products) lines.push(`- [${p.name}](${site.url}/products/${p.slug}/)`);
+
+  lines.push(
+    "",
+    "## Evidence",
+    "",
+    `- [Case studies](${site.url}/case-studies/), including dashboard recordings behind the figures we quote`,
+    `- [Portfolio](${site.url}/portfolio/)`,
+    `- [Blog](${site.url}/blog/)`,
+    "",
+    "## Contact",
+    "",
+    `- [Contact](${site.url}/contact/)`,
+    `- [Book a consultation](${site.url}/book-consultation/)`,
+    `- Phone: ${site.phone}`,
+    "",
+  );
+  return lines.join("\n");
+}
+
+export function GET() {
+  return new Response(build(), {
+    headers: { "content-type": "text/plain; charset=utf-8", "cache-control": "public, max-age=3600" },
   });
 }

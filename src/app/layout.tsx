@@ -5,7 +5,7 @@ import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { MobileActionBar } from "@/components/MobileActionBar";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
-import { JsonLd, organizationJsonLd } from "@/components/seo";
+import { JsonLd, OG_IMAGE, organizationJsonLd } from "@/components/seo";
 import { Tracking } from "@/components/Tracking";
 import { analytics, site } from "@/lib/site";
 import "./globals.css";
@@ -23,6 +23,8 @@ export const metadata: Metadata = {
     "S N Digital Solns builds digital products, generates qualified B2B opportunities and strengthens brands through development, marketing and public relations.",
   applicationName: site.shortName,
   formatDetection: { telephone: false },
+  openGraph: { siteName: site.shortName, type: "website", locale: "en_IN", images: [OG_IMAGE] },
+  twitter: { card: "summary_large_image", images: [OG_IMAGE.url] },
 };
 
 export const viewport: Viewport = { themeColor: "#172d60" };
@@ -32,6 +34,16 @@ const { gtmId: GTM_ID, ga4Id: GA4_ID, metaPixelId: PIXEL_ID } = analytics;
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${manrope.variable} ${barlow.variable}`}>
+      <head>
+        {(GTM_ID || GA4_ID) && (
+          <>
+            <link rel="preconnect" href="https://www.googletagmanager.com" />
+            <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+          </>
+        )}
+        {/* The header logo is the largest element painted above the fold. */}
+        <link rel="preload" as="image" href="/brand/sn-logo-sm.webp" type="image/webp" fetchPriority="high" />
+      </head>
       <body className="flex min-h-screen flex-col pb-[52px] md:pb-0">
         {GTM_ID && (
           <Script id="gtm" strategy="afterInteractive">
