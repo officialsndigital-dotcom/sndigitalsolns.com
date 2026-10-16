@@ -2,6 +2,7 @@ import Image from "@/components/Img";
 import Link from "next/link";
 import { footerColumns } from "@/lib/nav";
 import { offices, site } from "@/lib/site";
+import { CookiePreferencesLink } from "./CookieConsent";
 import { EmailLink } from "./EmailLink";
 import { SocialIcons, WhatsAppGlyph } from "./SocialIcons";
 
@@ -79,6 +80,7 @@ export function Footer() {
             <li><Link href="/privacy-policy/" className="hover:text-white">Privacy Policy</Link></li>
             <li><Link href="/terms/" className="hover:text-white">Terms</Link></li>
             <li><Link href="/cookie-policy/" className="hover:text-white">Cookie Policy</Link></li>
+            <li><CookiePreferencesLink className="hover:text-white" /></li>
           </ul>
         </div>
       </div>
