@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { useConsent } from "@/components/consent-store";
 
 declare global {
   interface Window {
@@ -26,7 +27,12 @@ export function readAttribution(): Record<string, string> {
 }
 
 export function Tracking() {
+  const { categories } = useConsent();
+  const mayStore = categories.analytics;
+
   useEffect(() => {
+    // Where someone came from is only kept once they have agreed to it.
+    if (!mayStore) return;
     try {
       const existing = readAttribution();
       const fresh = !existing.first_seen || Date.now() - Number(existing.first_seen) > 90 * 864e5;
@@ -52,6 +58,6 @@ export function Tracking() {
     };
     document.addEventListener("click", onClick);
     return () => document.removeEventListener("click", onClick);
-  }, []);
+  }, [mayStore]);
   return null;
 }
