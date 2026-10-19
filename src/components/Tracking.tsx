@@ -2,9 +2,15 @@
 
 import { useEffect } from "react";
 import { ATTRIBUTION_KEY, ATTRIBUTION_DAYS, UTM_KEYS, readAttribution, track } from "@/lib/analytics";
+import { useConsent } from "@/components/consent-store";
 
 export function Tracking() {
+  const { categories } = useConsent();
+  const mayStore = categories.analytics;
+
   useEffect(() => {
+    // Where someone came from is only kept once they have agreed to it.
+    if (!mayStore) return;
     try {
       const existing = readAttribution();
       const fresh = !existing.first_seen || Date.now() - Number(existing.first_seen) > ATTRIBUTION_DAYS * 864e5;
@@ -30,6 +36,6 @@ export function Tracking() {
     };
     document.addEventListener("click", onClick);
     return () => document.removeEventListener("click", onClick);
-  }, []);
+  }, [mayStore]);
   return null;
 }
