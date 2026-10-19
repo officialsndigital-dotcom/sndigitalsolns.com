@@ -1,35 +1,13 @@
 "use client";
 
 import { useEffect } from "react";
-
-declare global {
-  interface Window {
-    dataLayer?: Record<string, unknown>[];
-  }
-}
-
-const UTM_KEYS = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content", "gclid", "fbclid", "li_fat_id"];
-export const ATTRIBUTION_KEY = "sn_attribution";
-
-export function track(event: string, params: Record<string, unknown> = {}) {
-  window.dataLayer = window.dataLayer || [];
-  window.dataLayer.push({ event, ...params });
-}
-
-/** First-touch attribution: kept for 90 days and sent with every form. */
-export function readAttribution(): Record<string, string> {
-  try {
-    return JSON.parse(localStorage.getItem(ATTRIBUTION_KEY) || "{}");
-  } catch {
-    return {};
-  }
-}
+import { ATTRIBUTION_KEY, ATTRIBUTION_DAYS, UTM_KEYS, readAttribution, track } from "@/lib/analytics";
 
 export function Tracking() {
   useEffect(() => {
     try {
       const existing = readAttribution();
-      const fresh = !existing.first_seen || Date.now() - Number(existing.first_seen) > 90 * 864e5;
+      const fresh = !existing.first_seen || Date.now() - Number(existing.first_seen) > ATTRIBUTION_DAYS * 864e5;
       const params = new URLSearchParams(location.search);
       const hasUtm = UTM_KEYS.some((k) => params.get(k));
       if (fresh || hasUtm) {
@@ -48,7 +26,7 @@ export function Tracking() {
     const onClick = (e: MouseEvent) => {
       const el = (e.target as HTMLElement | null)?.closest<HTMLElement>("[data-track]");
       if (!el) return;
-      track(el.dataset.track!, { link_url: (el as HTMLAnchorElement).href, link_text: el.textContent?.trim().slice(0, 80), page: location.pathname });
+      track(el.dataset.track!, { link_url: (el as HTMLAnchorElement).href, link_text: el.textContent?.trim().slice(0, 80) });
     };
     document.addEventListener("click", onClick);
     return () => document.removeEventListener("click", onClick);
