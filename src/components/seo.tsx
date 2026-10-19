@@ -131,7 +131,7 @@ export const organizationJsonLd = {
     postalCode: "400614",
     addressCountry: "IN",
   },
-  sameAs: Object.values(site.social),
+  sameAs: [...Object.values(site.social), site.googleBusinessProfile],
 };
 
 /** The Navi Mumbai head office as a local business, for Google's local results. */
@@ -148,6 +148,9 @@ export const localBusinessJsonLd = {
   telephone: site.phone,
   parentOrganization: { "@id": `${site.url}/#organization` },
   address: organizationJsonLd.address,
+  // Taken from the company's own Google Business Profile, so the coordinates
+  // Google already holds for the listing and the ones the site publishes agree.
+  geo: { "@type": "GeoCoordinates", latitude: 19.0160837, longitude: 73.0375251 },
   areaServed: ["India", ...markets],
-  sameAs: Object.values(site.social),
+  sameAs: [...Object.values(site.social), site.googleBusinessProfile],
 };

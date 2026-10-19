@@ -16,6 +16,11 @@ export const site = {
   phoneHref: "tel:+917061699889",
   // Same number as the phone; the eheera handover lists it as the WhatsApp contact.
   whatsappHref: process.env.NEXT_PUBLIC_WHATSAPP_URL ?? "https://wa.me/917061699889",
+  // The Google Business Profile for the Navi Mumbai head office, as the stable
+  // CID link rather than a maps.app.goo.gl share link, which is generated per
+  // share and is not a durable address for the listing. Listed in sameAs so
+  // Google can tie the profile and the site together as one entity.
+  googleBusinessProfile: "https://maps.google.com/?cid=4452104324565939447",
   social: {
     facebook: "https://www.facebook.com/profile.php?id=61567961224505",
     instagram: "https://www.instagram.com/sndspl/",
