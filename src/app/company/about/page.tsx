@@ -65,7 +65,9 @@ export default function AboutPage() {
           </figure>
           <div className="space-y-5 text-lg leading-relaxed text-muted">
             <p>
-              S N Digital Solns Pvt. Ltd. was founded in {site.founded} and is run from our head office in CBD Belapur, Navi Mumbai, with a branch office in Deoghar, Jharkhand. What began as a development team is now {" "}
+              S N Digital Solns Pvt. Ltd. was incorporated in {site.founded}, though the work started well before the company did: the partners and the
+              team behind it bring more than eleven years of combined experience, and the business traded under the S N Digital Solns name before becoming
+              a private limited company. It is run from our head office in CBD Belapur, Navi Mumbai. What began as a development team is now {" "}
               three practices under one roof, development, marketing and PR, along with our own software products, ACADMiN for education and eheera for jewellery and diamond businesses.
             </p>
             {founder.bio.map((para) => (
@@ -77,7 +79,7 @@ export default function AboutPage() {
       </Section>
 
       <Section tone="mist">
-        <SectionHead eyebrow="Our team" title="The people behind the work" intro="72 technology, marketing and PR professionals, working from our Navi Mumbai and Deoghar offices." />
+        <SectionHead eyebrow="Our team" title="The people behind the work" intro="72 technology, marketing and PR professionals, working from our Navi Mumbai head office." />
         <div className="grid gap-5 md:grid-cols-2">
           {teamPhotos.map((photo) => (
             <Image

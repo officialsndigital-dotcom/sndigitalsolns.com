@@ -57,7 +57,10 @@ export const teamPhotos = [
 ] as const;
 
 export const stats = [
-  { value: "11+", label: "Years of development experience" },
+  // The company was incorporated in 2020, so this is the team's experience
+  // rather than the company's age; the label has to say so or the two figures
+  // read as a contradiction.
+  { value: "11+", label: "Years of combined team experience" },
   { value: "72", label: "Technology professionals" },
   { value: "417+", label: "Websites developed" },
   { value: "74+", label: "Applications developed" },
@@ -101,8 +104,11 @@ export const offices: Office[] = [
       "Sector 11, CBD Belapur, Navi Mumbai",
       "Maharashtra 400614, India",
     ],
-    phone: "+91 70637 67680",
-    phoneHref: "tel:+917063767680",
+    // The company's one published number. A second Navi Mumbai number used to
+    // sit here; two numbers for one office split the local search signal and
+    // every directory citation, so the head office now carries site.phone.
+    phone: "+91 7061699889",
+    phoneHref: "tel:+917061699889",
   },
   {
     name: "Florida, USA",
