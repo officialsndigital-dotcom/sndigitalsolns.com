@@ -62,21 +62,63 @@ function toPost(p: WpPost): Post {
   };
 }
 
-async function wp(path: string): Promise<WpPost[]> {
+// WordPress caps per_page at 100, and reports the full count in these headers.
+const MAX_PER_PAGE = 100;
+
+async function wpRaw<T>(path: string): Promise<{ items: T[]; totalPages: number; total: number }> {
   const url = base();
-  if (!url) return [];
+  const empty = { items: [] as T[], totalPages: 0, total: 0 };
+  if (!url) return empty;
   try {
     const res = await fetch(`${url}/wp-json/wp/v2/${path}`, { headers: { Accept: "application/json" } });
-    if (!res.ok) return [];
-    return (await res.json()) as WpPost[];
+    if (!res.ok) return empty;
+    return {
+      items: (await res.json()) as T[],
+      totalPages: Number(res.headers.get("x-wp-totalpages") ?? 0),
+      total: Number(res.headers.get("x-wp-total") ?? 0),
+    };
   } catch {
-    return [];
+    return empty;
   }
+}
+
+async function wp(path: string): Promise<WpPost[]> {
+  return (await wpRaw<WpPost>(path)).items;
 }
 
 export async function getPosts(limit = 24): Promise<Post[]> {
   cacheLife("hours");
   return (await wp(`posts?per_page=${limit}&_embed=1&status=publish`)).map(toPost);
+}
+
+export type PostPage = { posts: Post[]; page: number; totalPages: number; total: number };
+
+/** One page of the blog index. Pages are 1-based, as WordPress numbers them. */
+export async function getPostPage(page: number, perPage = 24): Promise<PostPage> {
+  cacheLife("hours");
+  const { items, totalPages, total } = await wpRaw<WpPost>(
+    `posts?per_page=${perPage}&page=${page}&_embed=1&status=publish`,
+  );
+  return { posts: items.map(toPost), page, totalPages, total };
+}
+
+/**
+ * Every published post, as slug and modified date only.
+ *
+ * The sitemap needs all of them, not the most recent hundred, so this pages
+ * through WordPress rather than taking a single capped request. _fields keeps
+ * each response small enough that a few thousand posts stay cheap.
+ */
+export async function getPostRefs(): Promise<{ slug: string; modified: string }[]> {
+  cacheLife("hours");
+  const refs: { slug: string; modified: string }[] = [];
+  for (let page = 1; ; page++) {
+    const { items, totalPages } = await wpRaw<{ slug: string; modified_gmt: string }>(
+      `posts?per_page=${MAX_PER_PAGE}&page=${page}&status=publish&_fields=slug,modified_gmt`,
+    );
+    refs.push(...items.map((p) => ({ slug: p.slug, modified: p.modified_gmt + "Z" })));
+    if (page >= totalPages || items.length === 0) return refs;
+  }
 }
 
 export async function getPost(slug: string): Promise<Post | null> {

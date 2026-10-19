@@ -5,7 +5,8 @@ import { locations } from "@/content/locations";
 import { products } from "@/content/products";
 import { services } from "@/content/services";
 import { site } from "@/lib/site";
-import { getPosts } from "@/lib/wp/posts";
+import { POSTS_PER_PAGE } from "@/components/BlogIndex";
+import { getPostRefs } from "@/lib/wp/posts";
 import { tools } from "@/tools/registry";
 
 const staticPaths = [
@@ -36,7 +37,9 @@ const staticPaths = [
 ];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const posts = await getPosts(100);
+  const posts = await getPostRefs();
+  // Page one is /blog/, already in staticPaths.
+  const blogPages = Math.ceil(posts.length / POSTS_PER_PAGE);
   const paths = [
     ...staticPaths,
     ...services.map((s) => `/${s.vertical}/${s.slug}/`),
@@ -45,6 +48,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...locations.map((l) => `/locations/${l.slug}/`),
     ...publishedCaseStudies.map((c) => `/case-studies/${c.slug}/`),
     ...tools.filter((t) => t.status === "live").map((t) => `/free-tools/${t.slug}/`),
+    ...Array.from({ length: Math.max(blogPages - 1, 0) }, (_, i) => `/blog/page/${i + 2}/`),
   ];
   return [
     ...paths.map((p) => ({ url: `${site.url}${p}` })),
