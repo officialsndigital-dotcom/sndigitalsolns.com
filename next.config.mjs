@@ -37,6 +37,14 @@ const nextConfig = {
       // both were slices of the same campaigns reported twice.
       to("/case-studies/linkedin-217-sales-calls-72-days", "/case-studies/linkedin-outbound-four-campaigns/"),
       to("/case-studies/linkedin-33-meetings-58-days", "/case-studies/linkedin-outbound-four-campaigns/"),
+      // www and non-www were being served as two separate sites, so every
+      // ranking signal was split between them. www is the duplicate.
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "www.sndigitalsolns.com" }],
+        destination: "https://sndigitalsolns.com/:path*",
+        permanent: true,
+      },
     ];
   },
   async headers() {
@@ -48,6 +56,9 @@ const nextConfig = {
           { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
           { key: "X-Frame-Options", value: "SAMEORIGIN" },
           { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
+          // The site is HTTPS-only and redirects HTTP already; this tells the
+          // browser to skip the insecure first request next time.
+          { key: "Strict-Transport-Security", value: "max-age=31536000; includeSubDomains" },
         ],
       },
     ];
