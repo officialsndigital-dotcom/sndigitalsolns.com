@@ -13,6 +13,8 @@ export type Post = {
   date: string;
   modified: string;
   author?: string;
+  /** Which byline to show: see src/content/authors.ts. WordPress post meta. */
+  authorId?: string;
   image?: { url: string; alt: string };
   categories: string[];
 };
@@ -24,6 +26,7 @@ type WpPost = {
   title: { rendered: string };
   excerpt: { rendered: string };
   content: { rendered: string };
+  meta?: { sn_author?: string };
   _embedded?: {
     author?: { name?: string }[];
     "wp:featuredmedia"?: { source_url?: string; alt_text?: string }[];
@@ -57,6 +60,7 @@ function toPost(p: WpPost): Post {
     date: p.date_gmt + "Z",
     modified: p.modified_gmt + "Z",
     author: p._embedded?.author?.[0]?.name,
+    authorId: p.meta?.sn_author,
     image: media?.source_url ? { url: media.source_url, alt: media.alt_text ?? "" } : undefined,
     categories: (p._embedded?.["wp:term"] ?? []).flat().filter((t) => t.taxonomy === "category").map((t) => t.name),
   };

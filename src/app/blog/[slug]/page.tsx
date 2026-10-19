@@ -1,5 +1,7 @@
 import { notFound } from "next/navigation";
+import { Byline } from "@/components/Byline";
 import { CtaBand, PageHero } from "@/components/blocks";
+import { getAuthor } from "@/content/authors";
 import { JsonLd, pageMetadata } from "@/components/seo";
 import { site } from "@/lib/site";
 import { getPost, getPosts } from "@/lib/wp/posts";
@@ -23,6 +25,7 @@ const fmt = (iso: string) => new Date(iso).toLocaleDateString("en-GB", { day: "n
 export default async function PostPage({ params }: PageProps<"/blog/[slug]">) {
   const p = await getPost((await params).slug);
   if (!p) notFound();
+  const author = getAuthor(p.authorId);
   return (
     <>
       <PageHero
@@ -35,8 +38,9 @@ export default async function PostPage({ params }: PageProps<"/blog/[slug]">) {
         lead={p.excerpt}
       />
       <article className="container-site py-12 md:py-16">
+        <Byline author={author} published={p.date} modified={p.modified} />
         {/* WordPress content is authored by the company's own editors. */}
-        <div className="prose-site mx-auto max-w-3xl text-lg leading-relaxed" dangerouslySetInnerHTML={{ __html: p.content }} />
+        <div className="prose-site mx-auto mt-8 max-w-3xl text-lg leading-relaxed" dangerouslySetInnerHTML={{ __html: p.content }} />
       </article>
       <CtaBand title="Want help putting this into practice?" />
       <JsonLd
@@ -48,7 +52,10 @@ export default async function PostPage({ params }: PageProps<"/blog/[slug]">) {
           datePublished: p.date,
           dateModified: p.modified,
           image: p.image?.url,
-          author: p.author ? { "@type": "Person", name: p.author } : { "@id": `${site.url}/#organization` },
+          author:
+            author.type === "Person"
+              ? { "@type": "Person", name: author.name, jobTitle: author.role, url: author.url }
+              : { "@id": `${site.url}/#organization` },
           publisher: { "@id": `${site.url}/#organization` },
           mainEntityOfPage: `${site.url}/blog/${p.slug}/`,
         }}
