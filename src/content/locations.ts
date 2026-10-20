@@ -5,6 +5,11 @@ import type { Faq } from "./types";
 // true about the place: an office, or delivered work there. Bangalore and Delhi
 // have high volume but no presence or proof, so they have no page. Do not add a
 // city without both.
+//
+// Work delivered white-label, under another agency's brand, counts as delivered
+// work for the second test, but the page must say so plainly and must not carry
+// a portfolio host or a named client from it. Those belong to the agency whose
+// brand went on them. Calgary and Brisbane are both this case.
 
 export type LocationPage = {
   slug: string;
@@ -142,6 +147,70 @@ export const locations: LocationPage[] = [
       { q: "How much does an SEO agency in Toronto cost?", a: "It depends on your site, the competition for your keywords and how much content is needed each month. We agree a monthly fee after reviewing them." },
     ],
     research: "seo agency toronto 3,600; toronto pr agency 880; ppc agency toronto 260; social media marketing agency toronto 170; Ontario business awards 210 (CA, Oct 2026).",
+  },
+  {
+    slug: "calgary",
+    city: "Calgary",
+    region: "Alberta",
+    country: "Canada",
+    metaTitle: "SEO, PR & Website Development for Calgary Businesses",
+    metaDescription:
+      "SEO, PR, website development and B2B lead generation for Calgary and Alberta businesses, delivered remotely by our team in India.",
+    h1: "SEO, PR and Website Development for Calgary Businesses",
+    intro:
+      "We work with Alberta businesses on websites, SEO, paid campaigns and outreach. Calgary clients work with one team across development, marketing and PR, with clear weekly reporting.",
+    // Our team has delivered work for Calgary clients as a white-label partner
+    // to other agencies, so the experience is real but the client names and
+    // the sites belong to those agencies. The wording says exactly that and
+    // claims nothing further; there is no office and no portfolio host here.
+    presence:
+      "We serve Calgary and Alberta remotely from our team in India, with calls scheduled during your business hours. Our team has delivered work for Calgary clients as a delivery partner to other agencies, under their brands rather than ours, so those projects are not in our portfolio. We do not have an office in Canada.",
+    hasOffice: false,
+    services: [
+      { key: "marketing/seo-aeo", angle: "SEO for Calgary and Alberta searches, including local and \"near me\" terms." },
+      { key: "marketing/b2b-lead-generation", angle: "LinkedIn and email outreach to decision makers in Canada and the US." },
+      { key: "development/website-development", angle: "Websites for professional services, trades and B2B companies." },
+      { key: "marketing/performance-marketing", angle: "Google Ads and paid social managed against leads and cost per lead." },
+      { key: "pr/public-relations", angle: "PR and media outreach for Canadian launches." },
+    ],
+    nearby: ["Airdrie", "Okotoks", "Cochrane", "Red Deer", "Edmonton"],
+    faqs: [
+      { q: "Do you have an office in Calgary?", a: "No. We work with Alberta clients remotely from India, with calls during your business hours." },
+      { q: "Have you worked with Calgary businesses before?", a: "Yes, as a delivery partner to other agencies, which means the work went out under their brand rather than ours. We can talk through what we did, though we cannot name those clients." },
+      { q: "How much does an SEO agency in Calgary cost?", a: "It depends on your site, the competition for your keywords and how much content is needed each month. We agree a monthly fee after reviewing them." },
+    ],
+    research: "seo company calgary 2,900 (KD 14); seo agency calgary; web design calgary (CA, Oct 2026 DataForSEO).",
+  },
+  {
+    slug: "brisbane",
+    city: "Brisbane",
+    region: "Queensland",
+    country: "Australia",
+    metaTitle: "SEO, PR & Website Development for Brisbane Businesses",
+    metaDescription:
+      "SEO, PR, website development and B2B lead generation for Brisbane and Queensland businesses, delivered remotely by our team in India.",
+    h1: "SEO, PR and Website Development for Brisbane Businesses",
+    intro:
+      "We work with Queensland businesses on websites, SEO, paid campaigns and outreach. Brisbane clients work with one team across development, marketing and PR, with clear weekly reporting.",
+    // Same situation as Calgary: delivered under other agencies' brands, so no
+    // portfolio host and no claim of named clients.
+    presence:
+      "We serve Brisbane and Queensland remotely from our team in India, with calls scheduled during your business hours. Our team has delivered work for Brisbane clients as a delivery partner to other agencies, under their brands rather than ours, so those projects are not in our portfolio. We do not have an office in Australia.",
+    hasOffice: false,
+    services: [
+      { key: "marketing/seo-aeo", angle: "SEO for Brisbane and South East Queensland searches, including local terms." },
+      { key: "marketing/b2b-lead-generation", angle: "LinkedIn and email outreach to decision makers across Australia." },
+      { key: "development/website-development", angle: "Websites for professional services, trades and B2B companies." },
+      { key: "marketing/performance-marketing", angle: "Google Ads and paid social managed against leads and cost per lead." },
+      { key: "pr/public-relations", angle: "PR and media outreach for Australian launches." },
+    ],
+    nearby: ["Gold Coast", "Sunshine Coast", "Ipswich", "Logan", "Toowoomba"],
+    faqs: [
+      { q: "Do you have an office in Brisbane?", a: "No. We work with Queensland clients remotely from India. Our day overlaps your morning, and we schedule calls in your business hours." },
+      { q: "Have you worked with Brisbane businesses before?", a: "Yes, as a delivery partner to other agencies, which means the work went out under their brand rather than ours. We can talk through what we did, though we cannot name those clients." },
+      { q: "How do you handle the time difference?", a: "Queensland is four and a half hours ahead of us, so your morning is our early morning. Calls are scheduled in your business hours and reporting lands before your week starts." },
+    ],
+    research: "seo agency brisbane 1,900 (KD 23); seo brisbane; web design brisbane (AU, Oct 2026 DataForSEO).",
   },
 ];
 
