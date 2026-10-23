@@ -1,8 +1,10 @@
 import { buyerIntent, costFaq } from "@/content/buyer-faqs";
+import { postCategoriesFor } from "@/content/post-categories";
 import { serviceKey, verticals } from "@/content/services";
 import type { Service } from "@/content/types";
 import { CTA, site } from "@/lib/site";
 import { CtaBand, IndustryChips, PageHero, ProcessSteps, RelatedCaseStudies, RelatedServices } from "./blocks";
+import { RelatedPosts } from "./RelatedPosts";
 import { FaqSection, JsonLd } from "./seo";
 import { CheckList, Section, SectionHead } from "./ui";
 
@@ -137,6 +139,15 @@ export function ServicePage({ service }: { service: Service }) {
 
       <Section tone={intent ? "white" : "mist"}>
         <RelatedServices keys={service.related} />
+      </Section>
+
+      <Section tone={intent ? "mist" : "white"}>
+        <RelatedPosts
+          categories={postCategoriesFor[serviceKey(service)]}
+          seed={serviceKey(service)}
+          eyebrow="From the blog"
+          title={`Reading on ${service.short}`}
+        />
       </Section>
 
       <CtaBand title={`${v.cta}.`} text="Book a 30 minute consultation. We will tell you honestly whether and how we can help." />
