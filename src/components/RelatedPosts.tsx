@@ -1,11 +1,11 @@
 import Link from "next/link";
 import { Arrow, SectionHead } from "@/components/ui";
-import { getPosts, type Post } from "@/lib/wp/posts";
+import { getPostCards, type PostCard } from "@/lib/wp/posts";
 
 const fmt = (iso: string) => new Date(iso).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" });
 
 /** Stable, so the same post always sits at the same place in the ring. */
-const bySlug = (a: Post, b: Post) => a.slug.localeCompare(b.slug);
+const bySlug = (a: PostCard, b: PostCard) => a.slug.localeCompare(b.slug);
 
 /** A small stable number from a string, used to start each service page's ring somewhere different. */
 function offsetOf(seed: string): number {
@@ -22,7 +22,7 @@ function offsetOf(seed: string): number {
  * exists to fix. Walking a sorted ring from a per-page starting point gives
  * every post roughly the same number of links in.
  */
-function ring(pool: Post[], start: number, count: number): Post[] {
+function ring(pool: PostCard[], start: number, count: number): PostCard[] {
   if (pool.length === 0) return [];
   const n = Math.min(count, pool.length);
   return Array.from({ length: n }, (_, i) => pool[(start + 1 + i) % pool.length]);
@@ -41,7 +41,9 @@ type Props = {
 };
 
 export async function RelatedPosts({ categories, excludeSlug, seed, title = "Related reading", eyebrow = "More on this", count = 4 }: Props) {
-  const all = (await getPosts(200)).filter((p) => p.slug !== excludeSlug);
+  // per_page caps at 100 in WordPress, so this pages through the archive
+  // rather than asking for it in one oversized request, which 400s.
+  const all = (await getPostCards()).filter((p) => p.slug !== excludeSlug);
   if (all.length === 0) return null;
 
   const wanted = new Set(categories ?? []);
