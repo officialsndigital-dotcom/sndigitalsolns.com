@@ -38,9 +38,19 @@ type Props = {
   title?: string;
   eyebrow?: string;
   count?: number;
+  /**
+   * Whether to top up from outside the category when it is thin.
+   *
+   * On a post that is worth doing: a reader at the end of an article will
+   * take another article, and the posts nobody links to need the links. On a
+   * service page it is not, because a block headed "Reading on Public
+   * Relations" listing ERP and mobile development reads as broken. Those
+   * pages show nothing until their own category has something in it.
+   */
+  fallback?: boolean;
 };
 
-export async function RelatedPosts({ categories, excludeSlug, seed, title = "Related reading", eyebrow = "More on this", count = 4 }: Props) {
+export async function RelatedPosts({ categories, excludeSlug, seed, title = "Related reading", eyebrow = "More on this", count = 4, fallback = true }: Props) {
   // per_page caps at 100 in WordPress, so this pages through the archive
   // rather than asking for it in one oversized request, which 400s.
   const all = (await getPostCards()).filter((p) => p.slug !== excludeSlug);
@@ -48,8 +58,13 @@ export async function RelatedPosts({ categories, excludeSlug, seed, title = "Rel
 
   const wanted = new Set(categories ?? []);
   const inCategory = wanted.size ? all.filter((p) => p.categories.some((c) => wanted.has(c))) : [];
-  // A thin category still deserves links out, so top it up from everything else.
-  const pool = inCategory.length >= count ? inCategory : [...inCategory, ...all.filter((p) => !inCategory.includes(p))];
+  if (!fallback) {
+    if (!inCategory.length) return null;
+  } else if (inCategory.length < count) {
+    // A thin category still deserves links out, so top it up from everything else.
+    inCategory.push(...all.filter((p) => !inCategory.includes(p)));
+  }
+  const pool = wanted.size || !fallback ? inCategory : all;
 
   const sorted = [...pool].sort(bySlug);
   // On a post, start where this post would sit in the ring, so it links to its

@@ -145,6 +145,7 @@ export function ServicePage({ service }: { service: Service }) {
         <RelatedPosts
           categories={postCategoriesFor[serviceKey(service)]}
           seed={serviceKey(service)}
+          fallback={false}
           eyebrow="From the blog"
           title={`Reading on ${service.short}`}
         />
