@@ -14,6 +14,9 @@ const nextConfig = {
     // Ships the (small, Tailwind) stylesheet inside the HTML instead of as a
     // separate render-blocking request.
     inlineCss: true,
+    // Keeps `next build` from stopping to recommend a security upgrade that
+    // has already been applied.
+    agentUpgrade: "security",
   },
   /**
    * The WordPress site this one replaces was built on an off-the-shelf theme and
