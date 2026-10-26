@@ -125,6 +125,49 @@ export async function getPostRefs(): Promise<{ slug: string; modified: string }[
   }
 }
 
+/** Just enough of a post to render a link to it. */
+export type PostCard = { slug: string; title: string; date: string; categories: string[] };
+
+/**
+ * Every published post as a card.
+ *
+ * The related-posts block needs the whole archive, not the most recent
+ * hundred, or posts past that cutoff keep the orphan problem this block
+ * exists to fix. `_fields` keeps each response small, and the category names
+ * are resolved from one extra request rather than `_embed`, which would pull
+ * the full content of every post.
+ */
+export async function getPostCards(): Promise<PostCard[]> {
+  cacheLife("hours");
+  const names = new Map<number, string>();
+  for (let page = 1; ; page++) {
+    const { items, totalPages } = await wpRaw<{ id: number; name: string }>(
+      `categories?per_page=${MAX_PER_PAGE}&page=${page}&_fields=id,name`,
+    );
+    for (const c of items) names.set(c.id, c.name);
+    if (page >= totalPages || items.length === 0) break;
+  }
+
+  const cards: PostCard[] = [];
+  for (let page = 1; ; page++) {
+    const { items, totalPages } = await wpRaw<{
+      slug: string;
+      date_gmt: string;
+      title: { rendered: string };
+      categories?: number[];
+    }>(`posts?per_page=${MAX_PER_PAGE}&page=${page}&status=publish&_fields=slug,date_gmt,title,categories`);
+    cards.push(
+      ...items.map((p) => ({
+        slug: p.slug,
+        title: decode(p.title.rendered),
+        date: p.date_gmt + "Z",
+        categories: (p.categories ?? []).map((id) => names.get(id)).filter((n): n is string => Boolean(n)),
+      })),
+    );
+    if (page >= totalPages || items.length === 0) return cards;
+  }
+}
+
 export async function getPost(slug: string): Promise<Post | null> {
   cacheLife("hours");
   const [p] = await wp(`posts?slug=${encodeURIComponent(slug)}&_embed=1`);

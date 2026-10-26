@@ -1,7 +1,9 @@
 import { notFound } from "next/navigation";
 import { Byline } from "@/components/Byline";
 import { CtaBand, PageHero } from "@/components/blocks";
+import { Section } from "@/components/ui";
 import { getAuthor } from "@/content/authors";
+import { RelatedPosts } from "@/components/RelatedPosts";
 import { JsonLd, pageMetadata } from "@/components/seo";
 import { site } from "@/lib/site";
 import { getPost, getPosts } from "@/lib/wp/posts";
@@ -42,6 +44,9 @@ export default async function PostPage({ params }: PageProps<"/blog/[slug]">) {
         {/* WordPress content is authored by the company's own editors. */}
         <div className="prose-site mx-auto mt-8 max-w-3xl text-lg leading-relaxed" dangerouslySetInnerHTML={{ __html: p.content }} />
       </article>
+      <Section tone="mist">
+        <RelatedPosts categories={p.categories} excludeSlug={p.slug} />
+      </Section>
       <CtaBand title="Want help putting this into practice?" />
       <JsonLd
         data={{
