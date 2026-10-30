@@ -8,8 +8,8 @@ import { serviceInterests } from "@/lib/interests";
 import { offices, site } from "@/lib/site";
 
 export const metadata = pageMetadata({
-  title: "Contact Us",
-  description: `Contact S N Digital Solns: call or WhatsApp ${site.phone}, send us an email, or visit our head office in CBD Belapur, Navi Mumbai.`,
+  title: "Contact Us – Free 30-Min Consultation",
+  description: `Book a free 30-minute consultation with S N Digital Solns: call or WhatsApp ${site.phone}, send us an email, or visit our head office in CBD Belapur, Navi Mumbai.`,
   path: "/contact/",
 });
 
