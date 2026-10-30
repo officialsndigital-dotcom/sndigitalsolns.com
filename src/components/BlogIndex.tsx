@@ -79,7 +79,9 @@ export async function BlogIndex({ page }: { page: number }) {
                 <Link key={p.slug} href={`/blog/${p.slug}/`} className="group flex flex-col overflow-hidden rounded-[var(--radius-card)] border border-line bg-white hover:border-navy-600 hover:shadow-lg">
                   {p.image && (
                     // eslint-disable-next-line @next/next/no-img-element -- WordPress media host varies by install
-                    <img src={p.image.url} alt={p.image.alt} loading="lazy" className="aspect-[16/9] w-full object-cover" />
+                    // The generated cover art is 1200x630 (not 16:9); matching the box to that
+                    // ratio lets object-cover fill it without cropping the card's edge content.
+                    <img src={p.image.url} alt={p.image.alt} loading="lazy" className="aspect-[1200/630] w-full object-cover" />
                   )}
                   <div className="flex flex-1 flex-col p-6">
                     <p className="eyebrow">{p.categories[0] ?? "Article"} · {fmt(p.date)}</p>
