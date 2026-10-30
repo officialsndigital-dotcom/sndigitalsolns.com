@@ -21,7 +21,7 @@ export const developmentServices: Service[] = [
     slug: "website-development",
     name: "Website Development",
     short: "Website Development",
-    metaTitle: "Website Development Company | Web Design & Development",
+    metaTitle: "Website Development Company – Fast, SEO-Ready Sites",
     h1: "Website Development Company",
     metaDescription:
       "Custom business and corporate websites built for speed, SEO and enquiries. 417+ websites developed across real estate, education, jewellery and more.",
