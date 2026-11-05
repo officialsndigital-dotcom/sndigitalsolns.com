@@ -14,7 +14,7 @@ export const site = {
   emailDomain: "sndigitalsolns.com",
   phone: "+91 7061699889",
   phoneHref: "tel:+917061699889",
-  // Same number as the phone; the eheera handover lists it as the WhatsApp contact.
+  // Same number as the phone; the product handover lists it as the WhatsApp contact.
   whatsappHref: process.env.NEXT_PUBLIC_WHATSAPP_URL ?? "https://wa.me/917061699889",
   // The Google Business Profile for the Navi Mumbai head office, as the stable
   // CID link rather than a maps.app.goo.gl share link, which is generated per

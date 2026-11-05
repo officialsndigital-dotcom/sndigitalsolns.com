@@ -43,7 +43,7 @@ export const mainNav: NavItem[] = [
       {
         links: [
           { label: "ACADMiN", href: "/products/acadmin/", note: "Education ERP for schools and colleges" },
-          { label: "eheera", href: "/products/eheera/", note: "Jewellery management software and diamond ERP" },
+          { label: "eRatna", href: "/products/eratna/", note: "Jewellery management software and diamond ERP" },
         ],
       },
     ],
@@ -111,7 +111,7 @@ export const footerColumns: { title: string; links: NavLink[] }[] = [
     title: "Products & Resources",
     links: [
       { label: "ACADMiN", href: "/products/acadmin/" },
-      { label: "eheera", href: "/products/eheera/" },
+      { label: "eRatna", href: "/products/eratna/" },
       { label: "Blog", href: "/blog/" },
       { label: "Free Tools", href: "/free-tools/" },
       { label: "FAQs", href: "/resources/faqs/" },

@@ -6,8 +6,8 @@ import { products } from "@/content/products";
 import { CTA } from "@/lib/site";
 
 export const metadata = pageMetadata({
-  title: "Our Products | ACADMiN Education ERP & eheera Jewellery ERP",
-  description: "SaaS products built by S N Digital Solns: ACADMiN, an education ERP for schools and colleges, and eheera, jewellery management software and diamond ERP.",
+  title: "Our Products | ACADMiN Education ERP & eRatna Jewellery ERP",
+  description: "SaaS products built by S N Digital Solns: ACADMiN, an education ERP for schools and colleges, and eRatna, jewellery management software and diamond ERP.",
   path: "/products/",
 });
 

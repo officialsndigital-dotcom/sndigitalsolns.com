@@ -54,7 +54,7 @@ const faqs = [
   },
   {
     q: "Do you have your own software products?",
-    a: "Yes. ACADMiN is our ERP for schools and colleges, and eheera is our jewellery management software and diamond ERP. Both are built and supported by our own team.",
+    a: "Yes. ACADMiN is our ERP for schools and colleges, and eRatna is our jewellery management software and diamond ERP. Both are built and supported by our own team.",
   },
   {
     q: "What happens in the 30 minute consultation?",
@@ -211,7 +211,7 @@ export default function Home() {
           items={[
             "11+ years of development experience and 72 technology professionals.",
             "417+ websites and 74+ applications developed, for 580+ clients.",
-            "Our own SaaS products, ACADMiN and eheera, built and supported in-house.",
+            "Our own SaaS products, ACADMiN and eRatna, built and supported in-house.",
             "Clients in India, the Middle East, North America, Europe and beyond.",
             "Every figure on this site comes from a dashboard we can show you.",
             "Clear reporting, and no promises we cannot keep.",
@@ -234,7 +234,7 @@ export default function Home() {
             <p>
               <strong className="text-navy-900">Software development.</strong> We design and build websites and online stores, custom software, web and mobile
               applications, SaaS products, CRM and ERP systems, AI automation and API integrations, with UI and UX design throughout. We also build and run
-              our own software: ACADMiN, an ERP for schools and colleges, and eheera, jewellery management software and a diamond ERP. Running our own
+              our own software: ACADMiN, an ERP for schools and colleges, and eRatna, jewellery management software and a diamond ERP. Running our own
               products means we support what we ship, long after launch.
             </p>
             <p>

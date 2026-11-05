@@ -34,7 +34,7 @@ export default function AboutPage() {
                 "Development: websites, e commerce, web and mobile apps, SaaS, CRM and ERP, AI automation and integrations.",
                 "Marketing: B2B lead generation, performance marketing, SEO and AEO, social media, marketing automation and e commerce growth.",
                 "PR: public relations, digital PR, founder thought leadership, influencer marketing and awards.",
-                "Products: ACADMiN for education and eheera for jewellery and diamond businesses.",
+                "Products: ACADMiN for education and eRatna for jewellery and diamond businesses.",
               ]}
             />
           </div>
@@ -68,7 +68,7 @@ export default function AboutPage() {
               S N Digital Solns Pvt. Ltd. was incorporated in {site.founded}, though the work started well before the company did: the partners and the
               team behind it bring more than eleven years of combined experience, and the business traded under the S N Digital Solns name before becoming
               a private limited company. It is run from our head office in CBD Belapur, Navi Mumbai. What began as a development team is now {" "}
-              three practices under one roof, development, marketing and PR, along with our own software products, ACADMiN for education and eheera for jewellery and diamond businesses.
+              three practices under one roof, development, marketing and PR, along with our own software products, ACADMiN for education and eRatna for jewellery and diamond businesses.
             </p>
             {founder.bio.map((para) => (
               <p key={para.slice(0, 24)}>{para}</p>

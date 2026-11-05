@@ -96,7 +96,7 @@ export function VerticalPage({ vertical }: { vertical: Vertical }) {
           </p>
         ) : vertical === "development" ? (
           <p className="max-w-3xl text-lg leading-relaxed text-muted">
-            Our development experience includes building and operating our own SaaS products: ACADMiN, an education ERP for schools and colleges, and eheera, jewellery management software and diamond ERP.
+            Our development experience includes building and operating our own SaaS products: ACADMiN, an education ERP for schools and colleges, and eRatna, jewellery management software and diamond ERP.
           </p>
         ) : (
           <>

@@ -1,7 +1,7 @@
 import type { Faq } from "./types";
 
 export type Product = {
-  slug: "acadmin" | "eheera";
+  slug: "acadmin" | "eratna";
   name: string;
   category: string;
   metaTitle: string;
@@ -75,22 +75,22 @@ export const products: Product[] = [
     ],
   },
   {
-    slug: "eheera",
-    name: "eheera",
+    slug: "eratna",
+    name: "eRatna",
     category: "Jewellery Management Software and Diamond ERP",
-    metaTitle: "eheera | Jewellery ERP & Diamond Inventory Software",
+    metaTitle: "eRatna | Jewellery ERP & Diamond Inventory Software",
     metaDescription:
-      "eheera is a cloud ERP for diamond and jewellery traders and manufacturers: memo, 4C inventory, Kapan yield, karigar and Tunch, multi-currency accounting.",
+      "eRatna is a cloud ERP for diamond and jewellery traders and manufacturers: memo, 4C inventory, Kapan yield, karigar and Tunch, multi-currency accounting.",
     hero: "Inventory, memo, manufacturing and accounts for diamond and jewellery businesses, in one cloud ERP.",
-    externalUrl: "https://eheera.in/",
-    attribution: "eheera is a product of S N Digital Solns Pvt. Ltd., in partnership with Piconet Hitech Solutions Pvt. Ltd.",
+    externalUrl: "https://www.eratna.com/",
+    attribution: "eRatna is a product of S N Digital Solns Pvt. Ltd., developed and owned in-house.",
     problem: [
       "Stones and jewellery on memo are tracked in spreadsheets, so overdue consignments are missed.",
       "Gold loss at the karigar or casting stage is noticed too late.",
       "Natural and lab-grown stock, several currencies and several offices are hard to keep apart.",
     ],
     overview: [
-      "eheera is a cloud ERP built around how diamond and jewellery businesses trade and manufacture. It covers purchase and sales, consignment memo, diamond inventory, manufacturing, sales channels, accounting and reports.",
+      "eRatna is a cloud ERP built around how diamond and jewellery businesses trade and manufacture. It covers purchase and sales, consignment memo, diamond inventory, manufacturing, sales channels, accounting and reports.",
       "It comes in Diamond ERP and Jewellery ERP editions, each as Trading or Trading + Manufacturing, for one company or several.",
     ],
     modules: [
@@ -124,12 +124,12 @@ export const products: Product[] = [
     demoUrl: "https://api.leadconnectorhq.com/widget/booking/SWed7I5TLJSUY4fAaAAr",
     industry: "jewellery-diamonds",
     faqs: [
-      { q: "Does eheera keep natural and lab-grown diamonds separate?", a: "Yes. Natural, CVD and HPHT stones are kept in separate books, so they are never mixed in pricing, stock reports or certificates." },
-      { q: "How does eheera measure gold loss at the karigar stage?", a: "Each job bag records the gross weight and purity of metal issued and returned. eheera converts both to fine gold and reports the loss in grams and as a percentage per karigar and per process." },
+      { q: "Does eRatna keep natural and lab-grown diamonds separate?", a: "Yes. Natural, CVD and HPHT stones are kept in separate books, so they are never mixed in pricing, stock reports or certificates." },
+      { q: "How does eRatna measure gold loss at the karigar stage?", a: "Each job bag records the gross weight and purity of metal issued and returned. eRatna converts both to fine gold and reports the loss in grams and as a percentage per karigar and per process." },
       { q: "What is the difference between Trading and Trading + Manufacturing?", a: "Trading covers purchase, sales, memo, diamond inventory, accounts and reports. Trading + Manufacturing adds jobwork, karigar job bags, Tunch and melting loss, rough-to-polish processing, Kapan yield and production costing." },
-      { q: "Which is the best jewellery software?", a: "It depends on how you trade. Retail billing software suits a single showroom; diamond and jewellery traders and manufacturers need memo tracking, 4C stone inventory, karigar and metal-loss control, and multi-currency accounts in one system. eheera is built for the second group." },
-      { q: "Is eheera jewellery design (CAD) software?", a: "No. eheera is an ERP for running the business: inventory, memo, manufacturing, sales and accounts. It works alongside whatever CAD software your designers use." },
-      { q: "Is eheera a subscription?", a: "No. eheera is sold as a one-time licence rather than a monthly subscription. Tell us your requirement on a short call, and we share the licence price once we know which edition and modules you need." },
+      { q: "Which is the best jewellery software?", a: "It depends on how you trade. Retail billing software suits a single showroom; diamond and jewellery traders and manufacturers need memo tracking, 4C stone inventory, karigar and metal-loss control, and multi-currency accounts in one system. eRatna is built for the second group." },
+      { q: "Is eRatna jewellery design (CAD) software?", a: "No. eRatna is an ERP for running the business: inventory, memo, manufacturing, sales and accounts. It works alongside whatever CAD software your designers use." },
+      { q: "Is eRatna a subscription?", a: "No. eRatna is sold as a one-time licence rather than a monthly subscription. Tell us your requirement on a short call, and we share the licence price once we know which edition and modules you need." },
     ],
   },
 ];

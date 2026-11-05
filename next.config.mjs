@@ -40,6 +40,9 @@ const nextConfig = {
       // both were slices of the same campaigns reported twice.
       to("/case-studies/linkedin-217-sales-calls-72-days", "/case-studies/linkedin-outbound-four-campaigns/"),
       to("/case-studies/linkedin-33-meetings-58-days", "/case-studies/linkedin-outbound-four-campaigns/"),
+      // The jewellery and diamond ERP was renamed from eheera to eRatna in
+      // November 2026, which moved its product page.
+      to("/products/eheera", "/products/eratna/"),
       // www and non-www were being served as two separate sites, so every
       // ranking signal was split between them. www is the duplicate.
       {

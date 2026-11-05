@@ -169,7 +169,7 @@ export const developmentServices: Service[] = [
     ],
     whyUs: [
       "74+ applications developed, beyond the websites in our portfolio.",
-      "We build and operate our own software products, ACADMiN and eHeera, so we understand long-term product ownership, not only delivery.",
+      "We build and operate our own software products, ACADMiN and eRatna, so we understand long-term product ownership, not only delivery.",
       ...devProof,
     ],
     industries: ["saas-technology", "education", "jewellery-diamonds", "it-services"],
@@ -320,7 +320,7 @@ export const developmentServices: Service[] = [
     ],
     process: buildProcess,
     whyUs: [
-      "We built and run our own SaaS products: ACADMiN, an education ERP, and eHeera, jewellery management software.",
+      "We built and run our own SaaS products: ACADMiN, an education ERP, and eRatna, jewellery management software.",
       "Experience developing cloud-based software products for specific industries and recurring business requirements.",
       ...devProof,
     ],

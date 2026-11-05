@@ -6,8 +6,8 @@ import { productInterests } from "@/lib/interests";
 import { CTA, consultationCalendarUrl } from "@/lib/site";
 
 export const metadata = pageMetadata({
-  title: "Book a Product Demo | ACADMiN & eheera",
-  description: "Book a demo of ACADMiN, the education ERP, or eheera, the jewellery and diamond ERP. Share your requirements and pick a time.",
+  title: "Book a Product Demo | ACADMiN & eRatna",
+  description: "Book a demo of ACADMiN, the education ERP, or eRatna, the jewellery and diamond ERP. Share your requirements and pick a time.",
   path: "/book-demo/",
 });
 

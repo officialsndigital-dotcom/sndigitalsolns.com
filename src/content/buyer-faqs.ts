@@ -52,7 +52,7 @@ export const buyerIntent: Record<string, BuyerIntent> = {
     costQuestion: "How much does it cost to build a SaaS product?",
     costDrivers: ["Scope of the first release (MVP) versus later phases", "Multi-tenancy, roles and subscription billing", "Integrations customers expect", "Security and data isolation requirements", "Hosting, monitoring and support"],
     pricingModel: `${fixedQuote} We usually recommend starting with a focused MVP.`,
-    extraFaqs: [{ q: "What is SaaS product development?", a: "Building software that customers use online on a subscription, including the application, multi-tenant data, billing, onboarding and the operations needed to run it for many customers. We build and run our own SaaS products, ACADMiN and eheera." }],
+    extraFaqs: [{ q: "What is SaaS product development?", a: "Building software that customers use online on a subscription, including the application, multi-tenant data, billing, onboarding and the operations needed to run it for many customers. We build and run our own SaaS products, ACADMiN and eRatna." }],
   },
   "development/crm-erp-development": {
     costQuestion: "How much does a custom CRM or ERP cost?",

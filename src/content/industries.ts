@@ -57,8 +57,8 @@ export const industries: Industry[] = [
     metaTitle: "Jewellery Website Design, ERP & Marketing",
     h1: "Jewellery Website Design, ERP and Marketing",
     metaDescription:
-      "Jewellery website design and ecommerce, marketing for jewellery brands, and eheera, our jewellery ERP and diamond inventory software for the trade.",
-    intro: "We work with jewellery brands, diamond businesses, B2B suppliers and industry organisations, and we offer eheera, jewellery management software and diamond ERP.",
+      "Jewellery website design and ecommerce, marketing for jewellery brands, and eRatna, our jewellery ERP and diamond inventory software for the trade.",
+    intro: "We work with jewellery brands, diamond businesses, B2B suppliers and industry organisations, and we offer eRatna, jewellery management software and diamond ERP.",
     challenges: [
       "Large, detailed inventories are hard to present online.",
       "Memo, manufacturing and accounts run on separate systems.",
@@ -66,12 +66,12 @@ export const industries: Industry[] = [
     ],
     needs: ["Catalogue and brand websites", "E commerce for jewellery", "Inventory and memo software", "Performance marketing for jewellery brands"],
     services: ["development/website-development", "development/ecommerce-development", "marketing/ecommerce-growth", "marketing/performance-marketing", "pr/influencer-marketing"],
-    products: ["eheera"],
+    products: ["eratna"],
     portfolioCategory: "Jewellery & Diamonds",
     caseStudies: ["jewellery-brand-2025"],
     why: [
       "Jewellery and diamond websites in our portfolio include diamonddeal.ae, thecaratcreations.com, colourjewels.com and anitadiam.com.",
-      "eheera, our jewellery and diamond ERP, is built around memo, 4C inventory, karigar and Kapan processes.",
+      "eRatna, our jewellery and diamond ERP, is built around memo, 4C inventory, karigar and Kapan processes.",
     ],
     faqs: [
       { q: "Can our website show live inventory from our ERP?", a: "Where your ERP or inventory system provides a feed or API, yes. We scope it after reviewing the system." },
@@ -117,7 +117,7 @@ export const industries: Industry[] = [
     needs: ["SaaS MVP and product development", "B2B lead generation and demo booking", "SaaS SEO and content", "Founder visibility"],
     services: ["development/saas-development", "development/web-application-development", "marketing/b2b-lead-generation", "marketing/seo-aeo", "pr/founder-thought-leadership"],
     caseStudies: ["linkedin-outbound-four-campaigns"],
-    why: ["We build and run our own SaaS products, ACADMiN and eheera.", "217 sales calls booked in 72 days through our own LinkedIn outreach."],
+    why: ["We build and run our own SaaS products, ACADMiN and eRatna.", "217 sales calls booked in 72 days through our own LinkedIn outreach."],
     faqs: [
       { q: "Can you book demos for our SaaS product?", a: "Yes. Our B2B lead generation service books product demos with decision makers who match your ICP." },
     ],

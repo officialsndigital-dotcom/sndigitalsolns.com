@@ -45,7 +45,7 @@ export default function CareersPage() {
               client something is not working than quietly let it run, and we hire people who are comfortable with that.
             </p>
             <p className="mt-4 text-lg leading-relaxed text-muted">
-              We also build and support our own products, ACADMiN and eheera, so there is product engineering here alongside the agency work.
+              We also build and support our own products, ACADMiN and eRatna, so there is product engineering here alongside the agency work.
             </p>
             <SectionHead eyebrow="How hiring works" title="Four steps, no games" className="mt-12" />
             <CheckList items={steps} />
